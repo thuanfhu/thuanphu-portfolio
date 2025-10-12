@@ -7,8 +7,8 @@
   --r-strong: color-mix(in oklab, var(--r-base) 100%, black);
   --r-80:    color-mix(in oklab, var(--r-base) 80%,  black);
   --r-60:    color-mix(in oklab, var(--r-base) 60%,  black);
-  --r-40:    color-mix(in oklab, var(--r-base) 40%,  white);
-  --r-20:    color-mix(in oklab, var(--r-base) 20%,  white);
+  --r-40:    color-mix(in oklab, var(--r-base) 40%,  rgb(202, 201, 201));
+  --r-20:    color-mix(in oklab, var(--r-base) 20%,  rgb(202, 201, 201));
 
   --header-h:72px; --sidebar-w:270px; --sidebar-w-c:86px; --radius:16px;
 }
