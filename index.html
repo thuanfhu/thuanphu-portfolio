@@ -1,20 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio Website</title>
 
-    <!-- Embed Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Reset CSS -->
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-</head> 
+  <!-- Font Awesome -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Reset (optional) & Styles -->
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
 <body>
-    <h1>Hello World!</h1>
+
+  <!-- ===== Header (GIỮ NGUYÊN 100%) ===== -->
+  <header class="header">
+          <a href="#" class="header__logo">
+              <img src="./assets/images/thuanflu-avatar.jpg" alt="Quách Phú Thuận" class="logo__avatar">
+              <h1 class="logo__site-title">Portfolio</h1>
+          </a>
+          <div class="header__controls">
+              <button class="controls__language-toggle" aria-label="Chuyển ngôn ngữ Anh/Việt">
+                  <i class="fas fa-globe"></i>
+                  <span class="lang-text">VI</span>
+              </button>
+              <button class="controls__theme-toggle" aria-label="Chuyển chế độ sáng/tối">
+                  <i class="fas fa-moon"></i>
+              </button>
+          </div>
+  </header>
+
+  <!-- ===== Sidebar (bên trái, dưới header) ===== -->
+  <aside class="sidebar" aria-label="Điều hướng bên">
+    <header class="sidebar-header">
+      <!-- Chỉ còn nút thu gọn -->
+      <button class="toggler sidebar-toggler" type="button" aria-label="Thu gọn sidebar" title="Collapse">
+        <i class="fas fa-angles-left" aria-hidden="true"></i>
+      </button>
+    </header>
+
+    <nav class="sidebar-nav" aria-label="Điều hướng chính">
+      <!-- Primary -->
+      <ul class="nav-list primary-nav">
+        <li class="nav-item">
+          <a href="#about" class="nav-link">
+            <i class="fas fa-user nav-icon" aria-hidden="true"></i>
+            <span class="nav-label">About</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#skills" class="nav-link">
+            <i class="fas fa-code nav-icon" aria-hidden="true"></i>
+            <span class="nav-label">Skills</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#experience" class="nav-link">
+            <i class="fas fa-briefcase nav-icon" aria-hidden="true"></i>
+            <span class="nav-label">Experience</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link">
+            <i class="fas fa-envelope nav-icon" aria-hidden="true"></i>
+            <span class="nav-label">Contact</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#team" class="nav-link">
+            <i class="fas fa-people-group nav-icon" aria-hidden="true"></i>
+            <span class="nav-label">Team</span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Bottom actions -->
+      <div class="sidebar-actions">
+        <button class="action-btn action-btn--help" type="button" aria-label="Help">
+          <i class="fa-solid fa-circle-question" aria-hidden="true"></i>
+          <span class="action-label">Help</span>
+        </button>
+        <button class="action-btn action-btn--notify" type="button" aria-label="Notifications">
+          <i class="fa-solid fa-bell" aria-hidden="true"></i>
+          <span class="action-label">Notifications</span>
+        </button>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- (không code main) -->
+
+  <!-- Sidebar JS của bạn (giữ logic toggle .collapsed khi click .sidebar-toggler) -->
+  <script src="./assets/js/sidebar-menu.js" defer></script>
 </body>
 </html>
