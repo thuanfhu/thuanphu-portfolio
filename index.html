@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Portfolio Website</title>
 
   <!-- Fonts -->
@@ -12,15 +12,14 @@
 
   <!-- Font Awesome -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="./assets/css/reset.css">
   <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-
-  <!-- === Background (bám sát template gốc, chuyển sang palette đỏ cam) === -->
+  <!-- === Animated background layers (red-orange palette) === -->
   <div class="neural-background" aria-hidden="true"></div>
 
   <!-- Floating shapes -->
@@ -41,7 +40,7 @@
   <!-- Rising particles -->
   <div class="neural-particles" aria-hidden="true"></div>
 
-  <!-- ===== Header (GIỮ NGUYÊN 100%) ===== -->
+  <!-- ===== Header ===== -->
   <header class="header">
     <a href="#" class="header__logo">
       <img src="./assets/images/thuanflu-avatar.jpg" alt="Quách Phú Thuận" class="logo__avatar">
@@ -58,7 +57,7 @@
     </div>
   </header>
 
-  <!-- ===== Sidebar (GIỮ NGUYÊN 100%) ===== -->
+  <!-- ===== Sidebar ===== -->
   <aside class="sidebar" aria-label="Điều hướng bên">
     <header class="sidebar-header">
       <button class="toggler sidebar-toggler" type="button" aria-label="Thu gọn sidebar" title="Collapse">
@@ -86,8 +85,68 @@
     </nav>
   </aside>
 
-  <!-- JS -->
+  <!-- ========================== ABOUT (RIGHT OF SIDEBAR) ========================== -->
+  <section id="about" class="about" role="region" aria-labelledby="about-title">
+    <div class="about__container">
+      <!-- Left column: text content -->
+      <header class="about__header">
+        <h1 id="about-title" class="about__title">Lucius Meshach</h1>
+
+        <h2 class="about__subtitle">
+          I'm a <span class="about__highlight" aria-label="Job title highlighted">Coder</span>
+        </h2>
+
+        <p class="about__desc">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, cum eos. Iure incidunt
+          excepturi totam aperiam, deserunt quidem obcaecati consectetur voluptas, recusandae
+          quasi sequi. Corrupti officiis nulla excepturi totam.
+        </p>
+
+        <div class="about__actions">
+          <a class="about__btn" href="#" download aria-label="Download my CV">Download CV</a>
+          <!-- Social: Github, Youtube, Linkedin, Facebook -->
+          <ul class="about__social" aria-label="Social profiles">
+            <li class="about__social-item">
+              <a class="about__social-link" href="#" aria-label="Github">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="about__social-item">
+              <a class="about__social-link" href="#" aria-label="YouTube">
+                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="about__social-item">
+              <a class="about__social-link" href="#" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="about__social-item">
+              <a class="about__social-link" href="#" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </header>
+
+      <!-- Right column: keep one outer ring, image fills the ring -->
+      <figure class="about__avatar" aria-label="Profile picture">
+        <img
+          class="about__photo"
+          src="./assets/images/thuanflu-black.jpg"
+          alt="Portrait photo"
+          loading="eager"
+          decoding="async"
+        />
+        <span class="about__ring about__ring--outer" aria-hidden="true"></span>
+      </figure>
+    </div>
+  </section>
+  <!-- ======================== /END ABOUT (RIGHT OF SIDEBAR) ======================= -->
+
+  <!-- JavaScript -->
   <script src="./assets/js/sidebar-menu.js" defer></script>
-  <script src="./assets/js/background-neutral.js" defer></script>
+  <script src="./assets/js/background-neural.js" defer></script>
 </body>
 </html>
