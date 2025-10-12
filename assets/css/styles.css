@@ -1,38 +1,56 @@
-/* ===== Tokens ===== */
+/* =============================== TOKENS / GLOBAL =============================== */
 :root {
+  /* Base colors */
   --bg: #1F1F22;
   --text: #e8eaed;
   --muted: #a8b0b9;
   --border: rgba(255, 255, 255, .12);
 
-  /* Orange-red #EA285B + dark/light scale */
+  /* Accent red #EA285B and tonal mixes */
   --r-base: #EA285B;
-  --r-strong: color-mix(in oklab, var(--r-base) 100%, black);
   --r-80: color-mix(in oklab, var(--r-base) 80%, black);
   --r-60: color-mix(in oklab, var(--r-base) 60%, black);
   --r-40: color-mix(in oklab, var(--r-base) 40%, rgb(202, 201, 201));
   --r-20: color-mix(in oklab, var(--r-base) 20%, rgb(202, 201, 201));
 
+  /* Layout tokens */
   --header-h: 72px;
-  --sidebar-w: 270px;
-  --sidebar-w-c: 86px;
+  --sidebar-w: 270px;  /* expanded width */
+  --sidebar-w-c: 86px; /* collapsed width */
   --radius: 16px;
+
+  /* ===== About Me (grouped here) ===== */
+  --about-accent: #EA285B;
+  --content-gap: 24px;                /* spacing offset from sidebar (expanded) */
+  --about-text: #e8ecf1;
+  --about-muted: #a8b0b8;
+  --about-sidepad: clamp(16px, 4vw, 48px);
+  --about-maxw: 1280px;
 }
 
-/* ===== Base typography ===== */
-html, body {
+/* =============================== BASE TYPOGRAPHY =============================== */
+html,
+body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
   font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, "Montserrat", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.logo__site-title,
+.nav-label,
+.action-label {
   font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Source Sans 3", sans-serif;
 }
 
-/* ===== Animated Background layers ===== */
-/* Z-index layering: 0..3 for animated background, content above (10+), header/aside higher */
+/* ============================ ANIMATED BACKGROUND ============================= */
+/* Z-index: 0..3 for background layers; content > 10; header 50; sidebar 40 */
 .neural-background {
   position: fixed;
   inset: 0;
@@ -47,15 +65,9 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
 }
 
 @keyframes backgroundPulse {
-  0%, 100% {
-    filter: brightness(.92) saturate(1.35) hue-rotate(0deg);
-  }
-  33% {
-    filter: brightness(1.06) saturate(1.6) hue-rotate(12deg);
-  }
-  66% {
-    filter: brightness(1.0) saturate(1.45) hue-rotate(-8deg);
-  }
+  0%, 100% { filter: brightness(.92) saturate(1.35) hue-rotate(0deg); }
+  33%      { filter: brightness(1.06) saturate(1.6)  hue-rotate(12deg); }
+  66%      { filter: brightness(1.0)  saturate(1.45) hue-rotate(-8deg); }
 }
 
 .geometric-shapes {
@@ -72,53 +84,15 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   animation: floatShape 20s linear infinite;
 }
 
-.s1 {
-  width: 100px;
-  height: 100px;
-  left: 10%;
-  animation-delay: 0s;
-  border-color: color-mix(in oklab, var(--r-20) 70%, transparent);
-}
-
-.s2 {
-  width: 60px;
-  height: 60px;
-  left: 70%;
-  animation-delay: -5s;
-  border-radius: 50%;
-  border-color: color-mix(in oklab, var(--r-60) 70%, transparent);
-}
-
-.s3 {
-  width: 80px;
-  height: 80px;
-  left: 30%;
-  animation-delay: -10s;
-  transform: rotate(45deg);
-  border-color: color-mix(in oklab, var(--r-40) 70%, transparent);
-}
-
-.s4 {
-  width: 120px;
-  height: 120px;
-  left: 50%;
-  animation-delay: -15s;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  background: linear-gradient(45deg, color-mix(in oklab, var(--r-20) 30%, transparent), transparent);
-}
+.s1 { width: 100px; height: 100px; left: 10%;  animation-delay: 0s; }
+.s2 { width: 60px;  height: 60px;  left: 70%;  animation-delay: -5s; border-radius: 50%; }
+.s3 { width: 80px;  height: 80px;  left: 30%;  animation-delay: -10s; transform: rotate(45deg); }
+.s4 { width: 120px; height: 120px; left: 50%;  animation-delay: -15s; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
 
 @keyframes floatShape {
-  from {
-    transform: translateY(100vh) rotate(0deg);
-    opacity: 0;
-  }
-  10%, 90% {
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-100px) rotate(360deg);
-    opacity: 0;
-  }
+  from   { transform: translateY(100vh) rotate(0deg);   opacity: 0; }
+  10%,90%{ opacity: 1; }
+  to     { transform: translateY(-100px) rotate(360deg); opacity: 0; }
 }
 
 .neural-lines {
@@ -137,33 +111,13 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   animation: neuralPulse 3s ease-in-out infinite;
 }
 
-.l1 {
-  top: 20%;
-  background: linear-gradient(90deg, transparent, var(--r-20), transparent);
-  animation-delay: 0s;
-}
-
-.l2 {
-  top: 60%;
-  background: linear-gradient(90deg, transparent, var(--r-60), transparent);
-  animation-delay: -1s;
-}
-
-.l3 {
-  top: 40%;
-  background: linear-gradient(90deg, transparent, var(--r-40), transparent);
-  animation-delay: -2s;
-}
+.l1 { top: 20%; animation-delay: 0s; }
+.l2 { top: 60%; animation-delay: -1s; }
+.l3 { top: 40%; animation-delay: -2s; }
 
 @keyframes neuralPulse {
-  0%, 100% {
-    opacity: .2;
-    transform: scaleX(.5);
-  }
-  50% {
-    opacity: 1;
-    transform: scaleX(1);
-  }
+  0%, 100% { opacity: .2; transform: scaleX(.5); }
+  50%      { opacity: 1;  transform: scaleX(1); }
 }
 
 .neural-particles {
@@ -181,27 +135,19 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   height: 2px;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 0 10px color-mix(in oklab, var(--r-40) 80%, transparent);
   opacity: .75;
-  filter: blur(.2px);
   animation: riseParticle linear infinite;
 }
 
 @keyframes riseParticle {
-  from {
-    transform: translateY(0) translateX(0);
-    opacity: .7;
-  }
-  to {
-    transform: translateY(-100vh) translateX(var(--drift, 0px));
-    opacity: .9;
-  }
+  from { transform: translateY(0) translateX(0); }
+  to   { transform: translateY(-100vh) translateX(var(--drift, 0px)); }
 }
 
-/* ===== Header (KEEP 100%) ===== */
+/* ================================== HEADER =================================== */
 .header {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 0; left: 0; right: 0;
   z-index: 50;
   display: flex;
   align-items: center;
@@ -232,19 +178,6 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   font-size: clamp(18px, 2.2vw, 20px);
   font-weight: 800;
   letter-spacing: .2px;
-  line-height: 1;
-  background-image: linear-gradient(90deg, var(--r-80) 0%, var(--r-base) 35%, var(--r-20) 85%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, .35));
-  background-size: 160% 100%;
-  background-position: 0% 50%;
-  transition: background-position .35s ease;
-}
-
-.header__logo:hover .logo__site-title {
-  background-position: 100% 50%;
 }
 
 .header__controls {
@@ -253,7 +186,8 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   align-items: center;
 }
 
-.controls__language-toggle, .controls__theme-toggle {
+.controls__language-toggle,
+.controls__theme-toggle {
   appearance: none;
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, .05);
@@ -267,43 +201,28 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   transition: transform .06s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
-.controls__language-toggle:hover {
-  background: color-mix(in oklab, var(--r-20) 30%, transparent);
-  box-shadow: 0 0 0 4px color-mix(in oklab, var(--r-20) 20%, transparent);
-}
-
-.controls__theme-toggle:hover {
-  background: color-mix(in oklab, var(--r-60) 30%, transparent);
-  box-shadow: 0 0 0 4px color-mix(in oklab, var(--r-60) 20%, transparent);
-}
-
-.lang-text {
-  font-size: 14px;
-  letter-spacing: .3px;
-  color: var(--muted);
-}
-
-/* ===== Sidebar (KEEP 100%) ===== */
+/* ================================= SIDEBAR ================================== */
+/* Fixed, flush to the left edge — sits under header and stretches to viewport bottom */
 .sidebar {
   position: fixed;
   left: 0;
   top: var(--header-h);
   width: var(--sidebar-w);
-  height: calc(100vh - var(--header-h) - 32px);
-  margin: 16px;
+  height: calc(100vh - var(--header-h));
+  margin: 0;
   background: #14161b;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-left: 0;
+  border-radius: 0 16px 16px 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
   z-index: 40;
   display: grid;
   grid-template-rows: auto 1fr;
   transition: width .28s ease;
+  overflow: hidden;
 }
 
-.sidebar.collapsed {
-  width: var(--sidebar-w-c);
-}
+.sidebar.collapsed { width: var(--sidebar-w-c); }
 
 .sidebar-header {
   display: flex;
@@ -313,8 +232,6 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   padding: 12px;
   border-bottom: 1px solid var(--border);
   background: #14161b;
-  border-top-left-radius: var(--radius);
-  border-top-right-radius: var(--radius);
   position: sticky;
   top: 0;
   z-index: 1;
@@ -336,19 +253,14 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   transition: background-color .2s, transform .06s;
 }
 
-.toggler:hover {
-  background: color-mix(in oklab, var(--r-20) 20%, transparent);
-}
-
-.toggler:active {
-  transform: translateY(1px);
-}
+.toggler:hover { background: color-mix(in oklab, var(--r-20) 20%, transparent); }
+.toggler:active { transform: translateY(1px); }
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   padding: 8px 8px 12px;
 }
 
@@ -367,6 +279,7 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
 }
 
 .nav-link {
+  min-height: 44px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -379,21 +292,16 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   transition: background-color .2s, border-color .2s, transform .06s;
 }
 
-.nav-icon {
-  width: 18px;
-  text-align: center;
-  opacity: .95;
+.nav-icon { width: 18px; text-align: center; opacity: .95; }
+
+.nav-link:hover { 
+  background: color-mix(in oklab, var(--r-20) 24%, transparent); 
+  border-color: color-mix(in oklab, var(--r-20) 40%, transparent); 
 }
 
-.nav-link:hover {
-  background: color-mix(in oklab, var(--r-20) 24%, transparent);
-  border-color: color-mix(in oklab, var(--r-20) 40%, transparent);
-}
+.nav-link:active { transform: translateY(1px); }
 
-.nav-link:active {
-  transform: translateY(1px);
-}
-
+/* Actions aligned with nav-link sizing and typography */
 .sidebar-actions {
   margin-top: auto;
   padding: 8px 6px 10px;
@@ -402,9 +310,10 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
 }
 
 .action-btn {
+  min-height: 44px;
   width: 100%;
   background: transparent;
-  border: 0;
+  border: 1px solid transparent;
   color: var(--text);
   display: flex;
   align-items: center;
@@ -413,20 +322,22 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   border-radius: 10px;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color .2s, transform .06s;
+  text-align: left;
+  transition: background-color .2s, border-color .2s, transform .06s;
 }
 
-.action-btn:hover {
-  background: color-mix(in oklab, var(--r-20) 24%, transparent);
+.action-btn:hover { 
+  background: color-mix(in oklab, var(--r-20) 24%, transparent); 
+  border-color: color-mix(in oklab, var(--r-20) 40%, transparent); 
 }
 
-.action-btn i {
-  width: 18px;
-  text-align: center;
-  opacity: .95;
-}
+.action-btn:active { transform: translateY(1px); }
 
-.sidebar .nav-label, .sidebar .action-label {
+.action-btn i { width: 18px; text-align: center; opacity: .95; }
+
+/* Hide labels when collapsed + center icons (both axes) */
+.sidebar .nav-label,
+.sidebar .action-label {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
@@ -435,98 +346,80 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   transition: max-width .22s ease, opacity .18s ease;
 }
 
-.sidebar.collapsed .nav-label, .sidebar.collapsed .action-label {
+.sidebar.collapsed .nav-label,
+.sidebar.collapsed .action-label {
   max-width: 0;
   opacity: 0;
 }
 
-.sidebar.collapsed .sidebar-header {
+.sidebar.collapsed .nav-link,
+.sidebar.collapsed .action-btn {
   justify-content: center;
+  align-items: center;
   padding-left: 0;
   padding-right: 0;
 }
 
-.sidebar.collapsed .nav-link, .sidebar.collapsed .action-btn {
-  justify-content: center;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.sidebar.collapsed .nav-list {
-  padding: 10px 6px;
-}
-
-.sidebar.collapsed .sidebar-actions {
-  padding: 8px 6px 12px;
-}
-
-@media (max-width: 1024px) {
-  .logo__site-title {
-    display: none;
-  }
-  .sidebar {
-    width: calc(100% - 32px);
-  }
-}
-
-.glass, .sidebar, .header {
-  backdrop-filter: saturate(1.05) blur(0px);
-}
-
-/* ================================ ABOUT (BEM) ================================ */
-:root {
-  --about-accent: #EA285B;
-  --content-gap: 24px;
-  --about-text: #e8ecf1;
-  --about-muted: #a8b0b8;
-  --about-sidepad: clamp(16px, 4vw, 48px);
-  --about-maxw: 1280px;
-}
-
-/* Place ABOUT right below the header, offset from the sidebar; NO background to expose the animated background */
+/* ========================= ABOUT ME (BEM) ========================= */
+/* About section to the right of the sidebar, under the header; transparent to show animated bg */
 .about {
   position: relative;
-  z-index: 10; /* higher than background layers (0..3), below sidebar(40)/header(50) */
+  z-index: 10;                 /* above background layers (0..3) */
   color: var(--about-text);
   background: transparent;
-  padding-top: calc(var(--header-h, 72px) + 12px);
+
+  /* general spacing */
+  padding-top: calc(var(--header-h) + 12px);
   padding-right: var(--about-sidepad);
   padding-bottom: clamp(36px, 5vw, 56px);
   padding-left: var(--about-sidepad);
-  margin-left: calc(var(--sidebar-w, 270px) + var(--content-gap));
-  min-height: auto;
+
+  /* offset to clear the fixed sidebar */
+  margin-left: calc(var(--sidebar-w) + var(--content-gap));
+
+  /* center vertically within remaining viewport (below header) */
+  min-height: calc(100vh - var(--header-h));
+  display: grid;
+  align-items: center;
 }
 
-/* Two-column grid; vertically center the columns */
+/* Two-column grid: text (left) / avatar (right). Left is wider to fit long names */
 .about__container {
   max-width: var(--about-maxw);
   margin-inline: auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr; /* left: text / right: avatar */
-  align-items: center; /* right column vertically aligns with left column */
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center; /* vertically align text & avatar */
   gap: clamp(24px, 4vw, 48px);
 }
 
-/* ---------- Typography & spacing ---------- */
+/* ------------------------------ Typography ---------------------------------- */
 .about__header {
+  max-width: min(62vw, 920px); /* control text column width */
   padding-left: clamp(8px, 1.6vw, 20px);
 }
 
+/* Title: single line on desktop, fluid sizing to avoid overflow */
 .about__title {
   font-weight: 800;
-  font-size: clamp(32px, 6vw, 68px);
-  line-height: 1.07;
-  letter-spacing: 0.2px;
-  margin: 0 0 12px 0;
+  font-size: clamp(36px, 4.4vw, 72px);
+  line-height: 1.6;
+  letter-spacing: .2px;
+  margin: 0 0 14px 0;
+  white-space: nowrap;    /* keep on one line */
+  overflow: hidden;
+  text-overflow: ellipsis; /* guard for narrow viewports */
 }
 
+/* Subtitle */
 .about__subtitle {
   font-weight: 700;
-  font-size: clamp(18px, 3vw, 28px);
-  line-height: 1.25;
+  font-size: clamp(18px, 2.6vw, 30px);
+  line-height: 1.6;
   margin: 0 0 18px 0;
 }
 
+/* Highlighted job title */
 .about__highlight {
   display: inline-block;
   padding: 6px 12px;
@@ -539,15 +432,23 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
     0 10px 24px color-mix(in oklab, var(--about-accent) 28%, black 72%);
 }
 
+/* Description: limit to 4 lines with ellipsis; keep main idea intact */
 .about__desc {
-  max-width: 60ch;
-  margin: 0 0 22px 0;
+  max-width: 66ch; /* slightly wider to host content comfortably */
   color: var(--about-muted);
   font-size: clamp(14px, 2.1vw, 16px);
   line-height: 1.65;
+  margin: 0 0 22px 0;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* cap at 4 lines */
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* ---------- Button & social ---------- */
+/* --------------------------- Actions & Socials ------------------------------- */
 .about__actions {
   display: flex;
   align-items: center;
@@ -572,27 +473,19 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
 }
 
-.about__btn:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.03);
-}
-
-.about__btn:active {
-  transform: translateY(0);
-  filter: brightness(.97);
-}
+.about__btn:hover { transform: translateY(-1px); filter: brightness(1.03); }
+.about__btn:active { transform: translateY(0);    filter: brightness(.97); }
 
 .about__social {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 14px;
   padding: 0;
   margin: 0 0 0 4px;
 }
 
-.about__social-item {
-  display: inline-flex;
-}
+.about__social-item { display: inline-flex; }
 
 .about__social-link {
   --ring: color-mix(in oklab, var(--about-accent) 70%, transparent 30%);
@@ -607,10 +500,7 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   transition: transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease;
 }
 
-.about__social-link i {
-  font-size: 18px;
-  line-height: 1;
-}
+.about__social-link i { font-size: 18px; line-height: 1; }
 
 .about__social-link:hover {
   background: color-mix(in oklab, var(--about-accent) 14%, transparent 86%);
@@ -619,17 +509,18 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   box-shadow: 0 8px 22px color-mix(in oklab, var(--about-accent) 24%, black 76%);
 }
 
-/* ---------- Avatar (single outer ring, image fills the ring) ---------- */
+/* --------------------------------- Avatar ----------------------------------- */
+/* Keep one outer red ring; image fills the circle via clip-path */
 .about__avatar {
-  --ring-size: min(440px, 42vw); /* outer ring diameter */
+  --ring-size: min(440px, 42vw);
   --ring-border: 6px;
   --ring-color: color-mix(in oklab, var(--about-accent) 75%, transparent 25%);
   position: relative;
   width: var(--ring-size);
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
   display: grid;
   place-items: center;
-  justify-self: center;
+  justify-self: center; /* center within the right column */
   z-index: 10;
 }
 
@@ -638,8 +529,8 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   height: calc(var(--ring-size) - var(--ring-border) * 2);
   object-fit: cover;
   object-position: 50% 8%;
-  clip-path: circle(50% at 50% 50%);
   display: block;
+  clip-path: circle(50% at 50% 50%);
   box-shadow: 0 10px 28px rgba(0, 0, 0, .35);
 }
 
@@ -656,29 +547,46 @@ h1, h2, h3, h4, h5, h6, .logo__site-title, .nav-label, .action-label {
   filter: drop-shadow(0 10px 22px color-mix(in oklab, var(--about-accent) 24%, black 76%));
 }
 
-/* ---------- Responsive ---------- */
+/* --------------------------------- RESPONSIVE -------------------------------- */
 @media (max-width: 980px) {
   .about {
-    margin-left: 0;
-    padding-left: var(--about-sidepad);
-    padding-right: var(--about-sidepad);
+    /* if you keep sidebar collapsed on mobile, offset by collapsed width */
+    margin-left: calc(var(--sidebar-w-c) + var(--content-gap));
+    min-height: auto; /* no need to force full viewport height on mobile */
   }
-  .about__container {
-    grid-template-columns: 1fr;
+
+  .about__container { grid-template-columns: 1fr; }
+
+  .about__header {
+    max-width: 100%;
+    padding-left: 0;
   }
+
+  /* Allow title to wrap on mobile to avoid clipping */
+  .about__title {
+    white-space: normal;
+    text-overflow: clip;
+    font-size: clamp(28px, 9vw, 42px);
+    line-height: 1.12;
+  }
+
+  /* Optionally relax to 5 lines on mobile for readability */
+  .about__desc {
+    max-width: 100%;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+  }
+
   .about__avatar {
     --ring-size: min(420px, 70vw);
-    margin-top: 6px;
-    order: -1;
+    order: -1;            /* move image above text */
     margin-bottom: 18px;
-  }
-  .about__header {
-    padding-left: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .about__btn, .about__social-link {
+  .about__btn,
+  .about__social-link {
     transition: none;
   }
 }

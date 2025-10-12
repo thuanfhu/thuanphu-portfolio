@@ -19,28 +19,22 @@
   <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
-  <!-- === Animated background layers (red-orange palette) === -->
+  <!-- === Animated background layers === -->
   <div class="neural-background" aria-hidden="true"></div>
-
-  <!-- Floating shapes -->
   <div class="geometric-shapes" aria-hidden="true">
     <div class="shape s1"></div>
     <div class="shape s2"></div>
     <div class="shape s3"></div>
     <div class="shape s4"></div>
   </div>
-
-  <!-- Lines -->
   <div class="neural-lines" aria-hidden="true">
     <div class="neural-line l1"></div>
     <div class="neural-line l2"></div>
     <div class="neural-line l3"></div>
   </div>
-
-  <!-- Rising particles -->
   <div class="neural-particles" aria-hidden="true"></div>
 
-  <!-- ===== Header ===== -->
+  <!-- ===== Header (fixed) ===== -->
   <header class="header">
     <a href="#" class="header__logo">
       <img src="./assets/images/thuanflu-avatar.jpg" alt="Quách Phú Thuận" class="logo__avatar">
@@ -57,11 +51,12 @@
     </div>
   </header>
 
-  <!-- ===== Sidebar ===== -->
-  <aside class="sidebar" aria-label="Điều hướng bên">
+  <!-- ===== Sidebar (fixed, collapsed by default, flush with viewport edge) ===== -->
+  <aside class="sidebar collapsed" aria-label="Điều hướng bên">
     <header class="sidebar-header">
-      <button class="toggler sidebar-toggler" type="button" aria-label="Thu gọn sidebar" title="Collapse">
-        <i class="fas fa-angles-left" aria-hidden="true"></i>
+      <!-- When collapsed: expand icon; when expanded: collapse icon -->
+      <button class="toggler sidebar-toggler" type="button" aria-label="Mở sidebar" title="Expand">
+        <i class="fas fa-angles-right" aria-hidden="true"></i>
       </button>
     </header>
 
@@ -88,65 +83,37 @@
   <!-- ========================== ABOUT (RIGHT OF SIDEBAR) ========================== -->
   <section id="about" class="about" role="region" aria-labelledby="about-title">
     <div class="about__container">
-      <!-- Left column: text content -->
       <header class="about__header">
-        <h1 id="about-title" class="about__title">Lucius Meshach</h1>
-
+        <h1 id="about-title" class="about__title">Quách Phú Thuận</h1>
         <h2 class="about__subtitle">
-          I'm a <span class="about__highlight" aria-label="Job title highlighted">Coder</span>
+          I'm a <span class="about__highlight" aria-label="Job title highlighted">Software Engineer</span>
         </h2>
-
         <p class="about__desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, cum eos. Iure incidunt
-          excepturi totam aperiam, deserunt quidem obcaecati consectetur voluptas, recusandae
-          quasi sequi. Corrupti officiis nulla excepturi totam.
+          I’m a full stack software and AI engineer who builds end to end products,
+          from performant backends and polished interfaces to ML powered features that solve real problems,
+          with a focus on scalability, reliability, and clean architecture.
         </p>
-
         <div class="about__actions">
           <a class="about__btn" href="#" download aria-label="Download my CV">Download CV</a>
-          <!-- Social: Github, Youtube, Linkedin, Facebook -->
           <ul class="about__social" aria-label="Social profiles">
-            <li class="about__social-item">
-              <a class="about__social-link" href="#" aria-label="Github">
-                <i class="fa-brands fa-github" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li class="about__social-item">
-              <a class="about__social-link" href="#" aria-label="YouTube">
-                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li class="about__social-item">
-              <a class="about__social-link" href="#" aria-label="LinkedIn">
-                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li class="about__social-item">
-              <a class="about__social-link" href="#" aria-label="Facebook">
-                <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
-              </a>
-            </li>
+            <li class="about__social-item"><a class="about__social-link" href="#" aria-label="Github"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
+            <li class="about__social-item"><a class="about__social-link" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
+            <li class="about__social-item"><a class="about__social-link" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li class="about__social-item"><a class="about__social-link" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
           </ul>
         </div>
       </header>
 
-      <!-- Right column: keep one outer ring, image fills the ring -->
       <figure class="about__avatar" aria-label="Profile picture">
-        <img
-          class="about__photo"
-          src="./assets/images/thuanflu-black.jpg"
-          alt="Portrait photo"
-          loading="eager"
-          decoding="async"
-        />
+        <img class="about__photo" src="./assets/images/thuanflu-black.jpg" alt="Portrait photo" loading="eager" decoding="async" />
         <span class="about__ring about__ring--outer" aria-hidden="true"></span>
       </figure>
     </div>
   </section>
-  <!-- ======================== /END ABOUT (RIGHT OF SIDEBAR) ======================= -->
+  <!-- ======================== /END ABOUT ======================= -->
 
-  <!-- JavaScript -->
+  <!-- JS -->
   <script src="./assets/js/sidebar-menu.js" defer></script>
-  <script src="./assets/js/background-neural.js" defer></script>
+  <script src="./assets/js/background-neutral.js" defer></script>
 </body>
 </html>

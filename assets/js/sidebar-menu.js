@@ -1,34 +1,39 @@
+// ===== Sidebar toggling (default: COLLAPSED) =====
 const sidebar = document.querySelector(".sidebar");
 const sidebarToggler = document.querySelector(".sidebar-toggler");
-const menuToggler = document.querySelector(".menu-toggler");
+const togglerIcon = sidebarToggler?.querySelector("i");
 
-// Ensure these heights match the CSS sidebar height values
-let collapsedSidebarHeight = "56px"; // Height in mobile view (collapsed)
-let fullSidebarHeight = "calc(100vh - 32px)"; // Height in larger screen
+// Safety: do nothing if required elements are missing
+if (sidebar && sidebarToggler && togglerIcon) {
+  // Helper: update icon + aria attributes based on state
+  const updateTogglerUI = () => {
+    const isCollapsed = sidebar.classList.contains("collapsed");
+    if (isCollapsed) {
+      // Collapsed -> show expand icon
+      togglerIcon.classList.remove("fa-angles-left");
+      togglerIcon.classList.add("fa-angles-right");
+      sidebarToggler.setAttribute("aria-label", "Mở sidebar");
+      sidebarToggler.setAttribute("title", "Expand");
+    } else {
+      // Expanded -> show collapse icon
+      togglerIcon.classList.remove("fa-angles-right");
+      togglerIcon.classList.add("fa-angles-left");
+      sidebarToggler.setAttribute("aria-label", "Thu gọn sidebar");
+      sidebarToggler.setAttribute("title", "Collapse");
+    }
+  };
 
-// Toggle sidebar's collapsed state
-sidebarToggler.addEventListener("click", () => {
-  sidebar.classList.toggle("collapsed");
-});
+  // Default HTML already has class "collapsed" => sidebar starts collapsed
+  updateTogglerUI();
 
-// Update sidebar height and menu toggle text
-const toggleMenu = (isMenuActive) => {
-  sidebar.style.height = isMenuActive ? `${sidebar.scrollHeight}px` : collapsedSidebarHeight;
-  menuToggler.querySelector("span").innerText = isMenuActive ? "close" : "menu";
+  // Toggle on click
+  sidebarToggler.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+    updateTogglerUI();
+  });
+
+  // (Optional) Refresh UI on resize without affecting height
+  window.addEventListener("resize", () => {
+    updateTogglerUI();
+  });
 }
-
-// Toggle menu-active class and adjust height
-menuToggler.addEventListener("click", () => {
-  toggleMenu(sidebar.classList.toggle("menu-active"));
-});
-
-// (Optional code): Adjust sidebar height on window resize
-window.addEventListener("resize", () => {
-  if (window.innerWidth >= 1024) {
-    sidebar.style.height = fullSidebarHeight;
-  } else {
-    sidebar.classList.remove("collapsed");
-    sidebar.style.height = "auto";
-    toggleMenu(sidebar.classList.contains("menu-active"));
-  }
-});

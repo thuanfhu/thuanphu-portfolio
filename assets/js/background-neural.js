@@ -1,4 +1,4 @@
-// Parallax nhẹ cho shapes (như gốc)
+// Light parallax for shapes
 (() => {
   const shapes = document.querySelectorAll('.shape');
   if (!shapes.length) return;
@@ -13,7 +13,7 @@
   onScroll();
 })();
 
-// Lines: pulse tuần tự (JS hỗ trợ nhịp như file gốc)
+// Lines: sequential pulse
 (() => {
   const lines = document.querySelectorAll('.neural-line');
   if (!lines.length) return;
@@ -31,7 +31,7 @@
   }, 2000);
 })();
 
-// Particles: tạo đốm sáng từ dưới lên (như gốc)
+// Particles: create glowing dots rising from the bottom
 (() => {
   const host = document.querySelector('.neural-particles');
   if (!host) return;
@@ -47,12 +47,12 @@
     p.style.animationDuration = `${2000 + Math.random() * 3000}ms`;
     p.style.animationTimingFunction = 'ease-out';
     host.appendChild(p);
-    // Xoá sau khi chạy xong
+    // Remove after animation completes
     setTimeout(() => p.remove(), 6000);
   }
 
-  // tạo theo nhịp
+  // Spawn on interval
   setInterval(spawnParticle, 1500);
-  // khởi tạo vài cái ban đầu
+  // Seed a few initial particles
   for (let i = 0; i < 12; i++) setTimeout(spawnParticle, i * 120);
 })();
