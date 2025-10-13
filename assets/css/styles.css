@@ -15,7 +15,7 @@
 
   /* Layout tokens */
   --header-h: 72px;
-  --sidebar-w: 270px;  /* expanded width */
+  --sidebar-w: 236px;  /* expanded width — nhỏ hơn bản cũ */
   --sidebar-w-c: 86px; /* collapsed width */
   --radius: 16px;
 
@@ -163,6 +163,11 @@ h6,
   gap: 12px;
   text-decoration: none;
   color: inherit;
+  /* Căn tâm avatar theo cột icon của sidebar (cả 2 trạng thái) */
+  margin-left: calc(var(--sidebar-w) / 2 - 21px);
+}
+body.is-collapsed .header__logo{
+  margin-left: calc(var(--sidebar-w-c) / 2 - 21px);
 }
 
 .logo__avatar {
@@ -185,6 +190,14 @@ h6,
   gap: 10px;
   align-items: center;
 }
+.controls__iconlink{
+  display:inline-grid; place-items:center; width:40px; height:40px;
+  border-radius:12px; border:1px solid var(--border); background: rgba(255,255,255,.05);
+  transition: transform .06s ease, background-color .2s ease;
+  color: var(--text); text-decoration:none;
+}
+.controls__iconlink:hover{ background: color-mix(in oklab, var(--r-20) 24%, transparent); }
+.controls__iconlink i{ font-size: 16px; }
 
 .controls__language-toggle,
 .controls__theme-toggle {
@@ -202,7 +215,6 @@ h6,
 }
 
 /* ================================= SIDEBAR ================================== */
-/* Fixed, flush to the left edge — sits under header and stretches to viewport bottom */
 .sidebar {
   position: fixed;
   left: 0;
@@ -221,9 +233,9 @@ h6,
   transition: width .28s ease;
   overflow: hidden;
 }
-
 .sidebar.collapsed { width: var(--sidebar-w-c); }
 
+/* Header của sidebar */
 .sidebar-header {
   display: flex;
   align-items: center;
@@ -235,6 +247,10 @@ h6,
   position: sticky;
   top: 0;
   z-index: 1;
+}
+/* Khi thu gọn: căn GIỮA theo trục dọc của các nút */
+.sidebar.collapsed .sidebar-header{
+  justify-content: center;
 }
 
 .toggler {
@@ -252,7 +268,6 @@ h6,
   cursor: pointer;
   transition: background-color .2s, transform .06s;
 }
-
 .toggler:hover { background: color-mix(in oklab, var(--r-20) 20%, transparent); }
 .toggler:active { transform: translateY(1px); }
 
@@ -288,20 +303,19 @@ h6,
   font-weight: 700;
   padding: 12px 14px;
   border-radius: 10px;
-  border: 1px solid transparent;
+  border: 1px solid transparent; /* giữ khung để hover không xô lệch */
+  box-sizing: border-box;
   transition: background-color .2s, border-color .2s, transform .06s;
 }
+.nav-icon { width: 18px; text-align: center; opacity: .95; display:inline-grid; place-items:center; }
 
-.nav-icon { width: 18px; text-align: center; opacity: .95; }
-
-.nav-link:hover { 
-  background: color-mix(in oklab, var(--r-20) 24%, transparent); 
-  border-color: color-mix(in oklab, var(--r-20) 40%, transparent); 
+.nav-link:hover {
+  background: color-mix(in oklab, var(--r-20) 24%, transparent);
+  border-color: color-mix(in oklab, var(--r-20) 40%, transparent);
 }
-
 .nav-link:active { transform: translateY(1px); }
 
-/* Actions aligned with nav-link sizing and typography */
+/* Actions aligned with nav-link */
 .sidebar-actions {
   margin-top: auto;
   padding: 8px 6px 10px;
@@ -323,19 +337,18 @@ h6,
   font-weight: 700;
   cursor: pointer;
   text-align: left;
+  box-sizing: border-box;
   transition: background-color .2s, border-color .2s, transform .06s;
 }
+.action-btn i{ width:18px; text-align:center; display:inline-grid; place-items:center; }
 
-.action-btn:hover { 
-  background: color-mix(in oklab, var(--r-20) 24%, transparent); 
-  border-color: color-mix(in oklab, var(--r-20) 40%, transparent); 
+.action-btn:hover {
+  background: color-mix(in oklab, var(--r-20) 24%, transparent);
+  border-color: color-mix(in oklab, var(--r-20) 40%, transparent);
 }
-
 .action-btn:active { transform: translateY(1px); }
 
-.action-btn i { width: 18px; text-align: center; opacity: .95; }
-
-/* Hide labels when collapsed + center icons (both axes) */
+/* Hide labels when collapsed + center icons hoàn toàn */
 .sidebar .nav-label,
 .sidebar .action-label {
   display: inline-block;
@@ -345,73 +358,76 @@ h6,
   opacity: 1;
   transition: max-width .22s ease, opacity .18s ease;
 }
-
 .sidebar.collapsed .nav-label,
 .sidebar.collapsed .action-label {
   max-width: 0;
   opacity: 0;
 }
-
 .sidebar.collapsed .nav-link,
 .sidebar.collapsed .action-btn {
   justify-content: center;
   align-items: center;
   padding-left: 0;
   padding-right: 0;
+  gap: 0; /* loại bỏ khoảng gap để icon nằm chính giữa tuyệt đối */
+}
+
+/* ============================== MAIN WRAPPER ============================== */
+.main{
+  position: relative;
+  z-index: 10; /* nổi lên trên animated background */
 }
 
 /* ========================= ABOUT ME (BEM) ========================= */
-/* About section to the right of the sidebar, under the header; transparent to show animated bg */
 .about {
   position: relative;
-  z-index: 10;                 /* above background layers (0..3) */
+  z-index: 10; /* đảm bảo nổi trên nền động */
   color: var(--about-text);
   background: transparent;
 
-  /* general spacing */
   padding-top: calc(var(--header-h) + 12px);
   padding-right: var(--about-sidepad);
   padding-bottom: clamp(36px, 5vw, 56px);
   padding-left: var(--about-sidepad);
 
-  /* offset to clear the fixed sidebar */
+  /* offset khỏi sidebar */
   margin-left: calc(var(--sidebar-w) + var(--content-gap));
 
-  /* center vertically within remaining viewport (below header) */
+  /* căn giữa theo chiều dọc phần còn lại của viewport */
   min-height: calc(100vh - var(--header-h));
   display: grid;
   align-items: center;
 }
+.sidebar.collapsed ~ .main .about,
+body.is-collapsed .about{
+  margin-left: calc(var(--sidebar-w-c) + var(--content-gap));
+}
 
-/* Two-column grid: text (left) / avatar (right). Left is wider to fit long names */
 .about__container {
   max-width: var(--about-maxw);
   margin-inline: auto;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  align-items: center; /* vertically align text & avatar */
+  align-items: center;
   gap: clamp(24px, 4vw, 48px);
 }
 
-/* ------------------------------ Typography ---------------------------------- */
 .about__header {
-  max-width: min(62vw, 920px); /* control text column width */
+  max-width: min(62vw, 920px);
   padding-left: clamp(8px, 1.6vw, 20px);
 }
 
-/* Title: single line on desktop, fluid sizing to avoid overflow */
 .about__title {
   font-weight: 800;
   font-size: clamp(36px, 4.4vw, 72px);
   line-height: 1.6;
   letter-spacing: .2px;
   margin: 0 0 14px 0;
-  white-space: nowrap;    /* keep on one line */
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* guard for narrow viewports */
+  text-overflow: ellipsis;
 }
 
-/* Subtitle */
 .about__subtitle {
   font-weight: 700;
   font-size: clamp(18px, 2.6vw, 30px);
@@ -419,7 +435,6 @@ h6,
   margin: 0 0 18px 0;
 }
 
-/* Highlighted job title */
 .about__highlight {
   display: inline-block;
   padding: 6px 12px;
@@ -432,23 +447,21 @@ h6,
     0 10px 24px color-mix(in oklab, var(--about-accent) 28%, black 72%);
 }
 
-/* Description: limit to 4 lines with ellipsis; keep main idea intact */
 .about__desc {
-  max-width: 66ch; /* slightly wider to host content comfortably */
+  max-width: 66ch;
   color: var(--about-muted);
   font-size: clamp(14px, 2.1vw, 16px);
-  line-height: 1.65;
+  line-height: 1.60;
   margin: 0 0 22px 0;
 
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* cap at 4 lines */
+  -webkit-line-clamp: 4;
   line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* --------------------------- Actions & Socials ------------------------------- */
 .about__actions {
   display: flex;
   align-items: center;
@@ -472,7 +485,6 @@ h6,
   box-shadow: 0 14px 32px color-mix(in oklab, var(--about-accent) 28%, black 72%);
   transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
 }
-
 .about__btn:hover { transform: translateY(-1px); filter: brightness(1.03); }
 .about__btn:active { transform: translateY(0);    filter: brightness(.97); }
 
@@ -484,7 +496,6 @@ h6,
   padding: 0;
   margin: 0 0 0 4px;
 }
-
 .about__social-item { display: inline-flex; }
 
 .about__social-link {
@@ -499,9 +510,7 @@ h6,
   text-decoration: none;
   transition: transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease;
 }
-
 .about__social-link i { font-size: 18px; line-height: 1; }
-
 .about__social-link:hover {
   background: color-mix(in oklab, var(--about-accent) 14%, transparent 86%);
   color: #fff;
@@ -509,8 +518,7 @@ h6,
   box-shadow: 0 8px 22px color-mix(in oklab, var(--about-accent) 24%, black 76%);
 }
 
-/* --------------------------------- Avatar ----------------------------------- */
-/* Keep one outer red ring; image fills the circle via clip-path */
+/* Avatar */
 .about__avatar {
   --ring-size: min(440px, 42vw);
   --ring-border: 6px;
@@ -520,10 +528,9 @@ h6,
   aspect-ratio: 1 / 1;
   display: grid;
   place-items: center;
-  justify-self: center; /* center within the right column */
+  justify-self: center;
   z-index: 10;
 }
-
 .about__photo {
   width: calc(var(--ring-size) - var(--ring-border) * 2);
   height: calc(var(--ring-size) - var(--ring-border) * 2);
@@ -533,7 +540,6 @@ h6,
   clip-path: circle(50% at 50% 50%);
   box-shadow: 0 10px 28px rgba(0, 0, 0, .35);
 }
-
 .about__ring {
   position: absolute;
   inset: 0;
@@ -541,7 +547,6 @@ h6,
   pointer-events: none;
   z-index: 1;
 }
-
 .about__ring--outer {
   border: var(--ring-border) solid var(--ring-color);
   filter: drop-shadow(0 10px 22px color-mix(in oklab, var(--about-accent) 24%, black 76%));
@@ -550,43 +555,215 @@ h6,
 /* --------------------------------- RESPONSIVE -------------------------------- */
 @media (max-width: 980px) {
   .about {
-    /* if you keep sidebar collapsed on mobile, offset by collapsed width */
     margin-left: calc(var(--sidebar-w-c) + var(--content-gap));
-    min-height: auto; /* no need to force full viewport height on mobile */
+    min-height: auto;
   }
-
   .about__container { grid-template-columns: 1fr; }
-
-  .about__header {
-    max-width: 100%;
-    padding-left: 0;
-  }
-
-  /* Allow title to wrap on mobile to avoid clipping */
+  .about__header { max-width: 100%; padding-left: 0; }
   .about__title {
     white-space: normal;
     text-overflow: clip;
     font-size: clamp(28px, 9vw, 42px);
     line-height: 1.12;
   }
-
-  /* Optionally relax to 5 lines on mobile for readability */
   .about__desc {
     max-width: 100%;
     -webkit-line-clamp: 5;
     line-clamp: 5;
   }
-
   .about__avatar {
     --ring-size: min(420px, 70vw);
-    order: -1;            /* move image above text */
+    order: -1;
     margin-bottom: 18px;
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  .about__btn,
-  .about__social-link {
-    transition: none;
-  }
+  .about__btn, .about__social-link { transition: none; }
+}
+
+/* =============================== SKILLS v2 =============================== */
+.skills{
+  position: relative;
+  z-index: 10;
+  padding: clamp(56px, 8vw, 96px) var(--about-sidepad);
+  max-width: var(--about-maxw);
+  margin: 0 auto;
+  margin-left: calc(var(--sidebar-w) + var(--content-gap));
+}
+.sidebar.collapsed ~ .main .skills,
+body.is-collapsed .skills{
+  margin-left: calc(var(--sidebar-w-c) + var(--content-gap));
+}
+.skills__container{ position: relative; }
+
+/* Label dọc + gạch nhấn */
+.skills__label{
+  position: absolute; left: -70px; top: 40px; display:flex; flex-direction:column; align-items:center; gap:12px;
+}
+.skills__label span{
+  font-weight: 800; letter-spacing: 1px; font-size: 18px; color: var(--text);
+  transform: rotate(-90deg); transform-origin: center; text-transform: uppercase;
+}
+.skills__label-underline{
+  display:block; width: 36px; height: 4px; border-radius: 4px;
+  background: var(--r-base);
+  box-shadow: 0 0 14px color-mix(in oklab,var(--r-base) 70%, transparent);
+}
+
+/* Title gradient + mô tả căn giữa + hover đổi màu */
+.skills__header{ text-align:center; margin-bottom: 28px;}
+.skills__title{
+  font-family: "Montserrat",system-ui,sans-serif;
+  font-size: clamp(32px,4.8vw,54px);
+  line-height: 1.15; margin: 0 0 10px 0;
+  background: linear-gradient(90deg, var(--r-base), color-mix(in oklab, var(--r-base) 40%, white));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: 0 6px 32px color-mix(in oklab, var(--r-base) 30%, transparent);
+  transition: filter .25s, background .35s ease;
+}
+.skills:hover .skills__title{
+  background: linear-gradient(90deg, color-mix(in oklab, var(--r-base) 60%, white), var(--r-base));
+  filter: brightness(1.05);
+}
+.skills__desc{ margin: 0 auto; color: var(--about-muted); max-width: 80ch; line-height: 1.6; }
+
+/* Bố cục giống About */
+.skills__content{
+  display:grid; grid-template-columns: 1fr minmax(200px,260px);
+  gap: clamp(20px,3vw,36px); align-items:start;
+}
+
+/* Panel hiệu ứng */
+.skills__panel{
+  position:relative; border-radius: 20px; padding: clamp(18px,3vw,30px);
+  background: radial-gradient(1200px 400px at 0% -20%, color-mix(in oklab,var(--r-base) 12%, transparent), transparent),
+              linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  border: 1px solid var(--border);
+  overflow: clip; isolation: isolate;
+}
+.skills__panel::after{
+  content:""; position:absolute; inset:-2px; pointer-events:none;
+  background: linear-gradient(120deg, transparent, color-mix(in oklab,var(--r-base) 18%, transparent), transparent);
+  filter: blur(18px); opacity:.35; mix-blend-mode: screen; animation: shimmer 4s linear infinite;
+}
+@keyframes shimmer{ 0%{transform:translateX(-40%)} 100%{transform:translateX(40%)} }
+
+/* Lưới badge */
+.skills__group{ display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:16px; transform-style: preserve-3d; }
+.skills__group[hidden]{ display:none; }
+.badge{
+  position:relative; display:grid; place-items:center; padding:18px; border-radius:16px;
+  background: radial-gradient(120% 120% at 10% -10%, rgba(255,255,255,.06), transparent 50%),
+              linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.25));
+  border: 1px solid color-mix(in oklab, var(--r-base) 10%, var(--border));
+  box-shadow: 0 16px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+  cursor: pointer;
+  transition: transform .6s cubic-bezier(.2,.7,.2,1), box-shadow .4s, border-color .4s, filter .4s;
+  will-change: transform;
+}
+.badge img{ width: 58px; height: 58px; object-fit: contain; filter: saturate(110%); }
+.badge::before{
+  content:""; position:absolute; inset: -1px; border-radius: inherit; pointer-events:none;
+  background: radial-gradient(90% 80% at 50% -20%, color-mix(in oklab,var(--r-base) 22%, transparent), transparent 60%);
+  opacity: .0; transition: opacity .4s;
+}
+.badge:hover{
+  transform: translateY(-6px) rotateX(8deg);
+  box-shadow: 0 24px 56px rgba(0,0,0,.55), 0 0 0 2px color-mix(in oklab,var(--r-base) 16%, transparent) inset;
+  border-color: color-mix(in oklab,var(--r-base) 28%, var(--border));
+  filter: drop-shadow(0 10px 30px color-mix(in oklab,var(--r-base) 35%, transparent)) saturate(130%);
+}
+.badge:hover::before{ opacity:.9; }
+
+/* Stagger */
+.skills__group.is-active .badge{ opacity:1; transform: translateY(0); }
+.skills__group .badge{ opacity:0; transform: translateY(14px); }
+.skills__group.is-active .badge:nth-child(1){transition-delay:.04s}
+.skills__group.is-active .badge:nth-child(2){transition-delay:.08s}
+.skills__group.is-active .badge:nth-child(3){transition-delay:.12s}
+.skills__group.is-active .badge:nth-child(4){transition-delay:.16s}
+.skills__group.is-active .badge:nth-child(5){transition-delay:.20s}
+.skills__group.is-active .badge:nth-child(6){transition-delay:.24s}
+.skills__group.is-active .badge:nth-child(7){transition-delay:.28s}
+.skills__group.is-active .badge:nth-child(8){transition-delay:.32s}
+.skills__group.is-active .badge:nth-child(9){transition-delay:.36s}
+.skills__group.is-active .badge:nth-child(10){transition-delay:.40s}
+.skills__group.is-active .badge:nth-child(11){transition-delay:.44s}
+.skills__group.is-active .badge:nth-child(12){transition-delay:.48s}
+
+/* Tabs dọc (đã thu gọn thêm) */
+.skills__tabs{
+  position:relative; display:grid; align-content:start; gap:10px; padding:10px 8px;
+  border-left:2px solid var(--border);
+}
+.skills__tab{
+  display:flex; align-items:center; gap:8px;
+  background: rgba(255,255,255,.02);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px; padding: 8px 12px; font-weight: 700; font-size: 14px;
+  cursor: pointer; transition: transform .25s, border-color .35s, background .35s, box-shadow .35s, filter .25s;
+}
+.skills__tab i{ width:18px; text-align:center; opacity:.9; }
+.skills__tab:hover{ transform: translateX(2px); filter: saturate(120%); }
+.skills__tab.is-active{
+  border-color: var(--r-base);
+  background: linear-gradient(180deg, rgba(234,40,91,.16), rgba(234,40,91,.06));
+  box-shadow: 0 0 0 3px color-mix(in oklab,var(--r-base) 22%, transparent);
+}
+.skills__rail{
+  position:absolute; right:-10px; top:0; bottom:0; width:4px; border-radius:4px;
+  background: linear-gradient(180deg, transparent, color-mix(in oklab,var(--r-base) 50%, transparent), transparent);
+  opacity:.7;
+}
+.skills__rail.pulse{ animation: railPulse 1.6s ease-out; }
+@keyframes railPulse{ 0%{box-shadow:0 0 0 0 var(--r-base);} 100%{box-shadow:0 0 0 14px rgba(234,40,91,0);} }
+
+/* Tooltip */
+.skilltip{ position: fixed; transform: translate(-50%,-120%); z-index: 50; }
+.skilltip[hidden]{ display:none; }
+.skilltip__inner{
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  background: radial-gradient(120% 120% at 0% -50%, rgba(255,255,255,.12), transparent 70%), #0d0f13d8;
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 8px 12px; font-weight: 700; color: var(--text); white-space: nowrap;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+  opacity: 0; transform: translateY(8px) scale(.96);
+  transition: transform .2s, opacity .2s;
+}
+.skilltip.enter .skilltip__inner{ opacity: 1; transform: translateY(0) scale(1); }
+
+/* TOEIC meters */
+.english{ display:grid; gap:18px; }
+.english__row{ display:grid; grid-template-columns: 28px 1fr max-content; align-items:center; gap:12px; }
+.english__icon{ color: #bcd9ff; filter: drop-shadow(0 6px 14px rgba(8,148,226,.35)); }
+.english__score{ font-weight:700; }
+.meter{
+  --h: 16px; position:relative; height: var(--h); border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255,255,255,.12) 10px, transparent 10px) 0 0/14px 100% repeat-x, rgba(255,255,255,.06);
+  overflow: hidden; outline:1px solid var(--border);
+}
+.meter__fill{
+  --pct: 0%;
+  position:absolute; inset:0 auto 0 0; width: var(--pct); border-radius: inherit;
+  background: linear-gradient(90deg, var(--color), color-mix(in oklab, var(--color) 50%, white));
+  box-shadow: 0 0 18px color-mix(in oklab, var(--color) 50%, transparent);
+  transform: translateX(-16px); opacity: 0;
+}
+.meter__fill.run{ animation: meterIn .9s .1s cubic-bezier(.2,.7,.2,1) forwards; }
+@keyframes meterIn{ to{ transform:none; opacity:1; } }
+.english__overall{ display:flex; align-items:center; gap:10px; margin-top:6px; color: var(--text); font-weight:800; }
+.english__overall i{ color: var(--r-base); filter: drop-shadow(0 6px 18px rgba(234,40,91,.36)); }
+
+/* Responsive */
+@media (max-width:980px){
+  .skills{ margin-left: calc(var(--sidebar-w-c) + var(--content-gap)); }
+  .skills__content{ grid-template-columns:1fr; }
+  .skills__tabs{ grid-auto-flow:column; grid-auto-columns:1fr; border-left:none; border-top:2px solid var(--border); }
+  .skills__label{ left: 0; top: -26px; flex-direction:row; transform:none; }
+  .skills__label span{ transform:none; }
+  .skills__rail{ display:none; }
+}
+@media (prefers-reduced-motion:reduce){
+  .badge, .meter__fill, .skills__panel::after, .skills__rail{ animation:none !important; transition:none !important; }
 }

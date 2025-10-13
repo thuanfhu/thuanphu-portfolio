@@ -3,7 +3,12 @@ const sidebar = document.querySelector(".sidebar");
 const sidebarToggler = document.querySelector(".sidebar-toggler");
 const togglerIcon = sidebarToggler?.querySelector("i");
 
-// Safety: do nothing if required elements are missing
+// Gắn cờ trạng thái lên <body> để CSS có thể căn chỉnh avatar header, lề section...
+function setBodyCollapsedState(collapsed) {
+  document.body.classList.toggle("is-collapsed", collapsed);
+}
+
+// Safety
 if (sidebar && sidebarToggler && togglerIcon) {
   // Helper: update icon + aria attributes based on state
   const updateTogglerUI = () => {
@@ -21,9 +26,10 @@ if (sidebar && sidebarToggler && togglerIcon) {
       sidebarToggler.setAttribute("aria-label", "Thu gọn sidebar");
       sidebarToggler.setAttribute("title", "Collapse");
     }
+    setBodyCollapsedState(isCollapsed);
   };
 
-  // Default HTML already has class "collapsed" => sidebar starts collapsed
+  // HTML khởi tạo đã có class "collapsed"
   updateTogglerUI();
 
   // Toggle on click
@@ -32,7 +38,7 @@ if (sidebar && sidebarToggler && togglerIcon) {
     updateTogglerUI();
   });
 
-  // (Optional) Refresh UI on resize without affecting height
+  // Refresh UI on resize (không đổi chiều cao)
   window.addEventListener("resize", () => {
     updateTogglerUI();
   });
