@@ -572,7 +572,7 @@ h6,
 .skills__title {
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: clamp(32px, 4.8vw, 54px);
-  line-height: 1.15; margin: 0 0 10px 0;
+  line-height: 1.15; margin: 0 0 20px 0;
   background: linear-gradient(90deg, #0a4f9e, #0894E2, #73d4ff);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
@@ -791,7 +791,7 @@ h6,
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: clamp(32px, 4.8vw, 54px);
   line-height: 1.15;
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
   background: linear-gradient(90deg, #0a4f9e, #0894E2, #73d4ff);
   -webkit-background-clip: text;
   background-clip: text;
