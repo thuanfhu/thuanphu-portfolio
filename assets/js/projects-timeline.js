@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const progressBar = document.querySelector('.projects__progress-bar');
   const projectItems = document.querySelectorAll('.projects__item');
   const projectNodes = document.querySelectorAll('.projects__item-circle');
+  const terminus = document.querySelector('.projects__terminus');
 
   if (!timeline || !progressBar) {
     console.warn('Timeline elements not found, animations will not run.');
@@ -43,6 +44,16 @@ document.addEventListener('DOMContentLoaded', () => {
         node.classList.remove('is-active');
       }
     });
+
+    if (terminus) {
+      const terminusRect = terminus.getBoundingClientRect();
+      const terminusCenter = terminusRect.top + terminusRect.height / 2;
+      if (terminusCenter <= progressBottom) {
+        terminus.classList.add('is-active');
+      } else {
+        terminus.classList.remove('is-active');
+      }
+    }
   };
   
   window.addEventListener('scroll', handleScroll, { passive: true });
