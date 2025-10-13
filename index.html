@@ -8,237 +8,277 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
 
   <!-- Font Awesome -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="./assets/css/reset.css">
-  <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="./assets/css/reset.css" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 <body>
-  <!-- === Animated background layers === -->
-  <div class="neural-background" aria-hidden="true"></div>
-  <div class="geometric-shapes" aria-hidden="true">
-    <div class="shape s1"></div>
-    <div class="shape s2"></div>
-    <div class="shape s3"></div>
-    <div class="shape s4"></div>
-  </div>
-  <div class="neural-lines" aria-hidden="true">
-    <div class="neural-line l1"></div>
-    <div class="neural-line l2"></div>
-    <div class="neural-line l3"></div>
-  </div>
-  <div class="neural-particles" aria-hidden="true"></div>
-
-  <!-- ===== Header (fixed) ===== -->
-  <header class="header">
-    <a href="#" class="header__logo">
-      <img src="./assets/images/thuanflu-avatar.jpg" alt="Quách Phú Thuận" class="logo__avatar">
-      <h1 class="logo__site-title">Portfolio</h1>
-    </a>
-
-    <div class="header__controls">
-      <!-- Thêm các icon để đỡ trống: Github, Email -->
-      <a class="controls__iconlink" href="#" aria-label="Github">
-        <i class="fa-brands fa-github"></i>
-      </a>
-      <a class="controls__iconlink" href="mailto:you@example.com" aria-label="Email">
-        <i class="fa-solid fa-envelope"></i>
-      </a>
-
-      <button class="controls__language-toggle" aria-label="Chuyển ngôn ngữ Anh/Việt">
-        <i class="fas fa-globe"></i>
-        <span class="lang-text">VI</span>
-      </button>
-      <button class="controls__theme-toggle" aria-label="Chuyển chế độ sáng/tối">
-        <i class="fas fa-moon"></i>
-      </button>
+  <div class="page">
+    <!-- Decorative background layers -->
+    <div class="neural-background" aria-hidden="true"></div>
+    <div class="geometric-shapes" aria-hidden="true">
+      <div class="shape s1"></div>
+      <div class="shape s2"></div>
+      <div class="shape s3"></div>
+      <div class="shape s4"></div>
     </div>
-  </header>
+    <div class="neural-lines" aria-hidden="true">
+      <div class="neural-line l1"></div>
+      <div class="neural-line l2"></div>
+      <div class="neural-line l3"></div>
+    </div>
+    <div class="neural-particles" aria-hidden="true"></div>
 
-  <!-- ===== Sidebar (fixed) ===== -->
-  <aside class="sidebar collapsed" aria-label="Điều hướng bên">
-    <header class="sidebar-header">
-      <!-- Khi thu gọn: icon mở rộng; Khi mở rộng: icon thu gọn -->
-      <button class="toggler sidebar-toggler" type="button" aria-label="Mở sidebar" title="Expand">
-        <i class="fas fa-angles-right" aria-hidden="true"></i>
-      </button>
-    </header>
+    <!-- Header (fixed, does not shift when sidebar toggles) -->
+    <header class="header" role="banner">
+      <a href="#" class="header__logo">
+        <img src="./assets/images/thuanflu-avatar.jpg" alt="Quách Phú Thuận" class="logo__avatar" />
+        <h1 class="logo__site-title">Portfolio</h1>
+      </a>
 
-    <nav class="sidebar-nav" aria-label="Điều hướng chính">
-      <ul class="nav-list primary-nav">
-        <li class="nav-item"><a href="#about" class="nav-link"><i class="fas fa-user nav-icon"></i><span class="nav-label">About me</span></a></li>
-        <li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-code nav-icon"></i><span class="nav-label">Skills</span></a></li>
-        <li class="nav-item"><a href="#experience" class="nav-link"><i class="fas fa-briefcase nav-icon"></i><span class="nav-label">Experience</span></a></li>
-        <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope nav-icon"></i><span class="nav-label">Contact</span></a></li>
-        <li class="nav-item"><a href="#team" class="nav-link"><i class="fas fa-people-group nav-icon"></i><span class="nav-label">Team</span></a></li>
-      </ul>
+      <div class="header__controls">
+        <a class="controls__iconlink" href="#" aria-label="Github">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a class="controls__iconlink" href="mailto:you@example.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
 
-      <div class="sidebar-actions">
-        <button class="action-btn action-btn--help" type="button" aria-label="Help">
-          <i class="fa-solid fa-circle-question"></i><span class="action-label">Help</span>
+        <button class="controls__language-toggle" aria-label="Toggle language VI/EN">
+          <i class="fas fa-globe"></i>
+          <span class="lang-text">VI</span>
         </button>
-        <button class="action-btn action-btn--notify" type="button" aria-label="Notifications">
-          <i class="fa-solid fa-bell"></i><span class="action-label">Notifications</span>
+        <button class="controls__theme-toggle" aria-label="Toggle light/dark theme">
+          <i class="fas fa-moon"></i>
         </button>
       </div>
-    </nav>
-  </aside>
+    </header>
 
-  <!-- ========= MAIN: bọc About, Skills, (Experience, Contact, Team sau này) ========= -->
-  <main id="main-content" class="main">
-    <!-- ========================== ABOUT ========================== -->
+    <!-- Sidebar (fixed overlay, always on top; does not affect layout) -->
+    <aside class="sidebar collapsed" aria-label="Side navigation">
+      <header class="sidebar-header">
+        <button class="toggler sidebar-toggler" type="button" aria-label="Open sidebar" title="Expand">
+          <i class="fas fa-angles-right" aria-hidden="true"></i>
+        </button>
+      </header>
+
+      <nav class="sidebar-nav" aria-label="Primary navigation">
+        <ul class="nav-list primary-nav">
+          <li class="nav-item">
+            <a href="#about" class="nav-link">
+              <i class="fas fa-user nav-icon"></i><span class="nav-label">About me</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#skills" class="nav-link">
+              <i class="fas fa-code nav-icon"></i><span class="nav-label">Skills</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#experience" class="nav-link">
+              <i class="fas fa-briefcase nav-icon"></i><span class="nav-label">Experience</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">
+              <i class="fas fa-envelope nav-icon"></i><span class="nav-label">Contact</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#team" class="nav-link">
+              <i class="fas fa-people-group nav-icon"></i><span class="nav-label">Team</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="sidebar-actions">
+          <button class="action-btn action-btn--help" type="button" aria-label="Help">
+            <i class="fa-solid fa-circle-question"></i><span class="action-label">Help</span>
+          </button>
+          <button class="action-btn action-btn--notify" type="button" aria-label="Notifications">
+            <i class="fa-solid fa-bell"></i><span class="action-label">Notifications</span>
+          </button>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- ABOUT -->
     <section id="about" class="about" role="region" aria-labelledby="about-title">
       <div class="about__container">
         <header class="about__header">
-          <h1 id="about-title" class="about__title">Quách Phú Thuận</h1>
-          <h2 class="about__subtitle">
-            I'm a <span class="about__highlight" aria-label="Job title highlighted">Software Engineer</span>
-          </h2>
+          <h2 id="about-title" class="about__title">Quách Phú Thuận</h2>
+          <p class="about__subtitle">
+            I'm a <span class="about__highlight" aria-label="Highlighted role">Software Engineer</span>
+          </p>
           <p class="about__desc">
-            I’m a full stack software and AI engineer who builds end to end products,
-            from performant backends and polished interfaces to ML powered features that solve real problems,
-            with a focus on scalability, reliability, and clean architecture.
+            I’m a full stack software and AI engineer who builds end to end products, from performant backends and
+            polished interfaces to ML powered features that solve real problems, with a focus on scalability,
+            reliability, and clean architecture.
           </p>
           <div class="about__actions">
             <a class="about__btn" href="#" download aria-label="Download my CV">Download CV</a>
             <ul class="about__social" aria-label="Social profiles">
-              <li class="about__social-item"><a class="about__social-link" href="#" aria-label="Github"><i class="fa-brands fa-github" aria-hidden="true"></i></a></li>
-              <li class="about__social-item"><a class="about__social-link" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a></li>
-              <li class="about__social-item"><a class="about__social-link" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a></li>
-              <li class="about__social-item"><a class="about__social-link" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a></li>
+              <li class="about__social-item">
+                <a class="about__social-link" href="#" aria-label="Github"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+              </li>
+              <li class="about__social-item">
+                <a class="about__social-link" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+              </li>
+              <li class="about__social-item">
+                <a class="about__social-link" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+              </li>
+              <li class="about__social-item">
+                <a class="about__social-link" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+              </li>
             </ul>
           </div>
         </header>
 
         <figure class="about__avatar" aria-label="Profile picture">
-          <img class="about__photo" src="./assets/images/thuanflu-black.jpg" alt="Portrait photo" loading="eager" decoding="async" />
+          <img
+            class="about__photo"
+            src="./assets/images/thuanflu-black.jpg"
+            alt="Portrait photo"
+            loading="eager"
+            decoding="async"
+          />
           <span class="about__ring about__ring--outer" aria-hidden="true"></span>
         </figure>
       </div>
     </section>
-    <!-- ======================== /END ABOUT ======================= -->
+    <!-- /ABOUT -->
 
-    <!-- ======================== SKILLS ======================= -->
+    <!-- SKILLS -->
     <section id="skills" class="skills" aria-labelledby="skills-title">
       <div class="skills__container">
-        <!-- Label dọc bên trái + gạch nhấn -->
+        <!-- Vertical label + vertical line -->
         <div class="skills__label" aria-hidden="true">
           <span>Skills</span>
-          <i class="skills__label-underline"></i>
+          <i class="skills__label-underline" aria-hidden="true"></i>
         </div>
 
-        <!-- Title + mô tả (center, gradient, hover đổi màu) -->
+        <!-- Title + short description -->
         <header class="skills__header">
           <h2 id="skills-title" class="skills__title">What I do</h2>
           <p id="skills-desc" class="skills__desc">
-            Tôi thiết kế trải nghiệm web hiện đại, truy cập tốt và xây dựng dịch vụ ổn định
-            với sự kết hợp thực dụng giữa front-end, back-end, cơ sở dữ liệu và DevOps.
+            Tôi thiết kế trải nghiệm web hiện đại, truy cập tốt và xây dựng dịch vụ ổn định với sự kết hợp thực dụng
+            giữa front-end, back-end, cơ sở dữ liệu và DevOps.
           </p>
         </header>
 
         <div class="skills__content">
-          <!-- Panel lưới icon -->
+          <!-- Icon grid panel -->
           <div class="skills__panel">
             <!-- Front-end -->
             <div class="skills__group is-active" data-skill="fe" aria-label="Front-end">
-              <button class="badge" data-tip="HTML5: Ngôn ngữ đánh dấu chuẩn, semantic & truy cập tốt.">
-                <img alt="HTML" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"/>
+              <button class="badge" data-tip="HTML5">
+                <img alt="HTML5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
               </button>
-              <button class="badge" data-tip="CSS3: Bố cục hiện đại (Grid/Flex), responsive.">
-                <img alt="CSS" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"/>
+              <button class="badge" data-tip="CSS3">
+                <img alt="CSS3" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
               </button>
-              <button class="badge" data-tip="JavaScript (ESNext): Ngôn ngữ lập trình của web.">
-                <img alt="JavaScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/>
+              <button class="badge" data-tip="JavaScript">
+                <img alt="JavaScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
               </button>
-              <button class="badge" data-tip="TypeScript: JavaScript có kiểu tĩnh, quy mô lớn an toàn hơn.">
-                <img alt="TypeScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"/>
+              <button class="badge" data-tip="TypeScript">
+                <img alt="TypeScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
               </button>
-              <button class="badge" data-tip="React: Thư viện UI khai báo dựa trên component.">
-                <img alt="React" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/>
+              <button class="badge" data-tip="React">
+                <img alt="React" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
               </button>
-              <button class="badge" data-tip="Redux Toolkit: Quản lý state dự đoán được.">
-                <img alt="Redux" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg"/>
+              <button class="badge" data-tip="Redux Toolkit">
+                <img alt="Redux Toolkit" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" />
               </button>
-              <button class="badge" data-tip="TanStack Query (React Query): Quản lý server-state & cache hiệu quả.">
-                <img alt="React Query" src="https://raw.githubusercontent.com/TanStack/query/main/media/emblem.svg"/>
+              <button class="badge" data-tip="React Query">
+                <img alt="React Query" src="https://cdn.simpleicons.org/reactquery" />
               </button>
-              <button class="badge" data-tip="Tailwind CSS: Utility-first, ship UI cực nhanh.">
-                <img alt="Tailwind CSS" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"/>
+              <button class="badge" data-tip="Tailwind CSS">
+                <img alt="Tailwind CSS" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" />
               </button>
             </div>
 
-            <!-- Back-end (đã bỏ TypeORM & Mongoose) -->
+            <!-- Back-end -->
             <div class="skills__group" data-skill="be" hidden aria-label="Back-end">
-              <button class="badge" data-tip="Node.js: Runtime JavaScript phía server.">
-                <img alt="NodeJS" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"/>
+              <button class="badge" data-tip="Node.js">
+                <img alt="Node.js" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
               </button>
-              <button class="badge" data-tip="Express: Web framework tối giản cho Node.js.">
-                <img alt="Express" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"/>
+              <button class="badge" data-tip="Express">
+                <img alt="Express" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" />
               </button>
-              <button class="badge" data-tip="NestJS: Framework server Node.js dựa trên kiến trúc mô-đun.">
-                <img alt="NestJS" src="https://cdn.worldvectorlogo.com/logos/nestjs.svg"/>
+              <button class="badge" data-tip="NestJS">
+                <img alt="NestJS" src="https://cdn.worldvectorlogo.com/logos/nestjs.svg" />
               </button>
-              <button class="badge" data-tip="Java 21: Nền tảng OOP mạnh mẽ, đa hệ sinh thái.">
-                <img alt="Java" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"/>
+              <button class="badge" data-tip="Java 21">
+                <img alt="Java" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
               </button>
-              <button class="badge" data-tip="Spring Boot: Xây microservice nhanh, cấu hình tối thiểu.">
-                <img alt="Spring Boot" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"/>
+              <button class="badge" data-tip="Spring Boot">
+                <img alt="Spring Boot" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" />
               </button>
-              <button class="badge" data-tip="Spring Security: Bảo mật xác thực/ủy quyền cho ứng dụng Spring.">
-                <img alt="Spring Security" src="https://cdn.worldvectorlogo.com/logos/spring-security-1.svg"/>
+              <button class="badge" data-tip="Spring Security">
+                <img alt="Spring Security" src="https://cdn.simpleicons.org/springsecurity" />
               </button>
-              <button class="badge" data-tip="Spring Data JPA: Truy cập dữ liệu qua JPA/Hibernate.">
-                <img alt="Spring Data JPA" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg"/>
+              <button class="badge" data-tip="Spring Data JPA">
+                <img alt="Spring Data JPA" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" />
               </button>
-              <button class="badge" data-tip="Maven: Quản lý build & phụ thuộc cho Java.">
-                <img alt="Maven" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg"/>
+              <button class="badge" data-tip="Maven">
+                <img alt="Maven" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" />
               </button>
-              <button class="badge" data-tip="Socket.IO: Giao tiếp realtime hai chiều.">
-                <img alt="Socket.IO" src="https://cdn.worldvectorlogo.com/logos/socket-io-1.svg"/>
+              <button class="badge" data-tip="Socket.IO">
+                <img alt="Socket.IO" src="https://cdn.worldvectorlogo.com/logos/socket-io-1.svg" />
               </button>
             </div>
 
             <!-- Databases -->
             <div class="skills__group" data-skill="db" hidden aria-label="Databases">
-              <button class="badge" data-tip="PostgreSQL: CSDL quan hệ mạnh mẽ, nhiều tính năng.">
-                <img alt="PostgreSQL" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"/>
+              <button class="badge" data-tip="PostgreSQL">
+                <img alt="PostgreSQL" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
               </button>
-              <button class="badge" data-tip="MySQL: CSDL quan hệ phổ biến, hiệu năng tốt.">
-                <img alt="MySQL" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"/>
+              <button class="badge" data-tip="MySQL">
+                <img alt="MySQL" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />
               </button>
-              <button class="badge" data-tip="MongoDB: CSDL NoSQL dạng document linh hoạt.">
-                <img alt="MongoDB" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"/>
+              <button class="badge" data-tip="MongoDB">
+                <img alt="MongoDB" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" />
               </button>
-              <button class="badge" data-tip="Redis: Bộ nhớ khóa-giá trị tốc độ cao để cache/queue.">
-                <img alt="Redis" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg"/>
+              <button class="badge" data-tip="Redis">
+                <img alt="Redis" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" />
               </button>
             </div>
 
             <!-- DevOps -->
             <div class="skills__group" data-skill="devops" hidden aria-label="DevOps">
-              <button class="badge" data-tip="Docker: Đóng gói & chạy ứng dụng trong container.">
-                <img alt="Docker" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/>
+              <button class="badge" data-tip="Docker">
+                <img alt="Docker" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
               </button>
-              <button class="badge" data-tip="GitHub Actions: CI/CD ngay trong GitHub.">
-                <img alt="GitHub Actions" src="https://cdn.worldvectorlogo.com/logos/github-actions.svg"/>
+              <button class="badge" data-tip="GitHub Actions">
+                <img alt="GitHub Actions" src="https://cdn.simpleicons.org/githubactions" />
               </button>
-              <button class="badge" data-tip="AWS EC2: Máy chủ ảo trên AWS để triển khai ứng dụng.">
-                <img alt="AWS EC2" src="https://cdn.worldvectorlogo.com/logos/amazon-ec2.svg"/>
+              <button class="badge" data-tip="AWS EC2">
+                <img alt="AWS EC2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" />
               </button>
-              <button class="badge" data-tip="AWS S3: Lưu trữ đối tượng bền vững, mở rộng.">
-                <img alt="AWS S3" src="https://cdn.worldvectorlogo.com/logos/amazon-s3.svg"/>
+              <button class="badge" data-tip="AWS S3">
+                <img alt="AWS S3" src="https://cdn.worldvectorlogo.com/logos/amazon-s3.svg" />
               </button>
-              <button class="badge" data-tip="Vercel: Hosting & edge cho front-end hiện đại.">
-                <img alt="Vercel" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"/>
+              <button class="badge" data-tip="Vercel">
+                <img alt="Vercel" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" />
               </button>
             </div>
 
-            <!-- English (TOEIC redesigned) -->
+            <!-- English (TOEIC meters) -->
             <div class="skills__group" data-skill="en" hidden aria-label="English">
               <div class="english">
                 <div class="english__row">
@@ -257,13 +297,13 @@
                 </div>
                 <div class="english__overall">
                   <i class="fa-solid fa-certificate" aria-hidden="true"></i>
-                  <span>Tổng <strong>855 / 990</strong></span>
+                  <span>Total <strong>855 / 990</strong></span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Thanh tab dọc (đã thu gọn) -->
+          <!-- Vertical tab rail (right side) -->
           <nav class="skills__tabs" role="tablist" aria-orientation="vertical">
             <button class="skills__tab is-active" role="tab" aria-selected="true" data-target="fe">
               <i class="fa-solid fa-code"></i><span>Front-end</span>
@@ -285,17 +325,16 @@
         </div>
       </div>
 
-      <!-- Tooltip cho icon -->
+      <!-- Tooltip for tech names -->
       <div class="skilltip" id="skilltip" role="tooltip" hidden>
         <div class="skilltip__inner"></div>
       </div>
     </section>
-    <!-- ======================== /END SKILLS ======================= -->
-  </main>
+    <!-- /SKILLS -->
+  </div>
 
-  <!-- JS -->
+  <!-- Scripts (unchanged) -->
   <script src="./assets/js/sidebar-menu.js" defer></script>
-  <!-- (đúng tên file) -->
   <script src="./assets/js/background-neural.js" defer></script>
   <script src="./assets/js/skills.js" defer></script>
 </body>

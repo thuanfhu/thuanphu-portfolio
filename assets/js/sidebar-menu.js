@@ -3,33 +3,30 @@ const sidebar = document.querySelector(".sidebar");
 const sidebarToggler = document.querySelector(".sidebar-toggler");
 const togglerIcon = sidebarToggler?.querySelector("i");
 
-// Gắn cờ trạng thái lên <body> để CSS có thể căn chỉnh avatar header, lề section...
+// Mirror the collapsed state onto <body> so CSS can adapt margins etc.
 function setBodyCollapsedState(collapsed) {
   document.body.classList.toggle("is-collapsed", collapsed);
 }
 
-// Safety
 if (sidebar && sidebarToggler && togglerIcon) {
-  // Helper: update icon + aria attributes based on state
+  // Update icon and ARIA attrs based on current state
   const updateTogglerUI = () => {
     const isCollapsed = sidebar.classList.contains("collapsed");
     if (isCollapsed) {
-      // Collapsed -> show expand icon
       togglerIcon.classList.remove("fa-angles-left");
       togglerIcon.classList.add("fa-angles-right");
-      sidebarToggler.setAttribute("aria-label", "Mở sidebar");
+      sidebarToggler.setAttribute("aria-label", "Open sidebar");
       sidebarToggler.setAttribute("title", "Expand");
     } else {
-      // Expanded -> show collapse icon
       togglerIcon.classList.remove("fa-angles-right");
       togglerIcon.classList.add("fa-angles-left");
-      sidebarToggler.setAttribute("aria-label", "Thu gọn sidebar");
+      sidebarToggler.setAttribute("aria-label", "Collapse sidebar");
       sidebarToggler.setAttribute("title", "Collapse");
     }
     setBodyCollapsedState(isCollapsed);
   };
 
-  // HTML khởi tạo đã có class "collapsed"
+  // Initial state defined in HTML (class "collapsed")
   updateTogglerUI();
 
   // Toggle on click
@@ -38,7 +35,7 @@ if (sidebar && sidebarToggler && togglerIcon) {
     updateTogglerUI();
   });
 
-  // Refresh UI on resize (không đổi chiều cao)
+  // Re-apply UI on resize (no height changes)
   window.addEventListener("resize", () => {
     updateTogglerUI();
   });
