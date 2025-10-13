@@ -18,7 +18,7 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    xintegrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
@@ -87,6 +87,11 @@
           <li class="nav-item">
             <a href="#skills" class="nav-link">
               <i class="fas fa-code nav-icon"></i><span class="nav-label">Skills</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link">
+              <i class="fas fa-folder-open nav-icon"></i><span class="nav-label">Projects</span>
             </a>
           </li>
           <li class="nav-item">
@@ -331,11 +336,119 @@
       </div>
     </section>
     <!-- /SKILLS -->
+    
+    <!-- PROJECTS -->
+    <section id="projects" class="projects" aria-labelledby="projects-title">
+      <div class="projects__container">
+        <header class="projects__header">
+          <h2 id="projects-title" class="projects__title">My Projects</h2>
+          <p class="projects__desc">
+            A timeline of key projects I've developed, showcasing my journey in building modern, real-time applications.
+          </p>
+        </header>
+
+        <div class="projects__timeline">
+          <div class="projects__progress">
+            <div class="projects__progress-bar"></div>
+          </div>
+
+          <!-- Project Item 1: Veltra -->
+          <article class="projects__item">
+            <div class="projects__item-left">
+              <time class="projects__date">04/10/2024 - 01/02/2025</time>
+            </div>
+            <div class="projects__item-center">
+              <div class="projects__item-circle"></div>
+            </div>
+            <div class="projects__item-right">
+              <div class="projects__content">
+                <h3 class="projects__name">Veltra</h3>
+                <p class="projects__description">
+                  Veltra là một nền tảng mạng xã hội thời gian thực, nơi mọi tương tác diễn ra tức thì và sống động như cuộc trò chuyện thật. Người dùng có thể đăng bài chia sẻ cảm xúc, hình ảnh và nhận phản hồi ngay lập tức qua hệ thống thả cảm xúc và bình luận. Song song đó, Veltra mang đến trải nghiệm nhắn tin thời gian thực qua WebSocket — tin nhắn, emoji và thông báo đều cập nhật tức thì, giúp mọi cuộc trò chuyện trở nên liền mạch và tự nhiên. Đây là không gian kết nối, chia sẻ và tương tác nhanh chóng, hiện đại, nơi người dùng cảm nhận rõ nhịp sống “real-time” của mạng xã hội thế hệ mới. Dự án được xây dựng trên nền tảng <strong>React.js</strong>, <strong>Nest.js</strong>, <strong>TypeScript</strong>, <strong>MySQL</strong> và <strong>Socket.IO</strong>, đảm bảo hiệu suất cao và trải nghiệm mượt mà cho người dùng.
+                </p>
+              </div>
+              <figure class="projects__image-wrapper">
+                <img src="https://plus.unsplash.com/premium_photo-1759893044893-0eb689d0ac38?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Q0R3dXdYSkFiRXd8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=600" loading="lazy" alt="Veltra Project" />
+              </figure>
+            </div>
+          </article>
+
+          <!-- Project Item 2: Sevina -->
+          <article class="projects__item">
+            <div class="projects__item-left">
+              <time class="projects__date">19/03/2025 - 01/05/2025</time>
+            </div>
+            <div class="projects__item-center">
+              <div class="projects__item-circle"></div>
+            </div>
+            <div class="projects__item-right">
+              <div class="projects__content">
+                <h3 class="projects__name">Sevina</h3>
+                <p class="projects__description">
+                  Sevina là nền tảng cho thuê xe tự lái thông minh tích hợp <strong>GPS và vehicle tracking thời gian thực</strong>, mang đến trải nghiệm thuê – trả xe nhanh chóng, minh bạch và an toàn. Người dùng có thể dễ dàng tìm trạm xe gần nhất trên bản đồ, đặt trước xe theo nhu cầu, thanh toán qua <strong>VNPAY</strong> và sử dụng <strong>mã QR điện tử</strong> để mở khóa xe. Trong suốt hành trình, vị trí phương tiện được cập nhật liên tục qua <strong>WebSocket</strong>, cho phép quản lý và giám sát trực quan trên <strong>GoongMap dashboard</strong>. Hệ thống hỗ trợ quản lý toàn bộ quy trình từ xác thực tài khoản, thuê và trả xe, đến theo dõi lịch sử chuyến đi – tất cả đều tự động, an toàn và liền mạch. Dự án được phát triển trên nền tảng <strong>ReactJS</strong>, <strong>TypeScript</strong>, <strong>Spring Boot</strong>, <strong>PostgreSQL</strong>, <strong>GoongMap API</strong>, <strong>WebSocket</strong>, và <strong>VNPAY</strong>, hướng đến mục tiêu trở thành giải pháp giao thông hiện đại và thời gian thực cho người dùng Việt Nam.
+                </p>
+              </div>
+              <figure class="projects__image-wrapper">
+                <img src="https://plus.unsplash.com/premium_photo-1759893044893-0eb689d0ac38?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Q0R3dXdYSkFiRXd8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=600" loading="lazy" alt="Sevina Project" />
+              </figure>
+            </div>
+          </article>
+
+          <!-- Project Item 3: PreziQ! -->
+          <article class="projects__item">
+            <div class="projects__item-left">
+              <time class="projects__date">15/03/2025 - 31/07/2025</time>
+            </div>
+            <div class="projects__item-center">
+              <div class="projects__item-circle"></div>
+            </div>
+            <div class="projects__item-right">
+              <div class="projects__content">
+                <h3 class="projects__name">PreziQ!</h3>
+                <p class="projects__description">
+                  PreziQ! là nền tảng học tập tương tác kết hợp trình chiếu và trò chơi giáo dục, mang đến trải nghiệm “vừa học vừa chơi” sống động và thời gian thực. Người dùng có thể tạo slide giảng dạy trực tiếp với hiệu ứng, hình ảnh, âm thanh, đồng thời chèn các câu hỏi trắc nghiệm tương tác đa dạng như chọn đáp án, nối cặp, nhập câu trả lời hay chọn vị trí trên bản đồ. Trong các phiên học live, người tham gia thi đấu trực tiếp qua WebSocket, điểm số và bảng xếp hạng được cập nhật tức thì, tạo cảm giác kịch tính và cuốn hút như một trò chơi thực thụ. Hệ thống gamification giúp người học tích điểm, nhận huy hiệu và theo dõi tiến độ chi tiết, biến việc học thành một hành trình thú vị và đầy động lực. Dự án được phát triển với <strong>Next.js</strong>, <strong>TypeScript</strong>, <strong>Spring Boot</strong>, <strong>PostgreSQL</strong>, và <strong>STOMP</strong>, mang lại hiệu năng cao cùng trải nghiệm tương tác mượt mà và hiện đại.
+                </p>
+              </div>
+              <figure class="projects__image-wrapper">
+                <img src="https://plus.unsplash.com/premium_photo-1759893044893-0eb689d0ac38?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Q0R3dXdYSkFiRXd8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=600" loading="lazy" alt="PreziQ! Project" />
+              </figure>
+            </div>
+          </article>
+          
+          <!-- Project Item 4: Fundelio -->
+          <article class="projects__item">
+            <div class="projects__item-left">
+              <time class="projects__date">20/10/2025 - 15/11/2025</time>
+            </div>
+            <div class="projects__item-center">
+              <div class="projects__item-circle"></div>
+            </div>
+            <div class="projects__item-right">
+              <div class="projects__content">
+                <h3 class="projects__name">Fundelio</h3>
+                <p class="projects__description">
+                  <strong>Fundelio</strong> là nền tảng gây quỹ cộng đồng dành cho startup theo mô hình <strong>phần thưởng (reward-based crowdfunding)</strong>, nơi founder có thể tạo chiến dịch, đặt mục tiêu, phần thưởng và nhận ủng hộ từ cộng đồng. Backer chọn gói hỗ trợ phù hợp, theo dõi tiến độ và bảng xếp hạng đóng góp <strong>cập nhật thời gian thực</strong>, trong khi hệ thống đảm bảo minh bạch với cơ chế <strong>all-or-nothing</strong>: đạt mục tiêu thì chuyển vốn, không đạt sẽ <strong>hoàn tiền tự động</strong>. Dự án được phát triển bằng <strong>Laravel</strong>, <strong>React.js</strong>, <strong>MySQL</strong> và <strong>WebSocket</strong>, mang lại trải nghiệm gây quỹ hiện đại, an toàn và minh bạch.
+                </p>
+              </div>
+              <figure class="projects__image-wrapper">
+                <img src="https://plus.unsplash.com/premium_photo-1759893044893-0eb689d0ac38?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Q0R3dXdYSkFiRXd8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=600" loading="lazy" alt="Fundelio Project" />
+              </figure>
+            </div>
+          </article>
+          
+          <div class="projects__fade-top"></div>
+          <div class="projects__fade-bottom"></div>
+        </div>
+      </div>
+    </section>
+    <!-- /PROJECTS -->
+
   </div>
 
   <!-- Scripts -->
   <script src="./assets/js/sidebar-menu.js" defer></script>
   <script src="./assets/js/background-neural.js" defer></script>
   <script src="./assets/js/skills.js" defer></script>
+  <script src="./assets/js/projects-timeline.js" defer></script>
 </body>
 </html>
