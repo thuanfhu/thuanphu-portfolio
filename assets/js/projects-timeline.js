@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const timeline = document.querySelector('.projects__timeline');
   const progressBar = document.querySelector('.projects__progress-bar');
   const projectItems = document.querySelectorAll('.projects__item');
+  const projectNodes = document.querySelectorAll('.projects__item-circle');
 
   if (!timeline || !progressBar) {
     console.warn('Timeline elements not found, animations will not run.');
@@ -29,6 +30,19 @@ document.addEventListener('DOMContentLoaded', () => {
       // If we are above the timeline, reset the bar
       progressBar.style.height = '0%';
     }
+
+    const progressRect = progressBar.getBoundingClientRect();
+    const progressBottom = progressRect.top + progressRect.height;
+
+    projectNodes.forEach(node => {
+      const nodeRect = node.getBoundingClientRect();
+      const nodeCenter = nodeRect.top + nodeRect.height / 2;
+      if (nodeCenter <= progressBottom) {
+        node.classList.add('is-active');
+      } else {
+        node.classList.remove('is-active');
+      }
+    });
   };
   
   window.addEventListener('scroll', handleScroll, { passive: true });

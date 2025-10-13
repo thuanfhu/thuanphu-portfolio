@@ -12,7 +12,7 @@
   --r-20: color-mix(in oklab, var(--r-base) 20%, rgb(202, 201, 201));
 
   --header-h: 72px;
-  --sidebar-w: 236px;  /* expanded width */
+  --sidebar-w: 185px;  /* expanded width */
   --sidebar-w-c: 86px; /* collapsed width */
   --radius: 16px;
 
@@ -362,6 +362,7 @@ h6,
   max-width: 200px;
   opacity: 1;
   transition: max-width .22s ease, opacity .18s ease;
+  font-size: 14px;
 }
 .sidebar.collapsed .nav-label,
 .sidebar.collapsed .action-label { max-width: 0; opacity: 0; }
@@ -572,18 +573,25 @@ h6,
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: clamp(32px, 4.8vw, 54px);
   line-height: 1.15; margin: 0 0 10px 0;
-  background: linear-gradient(90deg, #EA285B, #0894E2);
+  background: linear-gradient(90deg, #0a4f9e, #0894E2, #73d4ff);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; color: transparent;
   text-shadow: 0 6px 32px color-mix(in oklab, var(--r-base) 30%, transparent);
-  transition: filter .25s, background .35s ease;
+  transition: filter .25s;
 }
 .skills__title:hover {
-  background: linear-gradient(90deg, #0894E2, #EA285B);
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
+  filter: none;
+  background: linear-gradient(90deg, #0a4f9e, #0894E2, #73d4ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-.skills__desc { margin: 0 auto; color: var(--about-muted); max-width: 80ch; line-height: 1.6; }
+.skills__desc {
+  margin: 0 auto;
+  color: var(--about-muted);
+  max-width: 80ch;
+  line-height: 1.6;
+}
 
 /* Layout */
 .skills__content {
@@ -762,7 +770,7 @@ h6,
 .projects {
   position: relative;
   z-index: 10;
-  background-color: var(--bg);
+  background-color: transparent;
   padding: clamp(56px, 8vw, 96px) 0;
   margin: 0 auto;
 }
@@ -784,10 +792,9 @@ h6,
   font-size: clamp(32px, 4.8vw, 54px);
   line-height: 1.15;
   margin: 0 0 10px 0;
-  background: linear-gradient(90deg, #EA285B, #0894E2);
+  background: linear-gradient(90deg, #0a4f9e, #0894E2, #73d4ff);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
   color: transparent;
   text-shadow: 0 6px 32px color-mix(in oklab, var(--r-base) 30%, transparent);
 }
@@ -798,6 +805,7 @@ h6,
   max-width: 60ch;
   margin: 0 auto;
   line-height: 1.6;
+  text-align: center;
 }
 
 .projects__timeline {
@@ -845,6 +853,21 @@ h6,
   line-height: 1.2;
   position: sticky;
   top: calc(50vh - 20px); /* center vertically */
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.projects__date-start,
+.projects__date-end {
+  display: block;
+}
+
+.projects__date-sep {
+  font-size: 18px;
+  color: #0894E2;
 }
 
 .projects__name {
@@ -852,17 +875,22 @@ h6,
   font-weight: 700;
   margin-bottom: 16px;
   color: var(--text);
+  text-align: center;
+  background: linear-gradient(90deg, #0a4f9e, #0894E2, #73d4ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .projects__description {
   color: var(--muted);
   font-size: 16px;
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.6;
   margin-bottom: 24px;
 }
 .projects__description strong {
-  color: var(--r-40);
+  color: #0894E2;
   font-weight: 600;
 }
 
@@ -891,10 +919,15 @@ h6,
   border: 3px solid var(--bg);
   z-index: 2;
 }
+.projects__item-circle.is-active {
+  background-color: #0894E2;
+  border: 3px solid #fff;
+  box-shadow: 0 0 8px #fff;
+}
 
 .projects__progress {
   z-index: 0;
-  background-color: var(--border);
+  background-color: #1F1F22;
   width: 3px;
   height: 100%;
   position: absolute;
@@ -924,11 +957,11 @@ h6,
 }
 .projects__fade-top {
   top: 0;
-  background-image: linear-gradient(to bottom, var(--bg), transparent);
+  background-image: none;
 }
 .projects__fade-bottom {
   bottom: 0;
-  background-image: linear-gradient(to top, var(--bg), transparent);
+  background-image: none;
 }
 
 /* Responsive for Projects */
@@ -976,8 +1009,6 @@ h6,
   }
 }
 
-.sidebar:not(.collapsed) ~ .about,
-.sidebar:not(.collapsed) ~ .skills,
-.sidebar:not(.collapsed) ~ .projects {
+.sidebar:not(.collapsed) ~ .about {
   margin-left: calc(var(--sidebar-w) + var(--main-safe-gap));
 }

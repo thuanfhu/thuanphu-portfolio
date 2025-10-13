@@ -80,42 +80,37 @@
       <nav class="sidebar-nav" aria-label="Primary navigation">
         <ul class="nav-list primary-nav">
           <li class="nav-item">
-            <a href="#about" class="nav-link">
+            <a href="#about" class="nav-link" data-label="About me">
               <i class="fas fa-user nav-icon"></i><span class="nav-label">About me</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#skills" class="nav-link">
+            <a href="#skills" class="nav-link" data-label="Skills">
               <i class="fas fa-code nav-icon"></i><span class="nav-label">Skills</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#projects" class="nav-link">
+            <a href="#projects" class="nav-link" data-label="Projects">
               <i class="fas fa-folder-open nav-icon"></i><span class="nav-label">Projects</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#experience" class="nav-link">
-              <i class="fas fa-briefcase nav-icon"></i><span class="nav-label">Experience</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#contact" class="nav-link">
+            <a href="#contact" class="nav-link" data-label="Contact">
               <i class="fas fa-envelope nav-icon"></i><span class="nav-label">Contact</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#team" class="nav-link">
+            <a href="#team" class="nav-link" data-label="Team">
               <i class="fas fa-people-group nav-icon"></i><span class="nav-label">Team</span>
             </a>
           </li>
         </ul>
 
         <div class="sidebar-actions">
-          <button class="action-btn action-btn--help" type="button" aria-label="Help">
+          <button class="action-btn action-btn--help" type="button" aria-label="Help" data-label="Help">
             <i class="fa-solid fa-circle-question"></i><span class="action-label">Help</span>
           </button>
-          <button class="action-btn action-btn--notify" type="button" aria-label="Notifications">
+          <button class="action-btn action-btn--notify" type="button" aria-label="Notifications" data-label="Notifications">
             <i class="fa-solid fa-bell"></i><span class="action-label">Notifications</span>
           </button>
         </div>
@@ -131,9 +126,7 @@
             I'm a <span class="about__highlight" aria-label="Highlighted role">Software Engineer</span>
           </p>
           <p class="about__desc">
-            I’m a full stack software and AI engineer who builds end to end products, from performant backends and
-            polished interfaces to ML powered features that solve real problems, with a focus on scalability,
-            reliability, and clean architecture.
+            Tôi là kỹ sư phần mềm full stack và AI xây dựng các sản phẩm end-to-end, từ backend hiệu năng cao và giao diện trau chuốt đến những tính năng ML giải quyết bài toán thực tế, luôn chú trọng khả năng mở rộng, độ tin cậy và kiến trúc tinh gọn.
           </p>
           <div class="about__actions">
             <a class="about__btn" href="#" download aria-label="Download my CV">Download CV</a>
@@ -179,10 +172,9 @@
 
         <!-- Title + short description -->
         <header class="skills__header">
-          <h2 id="skills-title" class="skills__title">What I do</h2>
+          <h2 id="skills-title" class="skills__title">Năng lực chuyên môn</h2>
           <p id="skills-desc" class="skills__desc">
-            Tôi thiết kế trải nghiệm web hiện đại, truy cập tốt và xây dựng dịch vụ ổn định với sự kết hợp thực dụng
-            giữa front-end, back-end, cơ sở dữ liệu và DevOps.
+            Tôi có kĩ năng chuyên môn cả front-end, back-end, DevOps cùng hệ thống dữ liệu, đồng thời sở hữu nền tảng tiếng Anh vững chắc để phối hợp hiệu quả trong các nhóm đa quốc gia.
           </p>
         </header>
 
@@ -341,9 +333,9 @@
     <section id="projects" class="projects" aria-labelledby="projects-title">
       <div class="projects__container">
         <header class="projects__header">
-          <h2 id="projects-title" class="projects__title">My Projects</h2>
+          <h2 id="projects-title" class="projects__title">Dự án tiêu biểu</h2>
           <p class="projects__desc">
-            A timeline of key projects I've developed, showcasing my journey in building modern, real-time applications.
+            Dòng thời gian các dự án tiêu biểu tôi đã phát triển, phản ánh hành trình xây dựng những ứng dụng thời gian thực hiện đại.
           </p>
         </header>
 
@@ -355,7 +347,11 @@
           <!-- Project Item 1: Veltra -->
           <article class="projects__item">
             <div class="projects__item-left">
-              <time class="projects__date">04/10/2024 - 01/02/2025</time>
+              <time class="projects__date" datetime="2024-10-04/2025-02-01">
+                <span class="projects__date-start">4th October 2024</span>
+                <i class="fa-solid fa-arrow-down-long projects__date-sep" aria-hidden="true"></i>
+                <span class="projects__date-end">1st February 2025</span>
+              </time>
             </div>
             <div class="projects__item-center">
               <div class="projects__item-circle"></div>
@@ -376,7 +372,11 @@
           <!-- Project Item 2: Sevina -->
           <article class="projects__item">
             <div class="projects__item-left">
-              <time class="projects__date">19/03/2025 - 01/05/2025</time>
+              <time class="projects__date" datetime="2025-03-19/2025-05-01">
+                <span class="projects__date-start">19th March 2025</span>
+                <i class="fa-solid fa-arrow-down-long projects__date-sep" aria-hidden="true"></i>
+                <span class="projects__date-end">1st May 2025</span>
+              </time>
             </div>
             <div class="projects__item-center">
               <div class="projects__item-circle"></div>
@@ -397,7 +397,11 @@
           <!-- Project Item 3: PreziQ! -->
           <article class="projects__item">
             <div class="projects__item-left">
-              <time class="projects__date">15/03/2025 - 31/07/2025</time>
+              <time class="projects__date" datetime="2025-03-15/2025-07-31">
+                <span class="projects__date-start">15th March 2025</span>
+                <i class="fa-solid fa-arrow-down-long projects__date-sep" aria-hidden="true"></i>
+                <span class="projects__date-end">31st July 2025</span>
+              </time>
             </div>
             <div class="projects__item-center">
               <div class="projects__item-circle"></div>
@@ -418,7 +422,11 @@
           <!-- Project Item 4: Fundelio -->
           <article class="projects__item">
             <div class="projects__item-left">
-              <time class="projects__date">20/10/2025 - 15/11/2025</time>
+              <time class="projects__date" datetime="2025-10-20/2025-11-15">
+                <span class="projects__date-start">20th October 2025</span>
+                <i class="fa-solid fa-arrow-down-long projects__date-sep" aria-hidden="true"></i>
+                <span class="projects__date-end">15th November 2025</span>
+              </time>
             </div>
             <div class="projects__item-center">
               <div class="projects__item-circle"></div>
@@ -427,7 +435,7 @@
               <div class="projects__content">
                 <h3 class="projects__name">Fundelio</h3>
                 <p class="projects__description">
-                  <strong>Fundelio</strong> là nền tảng gây quỹ cộng đồng dành cho startup theo mô hình <strong>phần thưởng (reward-based crowdfunding)</strong>, nơi founder có thể tạo chiến dịch, đặt mục tiêu, phần thưởng và nhận ủng hộ từ cộng đồng. Backer chọn gói hỗ trợ phù hợp, theo dõi tiến độ và bảng xếp hạng đóng góp <strong>cập nhật thời gian thực</strong>, trong khi hệ thống đảm bảo minh bạch với cơ chế <strong>all-or-nothing</strong>: đạt mục tiêu thì chuyển vốn, không đạt sẽ <strong>hoàn tiền tự động</strong>. Dự án được phát triển bằng <strong>Laravel</strong>, <strong>React.js</strong>, <strong>MySQL</strong> và <strong>WebSocket</strong>, mang lại trải nghiệm gây quỹ hiện đại, an toàn và minh bạch.
+                  <strong>Fundelio</strong> là nền tảng gây quỹ cộng đồng dành cho startup theo mô hình <strong>phần thưởng (reward-based crowdfunding)</strong>, nơi founder tạo chiến dịch, đặt mục tiêu và các gói phần thưởng minh bạch. Backer theo dõi tiến độ và bảng xếp hạng đóng góp <strong>cập nhật thời gian thực</strong>, trong khi hệ thống áp dụng <strong>cơ chế all-or-nothing</strong>: đạt mục tiêu thì chuyển vốn, không đạt sẽ được <strong>hoàn tiền tự động</strong>. Toàn bộ nền tảng được xây dựng bằng <strong>Laravel</strong>, <strong>React.js</strong>, <strong>MySQL</strong> và <strong>WebSocket</strong>, đảm bảo trải nghiệm gây quỹ hiện đại, an toàn và minh bạch.
                 </p>
               </div>
               <figure class="projects__image-wrapper">
