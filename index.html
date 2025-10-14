@@ -18,7 +18,7 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    xintegrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
@@ -129,7 +129,7 @@
             Tôi là kỹ sư phần mềm full stack và AI xây dựng các sản phẩm end-to-end, từ backend hiệu năng cao và giao diện trau chuốt đến những tính năng ML giải quyết bài toán thực tế, luôn chú trọng khả năng mở rộng, độ tin cậy và kiến trúc tinh gọn.
           </p>
           <div class="about__actions">
-            <a class="about__btn" href="#" download aria-label="Download my CV">Download CV</a>
+            <a class="about__btn" href="#contact" aria-label="Hire me">Hire me</a>
             <ul class="about__social" aria-label="Social profiles">
               <li class="about__social-item">
                 <a class="about__social-link" href="#" aria-label="Github"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
@@ -162,169 +162,318 @@
     <!-- /ABOUT -->
 
     <!-- SKILLS -->
-    <section id="skills" class="skills" aria-labelledby="skills-title">
-      <div class="skills__container">
-        <!-- Vertical label + vertical line -->
-        <div class="skills__label" aria-hidden="true">
-          <span>Skills</span>
-          <i class="skills__label-underline" aria-hidden="true"></i>
-        </div>
+    <section id="skills" class="skills" role="region" aria-labelledby="skills-heading">
+      <header class="skills__intro">
+        <h2 id="skills-heading" class="skills__heading">Năng lực chuyên môn</h2>
+        <p class="skills__description">
+          Tôi có kĩ năng chuyên môn cả front-end, back-end, DevOps cùng hệ thống dữ liệu, đồng thời sở hữu nền tảng tiếng Anh vững chắc để phối hợp hiệu quả trong các nhóm đa quốc gia.
+        </p>
+      </header>
 
-        <!-- Title + short description -->
-        <header class="skills__header">
-          <h2 id="skills-title" class="skills__title">Năng lực chuyên môn</h2>
-          <p id="skills-desc" class="skills__desc">
-            Tôi có kĩ năng chuyên môn cả front-end, back-end, DevOps cùng hệ thống dữ liệu, đồng thời sở hữu nền tảng tiếng Anh vững chắc để phối hợp hiệu quả trong các nhóm đa quốc gia.
-          </p>
-        </header>
-
-        <div class="skills__content">
-          <!-- Icon grid panel -->
-          <div class="skills__panel">
-            <!-- Front-end -->
-            <div class="skills__group is-active" data-skill="fe" aria-label="Front-end">
-              <button class="badge" data-tip="HTML5">
-                <img alt="HTML5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
-              </button>
-              <button class="badge" data-tip="CSS3">
-                <img alt="CSS3" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
-              </button>
-              <button class="badge" data-tip="JavaScript">
-                <img alt="JavaScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
-              </button>
-              <button class="badge" data-tip="TypeScript">
-                <img alt="TypeScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
-              </button>
-              <button class="badge" data-tip="React">
-                <img alt="React" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
-              </button>
-              <button class="badge" data-tip="Redux Toolkit">
-                <img alt="Redux Toolkit" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" />
-              </button>
-              <button class="badge" data-tip="React Query">
-                <img alt="React Query" src="https://cdn.simpleicons.org/reactquery" />
-              </button>
-              <button class="badge" data-tip="Tailwind CSS">
-                <img alt="Tailwind CSS" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" />
-              </button>
-            </div>
-
-            <!-- Back-end -->
-            <div class="skills__group" data-skill="be" hidden aria-label="Back-end">
-              <button class="badge" data-tip="Node.js">
-                <img alt="Node.js" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
-              </button>
-              <button class="badge" data-tip="Express">
-                <img alt="Express" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" />
-              </button>
-              <button class="badge" data-tip="NestJS">
-                <img alt="NestJS" src="https://cdn.worldvectorlogo.com/logos/nestjs.svg" />
-              </button>
-              <button class="badge" data-tip="Java 21">
-                <img alt="Java" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
-              </button>
-              <button class="badge" data-tip="Spring Boot">
-                <img alt="Spring Boot" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" />
-              </button>
-              <button class="badge" data-tip="Spring Security">
-                <img alt="Spring Security" src="https://cdn.simpleicons.org/springsecurity" />
-              </button>
-              <button class="badge" data-tip="Spring Data JPA">
-                <img alt="Spring Data JPA" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" />
-              </button>
-              <button class="badge" data-tip="Maven">
-                <img alt="Maven" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" />
-              </button>
-              <button class="badge" data-tip="Socket.IO">
-                <img alt="Socket.IO" src="https://cdn.worldvectorlogo.com/logos/socket-io-1.svg" />
-              </button>
-            </div>
-
-            <!-- Databases -->
-            <div class="skills__group" data-skill="db" hidden aria-label="Databases">
-              <button class="badge" data-tip="PostgreSQL">
-                <img alt="PostgreSQL" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
-              </button>
-              <button class="badge" data-tip="MySQL">
-                <img alt="MySQL" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />
-              </button>
-              <button class="badge" data-tip="MongoDB">
-                <img alt="MongoDB" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" />
-              </button>
-              <button class="badge" data-tip="Redis">
-                <img alt="Redis" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" />
-              </button>
-            </div>
-
-            <!-- DevOps -->
-            <div class="skills__group" data-skill="devops" hidden aria-label="DevOps">
-              <button class="badge" data-tip="Docker">
-                <img alt="Docker" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
-              </button>
-              <button class="badge" data-tip="GitHub Actions">
-                <img alt="GitHub Actions" src="https://cdn.simpleicons.org/githubactions" />
-              </button>
-              <button class="badge" data-tip="AWS EC2">
-                <img alt="AWS EC2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" />
-              </button>
-              <button class="badge" data-tip="AWS S3">
-                <img alt="AWS S3" src="https://cdn.worldvectorlogo.com/logos/amazon-s3.svg" />
-              </button>
-              <button class="badge" data-tip="Vercel">
-                <img alt="Vercel" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" />
-              </button>
-            </div>
-
-            <!-- English -->
-            <div class="skills__group" data-skill="en" hidden aria-label="English">
-              <div class="english">
-                <div class="english__row">
-                  <i class="fa-solid fa-headphones-simple english__icon" aria-hidden="true"></i>
-                  <div class="meter" data-score="460" data-max="495" data-color="#0894E2">
-                    <div class="meter__fill"></div>
-                  </div>
-                  <span class="english__score">Listening 460 / 495</span>
-                </div>
-                <div class="english__row">
-                  <i class="fa-solid fa-book-open english__icon" aria-hidden="true"></i>
-                  <div class="meter" data-score="395" data-max="495" data-color="#0894E2">
-                    <div class="meter__fill"></div>
-                  </div>
-                  <span class="english__score">Reading 395 / 495</span>
-                </div>
-                <div class="english__overall">
-                  <i class="fa-solid fa-certificate" aria-hidden="true"></i>
-                  <span>Total <strong>855 / 990</strong></span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Vertical tab rail (right side) -->
+      <div class="skills__wrap">
+        <aside class="skills__panel" aria-label="Skill categories and icons">
           <nav class="skills__tabs" role="tablist" aria-orientation="vertical">
-            <button class="skills__tab is-active" role="tab" aria-selected="true" data-target="fe">
-              <i class="fa-solid fa-code"></i><span>Front-end</span>
+            <button class="skills__tab skills__tab--active" role="tab" aria-selected="true" data-target="fe">
+              <i class="fa-solid fa-code" aria-hidden="true"></i><span>Front-end</span>
             </button>
             <button class="skills__tab" role="tab" aria-selected="false" data-target="be">
-              <i class="fa-solid fa-server"></i><span>Back-end</span>
+              <i class="fa-solid fa-server" aria-hidden="true"></i><span>Back-end</span>
             </button>
             <button class="skills__tab" role="tab" aria-selected="false" data-target="db">
-              <i class="fa-solid fa-database"></i><span>Databases</span>
+              <i class="fa-solid fa-database" aria-hidden="true"></i><span>Databases</span>
             </button>
             <button class="skills__tab" role="tab" aria-selected="false" data-target="devops">
-              <i class="fa-solid fa-gears"></i><span>DevOps</span>
-            </button>
-            <button class="skills__tab" role="tab" aria-selected="false" data-target="en">
-              <i class="fa-solid fa-language"></i><span>English</span>
+              <i class="fa-solid fa-gears" aria-hidden="true"></i><span>DevOps</span>
             </button>
             <span class="skills__rail" aria-hidden="true"></span>
           </nav>
-        </div>
-      </div>
 
-      <!-- Tooltip for tech names -->
-      <div class="skilltip" id="skilltip" role="tooltip" hidden>
-        <div class="skilltip__inner"></div>
+          <div class="skills__icons skills__icons--active" data-skill="fe" aria-label="Front-end">
+            <button class="skills__icon" data-tip="HTML5"><img alt="HTML5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" /></button>
+            <button class="skills__icon" data-tip="CSS3"><img alt="CSS3" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" /></button>
+            <button class="skills__icon" data-tip="JavaScript"><img alt="JavaScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" /></button>
+            <button class="skills__icon" data-tip="TypeScript"><img alt="TypeScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" /></button>
+            <button class="skills__icon" data-tip="React"><img alt="React" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" /></button>
+            <button class="skills__icon" data-tip="Redux Toolkit"><img alt="Redux Toolkit" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" /></button>
+            <button class="skills__icon" data-tip="React Query"><img alt="React Query" src="https://cdn.simpleicons.org/reactquery" /></button>
+            <button class="skills__icon" data-tip="Tailwind CSS"><img alt="Tailwind CSS" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" /></button>
+          </div>
+
+          <div class="skills__icons" data-skill="be" hidden aria-label="Back-end">
+            <button class="skills__icon" data-tip="Node.js"><img alt="Node.js" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" /></button>
+            <button class="skills__icon" data-tip="Express"><img alt="Express" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" /></button>
+            <button class="skills__icon" data-tip="NestJS"><img alt="NestJS" src="https://cdn.worldvectorlogo.com/logos/nestjs.svg" /></button>
+            <button class="skills__icon" data-tip="Java 21"><img alt="Java" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" /></button>
+            <button class="skills__icon" data-tip="Spring Boot"><img alt="Spring Boot" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" /></button>
+            <button class="skills__icon" data-tip="Spring Security"><img alt="Spring Security" src="https://cdn.simpleicons.org/springsecurity" /></button>
+            <button class="skills__icon" data-tip="Spring Data JPA"><img alt="Spring Data JPA" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" /></button>
+            <button class="skills__icon" data-tip="Maven"><img alt="Maven" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" /></button>
+            <button class="skills__icon" data-tip="Socket.IO"><img alt="Socket.IO" src="https://cdn.worldvectorlogo.com/logos/socket-io-1.svg" /></button>
+          </div>
+
+          <div class="skills__icons" data-skill="db" hidden aria-label="Databases">
+            <button class="skills__icon" data-tip="PostgreSQL"><img alt="PostgreSQL" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" /></button>
+            <button class="skills__icon" data-tip="MySQL"><img alt="MySQL" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" /></button>
+            <button class="skills__icon" data-tip="MongoDB"><img alt="MongoDB" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" /></button>
+            <button class="skills__icon" data-tip="Redis"><img alt="Redis" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" /></button>
+          </div>
+
+          <div class="skills__icons" data-skill="devops" hidden aria-label="DevOps">
+            <button class="skills__icon" data-tip="Docker"><img alt="Docker" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" /></button>
+            <button class="skills__icon" data-tip="GitHub Actions"><img alt="GitHub Actions" src="https://cdn.simpleicons.org/githubactions" /></button>
+            <button class="skills__icon" data-tip="AWS EC2"><img alt="AWS EC2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" /></button>
+            <button class="skills__icon" data-tip="AWS S3"><img alt="AWS S3" src="https://cdn.worldvectorlogo.com/logos/amazon-s3.svg" /></button>
+            <button class="skills__icon" data-tip="Vercel"><img alt="Vercel" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" /></button>
+          </div>
+        </aside>
+
+        <div class="skills__grid" aria-live="polite">
+          <div class="skills__group skills__group--active" data-skill="fe">
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Proficiency</strong> · Advanced</p>
+              <h3 class="skills__card-title">HTML5</h3>
+              <p class="skills__card-bio">Semantic markup, accessibility, SEO-friendly structures, forms, and modern APIs.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="HTML5" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+                <a class="skills__since" href="#">Since 2014</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Stylesheet</strong> · Core</p>
+              <h3 class="skills__card-title">CSS3</h3>
+              <p class="skills__card-bio">Layout techniques, specificity, custom properties, animations, and responsive units.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="CSS3" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
+                <a class="skills__since" href="#">Since 1996</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Utility CSS</strong> · Preferred</p>
+              <h3 class="skills__card-title">Tailwind CSS</h3>
+              <p class="skills__card-bio">Utility-first styling, design tokens, responsive breakpoints, and component patterns.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="Tailwind CSS" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" />
+                <a class="skills__since" href="#">Since 2019</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Language</strong> · Core</p>
+              <h3 class="skills__card-title">JavaScript</h3>
+              <p class="skills__card-bio">ESNext syntax, async/await, modules, DOM APIs, testing, and tooling.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="JavaScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+                <a class="skills__since" href="#">Since 1995</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Language</strong> · Strongly typed</p>
+              <h3 class="skills__card-title">TypeScript</h3>
+              <p class="skills__card-bio">Types, generics, utility types, strict mode, and DX with modern toolchains.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="TypeScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
+                <a class="skills__since" href="#">Since 2012</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Framework</strong> · Primary</p>
+              <h3 class="skills__card-title">React</h3>
+              <p class="skills__card-bio">Hooks, router, component composition, performance, and testing.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="React" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
+                <a class="skills__since" href="#">Since 2013</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>State</strong> · App-level</p>
+              <h3 class="skills__card-title">Redux Toolkit</h3>
+              <p class="skills__card-bio">Slices, RTK Query basics, immer reducers, and predictable state containers.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="Redux Toolkit" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" />
+                <a class="skills__since" href="#">Since 2019</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Server-state</strong> · Caching</p>
+              <h3 class="skills__card-title">React Query</h3>
+              <p class="skills__card-bio">Query caching, mutations, stale-time, background refetching, and optimistic updates.</p>
+              <footer class="skills__card-meta>
+                <img class="skills__card-logo" alt="React Query" src="https://cdn.simpleicons.org/reactquery" />
+                <a class="skills__since" href="#">Since 2020</a>
+              </footer>
+            </article>
+          </div>
+
+          <div class="skills__group" data-skill="be" hidden>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Runtime</strong> · Production</p>
+              <h3 class="skills__card-title">Node.js</h3>
+              <p class="skills__card-bio">REST APIs, streams, cluster, authentication, and scalable structuring.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="Node.js" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
+                <a class="skills__since" href="#">Since 2009</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Framework</strong> · HTTP</p>
+              <h3 class="skills__card-title">Express</h3>
+              <p class="skills__card-bio">Middlewares, routing, validation, error handling, and rate-limiting.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="Express" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" />
+                <a class="skills__since" href="#">Since 2010</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Framework</strong> · Scalable</p>
+              <h3 class="skills__card-title">NestJS</h3>
+              <p class="skills__card-bio">Modular architecture, validation pipes, guards, and CQRS basics.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="NestJS" src="https://cdn.worldvectorlogo.com/logos/nestjs.svg" />
+                <a class="skills__since" href="#">Since 2017</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Realtime</strong> · WebSocket</p>
+              <h3 class="skills__card-title">Socket.IO</h3>
+              <p class="skills__card-bio">Namespaces, rooms, acknowledgements, fallbacks, and scaling.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="Socket.IO" src="https://cdn.worldvectorlogo.com/logos/socket-io-1.svg" />
+                <a class="skills__since" href="#">Since 2014</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Language</strong> · LTS</p>
+              <h3 class="skills__card-title">Java 21</h3>
+              <p class="skills__card-bio">Records, sealed classes, virtual threads (Project Loom), pattern matching.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="Java" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
+                <a class="skills__since" href="#">Since 2023</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Framework</strong> · Enterprise</p>
+              <h3 class="skills__card-title">Spring Boot</h3>
+              <p class="skills__card-bio">REST, configuration, testing, actuator, and production hardening.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="Spring Boot" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" />
+                <a class="skills__since" href="#">Since 2014</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Security</strong> · AuthN/Z</p>
+              <h3 class="skills__card-title">Spring Security</h3>
+              <p class="skills__card-bio">JWT/OAuth2, RBAC, filters, and method-level security.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="Spring Security" src="https://cdn.simpleicons.org/springsecurity" />
+                <a class="skills__since" href="#">Since 2004</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Persistence</strong> · ORM</p>
+              <h3 class="skills__card-title">Spring Data JPA</h3>
+              <p class="skills__card-bio">Repositories, transactions, criteria, and performance tuning.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="Spring Data JPA" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg" />
+                <a class="skills__since" href="#">Since 2011</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Build</strong> · Java</p>
+              <h3 class="skills__card-title">Maven</h3>
+              <p class="skills__card-bio">Multi-module builds, BOMs, profiles, and reproducible artifacts.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="Maven" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" />
+                <a class="skills__since" href="#">Since 2004</a>
+              </footer>
+            </article>
+          </div>
+
+          <div class="skills__group" data-skill="db" hidden>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>SQL</strong> · Prod-ready</p>
+              <h3 class="skills__card-title">PostgreSQL</h3>
+              <p class="skills__card-bio">Schema design, indexes, CTEs, window functions, transactions, and EXPLAIN plans.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="PostgreSQL" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
+                <a class="skills__since" href="#">Since 1997</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>SQL</strong> · Familiar</p>
+              <h3 class="skills__card-title">MySQL</h3>
+              <p class="skills__card-bio">InnoDB basics, replication concepts, query tuning, and ORM best practices.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="MySQL" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />
+                <a class="skills__since" href="#">Since 1995</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>NoSQL</strong> · Document</p>
+              <h3 class="skills__card-title">MongoDB</h3>
+              <p class="skills__card-bio">Aggregation pipelines, schema design patterns, and operational considerations.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="MongoDB" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" />
+                <a class="skills__since" href="#">Since 2009</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Cache</strong> · In-memory</p>
+              <h3 class="skills__card-title">Redis</h3>
+              <p class="skills__card-bio">Caching strategies, pub/sub, rate-limiting counters, and job queues.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="Redis" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" />
+                <a class="skills__since" href="#">Since 2009</a>
+              </footer>
+            </article>
+          </div>
+
+          <div class="skills__group" data-skill="devops" hidden>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Container</strong> · Daily driver</p>
+              <h3 class="skills__card-title">Docker</h3>
+              <p class="skills__card-bio">Multi-stage builds, Compose, image optimization, and environment parity.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="Docker" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
+                <a class="skills__since" href="#">Since 2013</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>CI/CD</strong> · Pipelines</p>
+              <h3 class="skills__card-title">GitHub Actions</h3>
+              <p class="skills__card-bio">Build, test, deploy workflows with caching, matrix builds, and secrets hygiene.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="GitHub Actions" src="https://cdn.simpleicons.org/githubactions" />
+                <a class="skills__since" href="#">Since 2019</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Cloud</strong> · Compute</p>
+              <h3 class="skills__card-title">AWS EC2</h3>
+              <p class="skills__card-bio">VM provisioning, security groups, images, and autoscaling basics.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="AWS EC2" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" />
+                <a class="skills__since" href="#">Since 2008</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Cloud</strong> · Storage</p>
+              <h3 class="skills__card-title">AWS S3</h3>
+              <p class="skills__card-bio">Buckets, object lifecycles, policies, static hosting, and CDN basics.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="AWS S3" src="https://cdn.worldvectorlogo.com/logos/amazon-s3.svg" />
+                <a class="skills__since" href="#">Since 2006</a>
+              </footer>
+            </article>
+            <article class="skills__card" tabindex="0">
+              <p class="skills__meta"><strong>Edge</strong> · Deploy</p>
+              <h3 class="skills__card-title">Vercel</h3>
+              <p class="skills__card-bio">Preview deployments, serverless functions, and static asset optimization.</p>
+              <footer class="skills__card-meta">
+                <img class="skills__card-logo" alt="Vercel" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" />
+                <a class="skills__since" href="#">Since 2020</a>
+              </footer>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
     <!-- /SKILLS -->
