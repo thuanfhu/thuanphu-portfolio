@@ -40,3 +40,52 @@ if (sidebar && sidebarToggler && togglerIcon) {
     updateTogglerUI();
   });
 }
+
+const backToTopBtn = document.querySelector(".back-to-top");
+
+if (backToTopBtn) {
+  const toggleBackToTop = () => {
+    if (window.scrollY > 320) {
+      backToTopBtn.classList.add("is-visible");
+    } else {
+      backToTopBtn.classList.remove("is-visible");
+    }
+  };
+
+  window.addEventListener("scroll", toggleBackToTop, { passive: true });
+  toggleBackToTop();
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+const sidebarLinks = document.querySelectorAll('.sidebar .nav-link[href^="#"]');
+
+if (sidebarLinks.length) {
+  const header = document.querySelector(".header");
+
+  sidebarLinks.forEach(link => {
+    link.addEventListener("click", event => {
+      const hash = link.getAttribute("href");
+      if (!hash || hash === "#") {
+        return;
+      }
+
+      const target = document.querySelector(hash);
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
+      const headerOffset = header ? header.offsetHeight : 0;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY;
+      const offsetTop = Math.max(targetTop - headerOffset - 16, 0);
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth"
+      });
+    });
+  });
+}

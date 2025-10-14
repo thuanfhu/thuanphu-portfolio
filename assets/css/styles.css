@@ -389,9 +389,7 @@ h6,
   padding-left: 0;
   padding-right: 0;
 
-  margin-left: calc(var(--sidebar-w) + var(--main-safe-gap) + 30px);
-  margin-top: -120px;
-  margin-right: auto;
+  margin: auto auto auto calc(var(--sidebar-w) + var(--main-safe-gap) + 30px);
   max-width: var(--about-maxw);
 
   display: grid;
@@ -536,7 +534,7 @@ h6,
 .skills {
   position: relative;
   z-index: 10;
-  padding: clamp(56px, 8vw, 96px) 0;
+  padding: clamp(28px, 4.5vw, 56px) 0;
   margin: 0 auto;
   max-width: var(--about-maxw);
   --background-color: #262626;
@@ -584,6 +582,8 @@ h6,
   background-clip: text;
   color: transparent;
   text-shadow: 0 6px 32px color-mix(in oklab, var(--r-base) 30%, transparent);
+  font-weight: 900;
+  line-height: 1.25;
 }
 
 .skills__description {
@@ -591,17 +591,17 @@ h6,
   max-width: 70ch;
   line-height: 1.6;
   color: var(--muted);
+  font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, "Montserrat", sans-serif;
 }
 
 .skills__wrap {
   max-width: 1600px;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: 30px 60px;
   background-color: rgba(0, 0, 0, 0);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(18px);
   display: flex;
-  padding-top: calc(60px * 1.5);
   box-shadow: var(--card-shadow);
   gap: clamp(24px, 5vw, 40px);
 }
@@ -899,7 +899,7 @@ h6,
   position: relative;
   z-index: 10;
   background-color: transparent;
-  padding: clamp(56px, 8vw, 96px) 0;
+  padding: clamp(28px, 4.5vw, 56px) 0;
   margin: 0 auto;
 }
 
@@ -925,6 +925,7 @@ h6,
   background-clip: text;
   color: transparent;
   text-shadow: 0 6px 32px color-mix(in oklab, var(--r-base) 30%, transparent);
+  font-weight: 900;
 }
 
 .projects__desc {
@@ -1185,4 +1186,45 @@ h6,
 
 .sidebar:not(.collapsed) ~ .about {
   margin-left: calc(var(--sidebar-w) + var(--main-safe-gap) + 30px);
+}
+
+/* =============================== BACK TO TOP BUTTON =============================== */
+.back-to-top {
+  position: fixed;
+  bottom: clamp(12px, 3vw, 22px);
+  right: clamp(12px, 3vw, 22px);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: rgba(71, 76, 86, 0.75);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 24px rgba(120, 119, 119, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+  z-index: 1200;
+}
+
+.back-to-top:hover {
+  background: color-mix(in oklab, var(--r-20) 28%, transparent);
+}
+
+.back-to-top:active {
+  transform: translateY(22px) scale(0.96);
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: none;
+  }
 }
