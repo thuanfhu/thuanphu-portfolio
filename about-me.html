@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me</title>
+
+  <!-- Fonts: Montserrat for headings, Source Sans 3 for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #0f0f10;
+      --panel: #151517;
+      --text: #dddddf;
+      --muted: #a7a7ab;
+      --line: #2a2a2e;
+      --accent: #EA285B; /* red instead of orange */
+      --heading-font: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --body-font: 'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body-font);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* Title */
+    .section-title {
+      font-family: var(--heading-font);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      margin: 0 0 8px;
+    }
+    .title-underline { display:block; margin: 0 0 12px; }
+    .title-underline .bar-lg { display:block; width: 56px; height: 6px; background: var(--accent); border-radius: 6px; }
+    .title-underline .bar-sm { display:none; }
+
+    /* Intro */
+    .intro h2 {
+      font-family: var(--heading-font);
+      font-size: clamp(18px, 2.2vw, 24px);
+      margin: 0 0 12px;
+      font-weight: 800;
+    }
+    .intro h2 .role { color: var(--accent); }
+    .intro p {
+      color: var(--muted);
+      margin: 0 0 24px;
+      max-width: 980px;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 36px;
+      align-items: start;
+    }
+    /* Image column left, details right */
+    .grid > aside.profile-card { justify-self: start; grid-column: 1; }
+    .grid > div { grid-column: 2; padding-left: 0; }
+
+    /* Details list */
+    .details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 36px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+    .detail {
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .detail b { color:#fff; font-weight:700; display:inline-flex; align-items:center; gap:10px; }
+    .detail b i { color: var(--accent); }
+    .detail span {
+      color: var(--muted);
+      margin-left: 8px;
+      white-space: nowrap;
+    }
+
+    /* Buttons row */
+    .actions {
+      display: flex;
+      gap: 18px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      padding: 14px 22px;
+      border-radius: 18px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+      font-family: var(--heading-font);
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(234, 40, 91, 0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--line);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: #fff; }
+
+    /* Profile card (replaces skills bars) */
+    .profile-card {
+      background: transparent; /* remove dark panel */
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      position: sticky; /* keep alignment */
+      top: 24px;
+      box-shadow: none;
+    }
+    .profile-photo {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1; /* square */
+      width: 60%; /* shrink width & height together */
+      margin: 0; /* follow card alignment */
+      background: transparent; /* remove black backdrop */
+      display: grid; place-items: center;
+      border: 0; box-shadow: none; /* remove frame */
+    }
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.05) contrast(1.05);
+    }
+    .ribbon {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--heading-font);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+    .profile-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 12px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .profile-meta .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      text-align: center;
+    }
+
+    /* Accessibility helpers */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* Responsive */
+    @media (max-width: 940px) {
+      .grid { grid-template-columns: 1fr; }
+      .profile-card { position: relative; top: 0; }
+      .grid > div { padding-left: 0; }
+    }
+      .profile-card { position: relative; top: 0; }
+  </style>
+</head>
+<body>
+  <main class="container" aria-labelledby="about-title">
+    <h1 id="about-title" class="section-title">About Me</h1>
+    <div class="title-underline" aria-hidden="true"><span class="bar-lg"></span></div>
+
+    <section class="intro" aria-label="Introduction">
+      <h2>I’m Sajid Ali and <span class="role">Web Developer</span></h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae aspernatur mollitia officia rem doloremque!
+        Esse veniam vel repellat ipsa molestiae consequatur vitae! Quis vitae fuga, eos aperiam a officiis nobis? Esse veniam
+        vel repellat ipsa molestiae consequatur vitae! Quis vitae fuga, eos apeEsse veniam vel repellat ipsa molestiae
+        consequatur vitae! Quis vitae fuga, eos ape
+      </p>
+    </section>
+
+    <section class="grid" aria-label="Details and portrait">
+      <!-- Left: profile photo card -->
+      <aside class="profile-card" aria-label="Profile image">
+        <div class="profile-photo">
+          <span class="ribbon">Profile</span>
+          <!-- Replace the src with your image if desired -->
+          <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=1887&auto=format&fit=crop" alt="Portrait of Sajid Ali in a professional setting" />
+        </div>
+      </aside>
+
+      <!-- Right: personal details + actions -->
+      <div>
+        <div class="details" role="list">
+          <div class="detail" role="listitem"><b><i class="fa-solid fa-cake-candles" aria-hidden="true"></i> Birthday :</b><span>5 june 1999</span></div>
+          <div class="detail" role="listitem"><b><i class="fa-solid fa-user" aria-hidden="true"></i> Age :</b><span>19</span></div>
+
+          <div class="detail" role="listitem"><b><i class="fa-solid fa-globe" aria-hidden="true"></i> Website :</b><span>www.domain.com</span></div>
+          <div class="detail" role="listitem"><b><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email :</b><span>info@gmail.com</span></div>
+
+          <div class="detail" role="listitem"><b><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Degree :</b><span>CS</span></div>
+          <div class="detail" role="listitem"><b><i class="fa-solid fa-phone" aria-hidden="true"></i> Phone :</b><span>+93 000 1999</span></div>
+
+          <div class="detail" role="listitem"><b><i class="fa-solid fa-city" aria-hidden="true"></i> City :</b><span>Rawalpindi</span></div>
+          <div class="detail" role="listitem"><b><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Freelance :</b><span>Availabel</span></div>
+        </div>
+
+        
+      </div>
+    </section>
+  </main>
+</body>
+</html>

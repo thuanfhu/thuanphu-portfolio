@@ -14,7 +14,7 @@
   --r-20: color-mix(in oklab, var(--r-base) 20%, rgb(202, 201, 201));
 
   --header-h: 72px;
-  --sidebar-w: 240px;  /* expanded width */
+  --sidebar-w: 220px;  /* expanded width */
   --sidebar-w-c: 86px; /* collapsed width */
   --radius: 16px;
 

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sở thích (Carousel)</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      :root {
+        --left-position: 55%;
+        --transition-time: 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        background-color: #111111;
+      }
+
+      /* =====================
+         Carousel (BEM)
+      ====================== */
+      .carousel {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .carousel__list .carousel__item {
+        width: 180px;
+        height: 250px;
+        position: absolute;
+        bottom: 150px;
+        left: calc(var(--left-position) + 3%);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+        background-position: center;
+        background-size: cover;
+        z-index: 100;
+        transform: translate(0, 0px);
+        transition: all var(--transition-time);
+      }
+
+      .carousel__list .carousel__item::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(33, 33, 33, 0.5);
+        z-index: 1;
+      }
+
+      .carousel__list .carousel__item:nth-child(1),
+      .carousel__list .carousel__item:nth-child(2) {
+        bottom: 0px;
+        left: 0;
+        border-radius: 0;
+        transform: translate(0, 0px);
+        width: 100%;
+        height: 100%;
+      }
+
+      .carousel__list .carousel__item:nth-child(3) {
+        left: var(--left-position);
+      }
+
+      .carousel__list .carousel__item:nth-child(4) {
+        transition-delay: 0.1s;
+        left: calc(var(--left-position) + 200px);
+      }
+
+      .carousel__list .carousel__item:nth-child(5) {
+        transition-delay: 0.2s;
+        left: calc(var(--left-position) + 400px);
+      }
+
+      .carousel__list .carousel__item:nth-child(6) {
+        transition-delay: 0.3s;
+        left: calc(var(--left-position) + 600px);
+      }
+
+      .carousel__list .carousel__item:nth-child(n + 7) {
+        transition-delay: 0.4s;
+        left: calc(var(--left-position) + 800px);
+      }
+
+      .carousel__content {
+        position: absolute;
+        text-align: left;
+        color: #fff;
+        z-index: 3;
+        left: 0;
+        top: 100%;
+        transform: translateY(-100%);
+        width: 100%;
+        padding: 10px;
+        transition: all var(--transition-time);
+      }
+
+      .carousel__title::before {
+        content: "";
+        display: block;
+        height: 1px;
+        width: 20px;
+        background-color: #fff;
+        margin-bottom: 10px;
+      }
+
+      .carousel__title {
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #ffffff;
+        font-weight: bold;
+        line-height: 1;
+        margin-bottom: 10px;
+        transition: all var(--transition-time);
+        position: relative;
+      }
+
+      .carousel__title::after {
+        content: attr(data-item);
+        border-radius: 50%;
+        color: #fff;
+        font-size: 12px;
+        position: absolute;
+        top: -20px;
+        left: 0px;
+        z-index: 2;
+        font-weight: 400;
+      }
+
+      .carousel__name {
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: 500;
+        line-height: 1;
+        transition: all var(--transition-time);
+        margin-bottom: 10px;
+        color: #d36e10;
+      }
+
+      .carousel__description {
+        font-size: 16px;
+        font-weight: 400;
+        transition: all var(--transition-time);
+        opacity: 0;
+        display: none;
+      }
+
+      .carousel__list .carousel__item:nth-child(1) .carousel__content,
+      .carousel__list .carousel__item:nth-child(2) .carousel__content {
+        transform: translateY(-50%);
+        left: 100px;
+        width: 600px;
+        top: 50%;
+        padding: 0;
+      }
+
+      .carousel__list .carousel__item:nth-child(1) .carousel__title::before,
+      .carousel__list .carousel__item:nth-child(2) .carousel__title::before {
+        width: 50px;
+        height: 3px;
+        margin-bottom: 20px;
+      }
+
+      .carousel__list .carousel__item:nth-child(1) .carousel__title::after,
+      .carousel__list .carousel__item:nth-child(2) .carousel__title::after {
+        font-size: 20px;
+        top: -40px;
+        left: 15px;
+      }
+
+      .carousel__list .carousel__item:nth-child(1) .carousel__title,
+      .carousel__list .carousel__item:nth-child(2) .carousel__title {
+        font-size: 30px;
+        margin-bottom: 20px;
+      }
+
+      .carousel__list .carousel__item:nth-child(1) .carousel__name,
+      .carousel__list .carousel__item:nth-child(2) .carousel__name {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+
+      .carousel__list .carousel__item:nth-child(1) .carousel__description,
+      .carousel__list .carousel__item:nth-child(2) .carousel__description {
+        font-size: 16px;
+        opacity: 1;
+        display: block;
+        width: 400px;
+      }
+
+      @keyframes animate {
+        from {
+          opacity: 0;
+          transform: translate(0, 100px);
+          filter: blur(33px);
+        }
+        to {
+          opacity: 1;
+          transform: translate(0);
+          filter: blur(0);
+        }
+      }
+
+      /* =====================
+         Controls
+      ====================== */
+      .carousel__arrows {
+        position: absolute;
+        bottom: 50px;
+        left: var(--left-position);
+        width: calc(100% - var(--left-position) - 2%);
+        z-index: 100;
+        display: flex;
+        gap: 5%;
+        align-items: center;
+      }
+
+      .carousel__btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        border-radius: 50%;
+        border: 2px solid rgb(255, 255, 255);
+        color: rgb(255, 255, 255);
+        background-color: transparent;
+        outline: none;
+        font-size: 25px;
+        font-weight: bold;
+        transition: all var(--transition-time);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .carousel__btn:hover {
+        border: 2px solid #ffffff;
+        color: #ffffff;
+        background-color: transparent;
+      }
+
+      .carousel__slide-number {
+        font-size: 25px;
+        color: #ffffff;
+        font-weight: 400;
+        margin-left: auto;
+        letter-spacing: 5px;
+        opacity: 0;
+        animation: animate 0.5s ease-in-out 0.3s 1 forwards;
+      }
+
+      .carousel__progress {
+        width: 60%;
+        height: 3px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .carousel__progress-bar {
+        height: 100%;
+        width: 100%;
+        background-color: #d36e10;
+        transition: all var(--transition-time);
+      }
+
+      /* Time running bar disabled (no auto-slide) */
+      .carousel__time-running {
+        position: fixed;
+        z-index: 1000;
+        width: 0%;
+        height: 4px;
+        background-color: #ffffff;
+        left: 0;
+        top: 0;
+        /* No animation to ensure no auto-run visuals */
+      }
+    </style>
+  </head>
+  <body>
+    <section class="carousel" aria-roledescription="carousel">
+      <ul class="carousel__list" aria-live="polite">
+        <li
+          class="carousel__item"
+          style="background-image: url(https://images.pexels.com/photos/552785/pexels-photo-552785.jpeg);"
+        >
+          <article class="carousel__content">
+            <h2 class="carousel__title">NGHE NHẠC JAZZ</h2>
+            <p class="carousel__name">Âm nhạc</p>
+            <p class="carousel__description">
+              Những giai điệu jazz cổ điển lẫn hiện đại giúp mình vừa tập trung vừa thư giãn sau giờ học và làm việc.
+            </p>
+          </article>
+        </li>
+
+        <li
+          class="carousel__item"
+          style="background-image: url(https://images.pexels.com/photos/17804524/pexels-photo-17804524/free-photo-of-barren-rocky-mountains.jpeg);"
+        >
+          <article class="carousel__content">
+            <h2 class="carousel__title">ĐỌC SÁCH YÊN TĨNH</h2>
+            <p class="carousel__name">Đọc sách</p>
+            <p class="carousel__description">
+              Mình thích ngồi trong một căn phòng yên tĩnh để đọc sách kỹ thuật, non‑fiction và cả tiểu thuyết nhằm mở rộng tư duy.
+            </p>
+          </article>
+        </li>
+
+        <li
+          class="carousel__item"
+          style="background-image: url(https://images.pexels.com/photos/6439041/pexels-photo-6439041.jpeg);"
+        >
+          <article class="carousel__content">
+            <h2 class="carousel__title">DU LỊCH VÙNG QUÊ &amp; NÚI</h2>
+            <p class="carousel__name">Du lịch</p>
+            <p class="carousel__description">
+              Mình yêu những hành trình về miền quê và lên núi: không khí trong lành, cảnh vật mộc mạc và nhịp sống chậm rãi.
+            </p>
+          </article>
+        </li>
+
+        <li
+          class="carousel__item"
+          style="background-image: url(https://images.pexels.com/photos/2832061/pexels-photo-2832061.jpeg);"
+        >
+          <article class="carousel__content">
+            <h2 class="carousel__title">TÌNH NGUYỆN</h2>
+            <p class="carousel__name">Cống hiến</p>
+            <p class="carousel__description">
+              Tham gia các hoạt động cộng đồng và dự án xã hội để lan toả giá trị tích cực, học hỏi kỹ năng mềm và kết nối mọi người.
+            </p>
+          </article>
+        </li>
+
+        <li
+          class="carousel__item"
+          style="background-image: url(https://images.pexels.com/photos/552784/pexels-photo-552784.jpeg);"
+        >
+          <article class="carousel__content">
+            <h2 class="carousel__title">HỌC KĨ NĂNG MỚI</h2>
+            <p class="carousel__name">Học tập</p>
+            <p class="carousel__description">
+              Luôn dành thời gian mày mò kiến thức và kỹ năng mới (công nghệ, ngoại ngữ, công cụ), học từ sách và khoá học online.
+            </p>
+          </article>
+        </li>
+
+        <li
+          class="carousel__item"
+          style="background-image: url(https://images.pexels.com/photos/18536296/pexels-photo-18536296/free-photo-of-mountain-peaks-over-clouds.jpeg);"
+        >
+          <article class="carousel__content">
+            <h2 class="carousel__title">BƠI LỘI</h2>
+            <p class="carousel__name">Thể thao</p>
+            <p class="carousel__description">
+              Bơi giúp mình thư giãn cơ thể, tăng sức bền và giữ nhịp sống cân bằng sau những giờ làm việc căng thẳng.
+            </p>
+          </article>
+        </li>
+
+        <li
+          class="carousel__item"
+          style="background-image: url(https://images.pexels.com/photos/7616134/pexels-photo-7616134.jpeg);"
+        >
+          <article class="carousel__content">
+            <h2 class="carousel__title">NHIẾP ẢNH</h2>
+            <p class="carousel__name">Sáng tạo</p>
+            <p class="carousel__description">
+              Mình thích săn ánh sáng, chụp phong cảnh và những khoảnh khắc đời thường để lưu lại câu chuyện bằng hình ảnh.
+            </p>
+          </article>
+        </li>
+
+        <li
+          class="carousel__item"
+          style="background-image: url(https://images.pexels.com/photos/20641721/pexels-photo-20641721/free-photo-of-barren-mountains-peaks-under-clouds.jpeg);"
+        >
+          <article class="carousel__content">
+            <h2 class="carousel__title">MYSTIC RIDGES</h2>
+            <p class="carousel__name">Ridges</p>
+            <p class="carousel__description">
+              Discover the mystic beauty of mountain ridges under a cloudy sky.
+              Perfect for adventurers.
+            </p>
+          </article>
+        </li>
+
+        <li
+          class="carousel__item"
+          style="background-image: url(https://images.pexels.com/photos/17977245/pexels-photo-17977245/free-photo-of-barren-mountain-peaks.jpeg);"
+        >
+          <article class="carousel__content">
+            <h2 class="carousel__title">GOLDEN CLIFFS</h2>
+            <p class="carousel__name">Cliffs</p>
+            <p class="carousel__description">
+              Golden cliffs basking in sunlight. A stunning view that captures
+              the heart of nature.
+            </p>
+          </article>
+        </li>
+
+        <li
+          class="carousel__item"
+          style="background-image: url(https://images.pexels.com/photos/2073873/pexels-photo-2073873.jpeg);"
+        >
+          <article class="carousel__content">
+            <h2 class="carousel__title">PEACEFUL VALLEY</h2>
+            <p class="carousel__name">Valley</p>
+            <p class="carousel__description">
+              A peaceful valley surrounded by towering mountains. A perfect
+              destination for solitude.
+            </p>
+          </article>
+        </li>
+      </ul>
+
+      <!-- Controls -->
+      <div class="carousel__arrows" aria-label="Carousel controls">
+        <button class="carousel__btn carousel__btn--prev" aria-label="Previous slide">
+          <i class="bi bi-arrow-left" aria-hidden="true"></i>
+        </button>
+        <button class="carousel__btn carousel__btn--next" aria-label="Next slide">
+          <i class="bi bi-arrow-right" aria-hidden="true"></i>
+        </button>
+        <div class="carousel__slide-number" aria-live="polite"></div>
+        <div class="carousel__progress" aria-hidden="true">
+          <div class="carousel__progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Time running bar (disabled animation) -->
+      <div class="carousel__time-running" aria-hidden="true"></div>
+    </section>
+
+    <script>
+      // ------------------------------
+      // DOM references (BEM selectors)
+      // ------------------------------
+      const nextBtn = document.querySelector(".carousel__btn--next");
+      const prevBtn = document.querySelector(".carousel__btn--prev");
+      const carousel = document.querySelector(".carousel");
+      const list = document.querySelector(".carousel__list");
+      const items = Array.from(document.querySelectorAll(".carousel__item"));
+      const timeRunningBar = document.querySelector(".carousel__time-running");
+      const arrowsWrap = document.querySelector(".carousel__arrows");
+
+      // Timing (keep transition reference, remove auto-next)
+      const TIME_RUNNING = 1500; // matches CSS transition timing
+
+      // No auto slide timeouts
+      let transitionTimeout;
+
+      // Build progress bar references
+      const progressBar = document.querySelector(".carousel__progress-bar");
+
+      // Add index badge to each item (data-item on title)
+      items.forEach((item, index) => {
+        const titleEl = item.querySelector(".carousel__title");
+        if (titleEl) titleEl.setAttribute("data-item", index + 1);
+      });
+
+      // Initial render of slide number & progress
+      updateSlideMeta();
+
+      // Button events (manual only)
+      nextBtn.addEventListener("click", () => handleSliderNavigation("next"));
+      prevBtn.addEventListener("click", () => handleSliderNavigation("prev"));
+
+      // ------------------------------
+      // Handlers
+      // ------------------------------
+      function handleSliderNavigation(direction) {
+        const sliderItems = list.querySelectorAll(".carousel__item");
+        if (direction === "next") {
+          list.appendChild(sliderItems[0]);
+          carousel.classList.add("next");
+        } else if (direction === "prev") {
+          list.prepend(sliderItems[sliderItems.length - 1]);
+          carousel.classList.add("prev");
+        }
+        updateSlideMeta();
+        resetCarouselState();
+      }
+
+      function updateSlideMeta() {
+        // slide number
+        const existing = document.querySelector(".carousel__slide-number");
+        if (existing) existing.remove();
+
+        const sliderItems = Array.from(list.querySelectorAll(".carousel__item"));
+        const activeItemOriginalIndex = parseInt(
+          sliderItems[1].querySelector(".carousel__title").getAttribute("data-item")
+        );
+        const activeIndex = activeItemOriginalIndex < 10 ? `0${activeItemOriginalIndex}` : `${activeItemOriginalIndex}`;
+
+        const div = document.createElement("div");
+        div.classList.add("carousel__slide-number");
+        div.textContent = `${activeIndex}/${sliderItems.length}`;
+        arrowsWrap.appendChild(div);
+
+        // progress bar
+        updateProgressBar();
+      }
+
+      function updateProgressBar() {
+        const totalSlides = items.length;
+        const sliderItems = Array.from(list.querySelectorAll(".carousel__item"));
+        const activeItem = parseInt(
+          sliderItems[0].querySelector(".carousel__title").getAttribute("data-item")
+        ) + 1; // keep original logic offset
+        const progressPercentage = (activeItem / totalSlides) * 100;
+        progressBar.style.width = `${progressPercentage}%`;
+      }
+
+      function resetCarouselState() {
+        clearTimeout(transitionTimeout);
+        transitionTimeout = setTimeout(() => {
+          carousel.classList.remove("next");
+          carousel.classList.remove("prev");
+        }, TIME_RUNNING);
+
+        // Disable any running-time animation (no auto-slide)
+        if (timeRunningBar) {
+          timeRunningBar.style.width = "0%"; // keep it static
+        }
+      }
+    </script>
+  </body>
+</html>
