@@ -38,7 +38,7 @@
     "sidebar about"
     "sidebar skills"
     "sidebar projects"
-    "sidebar team"
+    "sidebar personal-gallery"
     "sidebar contact";
   grid-template-columns: 0 1fr;
   grid-template-rows: auto auto auto auto auto auto;
@@ -52,7 +52,7 @@
 .about { grid-area: about; }
 .skills { grid-area: skills; }
 .projects { grid-area: projects; }
-.team { grid-area: team; }
+#personal-gallery { grid-area: personal-gallery; }
 .contact { grid-area: contact; }
 /* .footer { grid-area: footer; } */ /* Removed from grid */
 
@@ -1244,8 +1244,8 @@ h6,
   }
 }
 
-/* =============================== TEAM GALLERY =============================== */
-.team.gallery {
+/* =============================== PERSONAL GALLERY =============================== */
+#personal-gallery {
   position: relative;
   z-index: 10;
   padding: clamp(28px, 4.5vw, 56px) 0;
@@ -1287,9 +1287,8 @@ h6,
 }
 
 /* Swiper wrapper */
-.team__slider-wrapper {
+.gallery__slider-wrapper {
   max-width: 850px;
-  /* max-height: 450px; */ /* Removed to prevent overflow */
   margin: 0 auto;
   padding: clamp(24px, 4vw, 48px);
   background-color: rgba(84, 84, 84, 0.15);
@@ -1306,6 +1305,11 @@ h6,
   padding: 1.5rem 0 3.25rem;
   position: relative; /* Ensure controls are positioned relative to this */
 }
+.gallery__slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .gallery__slide.swiper-slide {
   width: clamp(18rem, 50vw, 22rem);
   height: clamp(24rem, 50vh, 28rem);
@@ -1319,9 +1323,14 @@ h6,
   display: block;
   overflow: hidden;
   border-radius: 1.6rem;
-  background: #2a2a2e; /* Fix: Themed background color */
-  border: 1px solid var(--border); /* Fix: Themed border */
-  box-shadow: 0 12px 30px rgba(0,0,0,.25), 0 2px 8px rgba(0,0,0,.15); /* Fix: Adjusted shadow */
+  background: #2a2a2e;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0,0,0,.25), 0 2px 8px rgba(0,0,0,.15);
+}
+.gallery__card--landscape {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  width: clamp(24rem, 68vw, 32rem);
 }
 .gallery__image {
   width: 100%;
@@ -1329,76 +1338,6 @@ h6,
   object-fit: cover;
   display: block;
   border-radius: 1.2rem;
-}
-
-.gallery__card-icons {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 2;
-  display: flex;
-  gap: 0.5rem;
-}
-
-.gallery__card-icon {
-  width: 30px;
-  height: 30px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(31, 31, 34, 0.7);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  color: var(--text);
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: background-color 0.2s ease, transform 0.2s ease;
-}
-
-.gallery__card-icon:hover {
-  background: rgba(45, 45, 49, 0.9);
-  transform: scale(1.1);
-}
-
-.gallery__card-icon i {
-  font-size: 13px;
-}
-
-/* Caption */
-.gallery__caption {
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1rem;
-  border-radius: 1rem;
-  background: rgba(31, 31, 34, 0.7);
-  color: var(--text);
-  padding: 1.2rem 1.4rem;
-  backdrop-filter: saturate(120%) blur(1px);
-  -webkit-backdrop-filter: saturate(120%) blur(1px);
-  box-shadow: 0 6px 20px rgba(0,0,0,.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.gallery__name {
-  font-family: "Montserrat", system-ui, sans-serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  line-height: 1.25;
-  margin-bottom: .3rem;
-  color: #82c9ff;
-  white-space: nowrap;
-  text-align: center;
-}
-.gallery__name--leader {
-  color: #EA285B;
-}
-.gallery__desc {
-  font-family: "Source Sans 3", system-ui, sans-serif;
-  font-size: 1.0rem;
-  line-height: 1.4;
-  opacity: .9;
-  color: #d8dde2;
-  text-align: center;
 }
 
 /* Pagination */
