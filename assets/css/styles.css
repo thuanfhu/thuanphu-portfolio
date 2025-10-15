@@ -387,7 +387,7 @@ h6,
 }
 
 /* ========================= ABOUT ========================= */
-.about {
+.banner {
   position: relative;
   z-index: 10;
   color: var(--about-text);
@@ -405,7 +405,7 @@ h6,
   align-items: center;
 }
 
-.about__container {
+.banner__container {
   max-width: var(--about-maxw);
   margin-inline: 0;
   display: grid;
@@ -413,8 +413,8 @@ h6,
   align-items: center;
   gap: clamp(24px, 4vw, 48px);
 }
-.about__header { max-width: min(62vw, 920px); padding-left: 0; }
-.about__title {
+.banner__header { max-width: min(62vw, 920px); padding-left: 0; }
+.banner__title {
   font-weight: 800;
   font-size: clamp(36px, 4.4vw, 72px);
   line-height: 1.6;
@@ -424,13 +424,13 @@ h6,
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.about__subtitle {
+.banner__subtitle {
   font-weight: 700;
   font-size: clamp(18px, 2.6vw, 30px);
   line-height: 1.6;
   margin: 0 0 18px 0;
 }
-.about__highlight {
+.banner__highlight {
   display: inline-block;
   padding: 6px 12px;
   margin-left: 6px;
@@ -441,7 +441,7 @@ h6,
     0 0 0 3px color-mix(in oklab, var(--about-accent) 35%, transparent 65%) inset,
     0 10px 24px color-mix(in oklab, var(--about-accent) 28%, black 72%);
 }
-.about__desc {
+.banner__desc {
   max-width: 66ch;
   color: var(--about-muted);
   font-size: clamp(14px, 2.1vw, 16px);
@@ -454,8 +454,8 @@ h6,
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.about__actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-.about__btn {
+.banner__actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.banner__btn {
   display: inline-block;
   padding: 12px 22px;
   border-radius: 999px;
@@ -471,11 +471,11 @@ h6,
   box-shadow: 0 14px 32px color-mix(in oklab, var(--about-accent) 28%, black 72%);
   transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
 }
-.about__btn:hover { transform: translateY(-1px); filter: brightness(1.03); }
-.about__btn:active { transform: translateY(0);    filter: brightness(.97); }
-.about__social { list-style: none; display: flex; align-items: center; gap: 14px; padding: 0; margin: 0 0 0 4px; }
-.about__social-item { display: inline-flex; }
-.about__social-link {
+.banner__btn:hover { transform: translateY(-1px); filter: brightness(1.03); }
+.banner__btn:active { transform: translateY(0); filter: brightness(.97); }
+.banner__social { list-style: none; display: flex; align-items: center; gap: 14px; padding: 0; margin: 0 0 0 4px; }
+.banner__social-item { display: inline-flex; }
+.banner__social-link {
   --ring: color-mix(in oklab, var(--about-accent) 70%, transparent 30%);
   width: 42px; height: 42px;
   display: inline-grid; place-items: center;
@@ -483,13 +483,12 @@ h6,
   color: var(--about-text); text-decoration: none;
   transition: transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease;
 }
-.about__social-link i { font-size: 18px; line-height: 1; }
-.about__social-link:hover {
+.banner__social-link:hover {
   background: color-mix(in oklab, var(--about-accent) 14%, transparent 86%);
   color: #fff; transform: translateY(-1px);
   box-shadow: 0 8px 22px color-mix(in oklab, var(--about-accent) 24%, black 76%);
 }
-.about__avatar {
+.banner__avatar {
   --ring-size: min(440px, 42vw);
   --ring-border: 6px;
   --ring-color: color-mix(in oklab, var(--about-accent) 75%, transparent 25%);
@@ -501,7 +500,7 @@ h6,
   justify-self: center;
   z-index: 10;
 }
-.about__photo {
+.banner__photo {
   width: calc(var(--ring-size) - var(--ring-border) * 2);
   height: calc(var(--ring-size) - var(--ring-border) * 2);
   object-fit: cover;
@@ -510,33 +509,33 @@ h6,
   clip-path: circle(50% at 50% 50%);
   box-shadow: 0 10px 28px rgba(0, 0, 0, .35);
 }
-.about__ring { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; z-index: 1; }
-.about__ring--outer {
+.banner__ring { position: absolute; inset: 0; border-radius: 50%; pointer-events: none; z-index: 1; }
+.banner__ring--outer {
   border: var(--ring-border) solid var(--ring-color);
   filter: drop-shadow(0 10px 22px color-mix(in oklab, var(--about-accent) 24%, black 76%));
 }
 
 /* --------------------------------- RESPONSIVE -------------------------------- */
 @media (max-width: 980px) {
-  .about {
+  .banner {
     /* still centered on small screens */
     margin-left: auto;
     margin-right: auto;
     min-height: auto;
   }
-  .about__container { grid-template-columns: 1fr; }
-  .about__header { max-width: 100%; padding-left: 0; }
-  .about__title {
+  .banner__container { grid-template-columns: 1fr; }
+  .banner__header { max-width: 100%; padding-left: 0; }
+  .banner__title {
     white-space: normal;
     text-overflow: clip;
     font-size: clamp(28px, 9vw, 42px);
     line-height: 1.12;
   }
-  .about__desc { max-width: 100%; -webkit-line-clamp: 5; line-clamp: 5; }
-  .about__avatar { --ring-size: min(420px, 70vw); order: -1; margin-bottom: 18px; }
+  .banner__desc { max-width: 100%; -webkit-line-clamp: 5; line-clamp: 5; }
+  .banner__avatar { --ring-size: min(420px, 70vw); order: -1; margin-bottom: 18px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .about__btn, .about__social-link { transition: none; }
+  .banner__btn, .banner__social-link { transition: none; }
 }
 
 /* =============================== SKILLS =============================== */
@@ -1193,7 +1192,7 @@ h6,
   }
 }
 
-.sidebar:not(.collapsed) ~ .about {
+.sidebar:not(.collapsed) ~ .banner {
   margin-left: calc(var(--sidebar-w) + var(--main-safe-gap) + 30px);
 }
 
