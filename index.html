@@ -708,7 +708,32 @@
       </div>
     </section>
     <!-- /SKILLS -->
-    
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="achievements" role="region" aria-labelledby="achievements-title">
+      <div class="achievements__container">
+        <h2 id="achievements-title" class="main-title">Dòng thời gian thành tựu</h2>
+
+        <div class="timeline-container">
+          <div class="timeline-grid" id="timeline-desktop-content"></div>
+          <div class="timeline-svg-wrapper" aria-hidden="true">
+            <svg class="timeline-svg" aria-hidden="true">
+              <path id="timeline-path" d=""></path>
+            </svg>
+            <div id="timeline-nodes-container"></div>
+          </div>
+        </div>
+
+        <div class="timeline-list-mobile" id="timeline-mobile-content"></div>
+      </div>
+
+      <div id="imageModal" class="modal" aria-hidden="true" role="dialog">
+        <span class="close-btn" role="button" aria-label="Close preview">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Achievement preview">
+      </div>
+    </section>
+    <!-- /ACHIEVEMENTS -->
+
     <!-- PROJECTS -->
     <section id="projects" class="projects" aria-labelledby="projects-title">
       <div class="projects__container">
@@ -1031,11 +1056,11 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
- 
   <!-- Scripts -->
   <script src="./assets/js/sidebar-menu.js" defer></script>
   <script src="./assets/js/background-neural.js" defer></script>
   <script src="./assets/js/skills.js" defer></script>
+  <script src="./assets/js/achievements.js" defer></script>
   <script src="./assets/js/projects-timeline.js" defer></script>
   <script src="./assets/js/career-goals.js" defer></script>
   <script src="./assets/js/hobbies.js" defer></script>
