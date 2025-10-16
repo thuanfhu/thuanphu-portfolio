@@ -115,6 +115,11 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="#team" class="nav-link" data-label="Team">
+              <i class="fas fa-users nav-icon"></i><span class="nav-label">Team</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="#personal-gallery" class="nav-link" data-label="Personal Gallery">
               <i class="fas fa-images nav-icon"></i><span class="nav-label">Personal Gallery</span>
             </a>
@@ -862,6 +867,53 @@
     </section>
     <!-- /PROJECTS -->
 
+    <!-- TEAM -->
+    <section id="team" class="team" aria-labelledby="team-title">
+      <div class="team__container">
+        <header class="team__header">
+          <h2 id="team-title" class="team__heading">Gặp gỡ đội ngũ</h2>
+          <p class="team__description">
+            Những thành viên cốt cán đã đồng hành và đóng góp vào sự thành công của các dự án.
+          </p>
+        </header>
+
+        <div class="team__slider-wrapper">
+          <!-- 1) TEMPLATE FOR A SLIDE (keeps exact UI) -->
+          <template id="slide-template">
+            <div class="swiper-slide">
+              <div class="card">
+                <div class="card__header">
+                  <img class="card__avatar" alt="" onerror="this.onerror=null;this.src='https://placehold.co/130x130/EFEFEF/333333?text=User';">
+                </div>
+                <div class="card__body">
+                  <h3 class="card__name"></h3>
+                  <p class="card__description"></p>
+                  <div class="card__actions">
+                    <a class="card__icon-btn" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a class="card__icon-btn" target="_blank" rel="noopener" aria-label="Website" title="Website"><i class="fa-solid fa-globe"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+
+          <!-- 2) SWIPER HOST -->
+          <div class="swiper team-swiper">
+            <div class="swiper-wrapper" id="slides-host"></div>
+            <div class="swiper-pagination"></div> <!-- hidden by CSS (we use external one) -->
+          </div>
+
+          <!-- 3) EXTERNAL CONTROLS: prev [2px] pagination [2px] next -->
+          <div class="swiper-controls">
+            <button class="swiper-button-prev" type="button" aria-label="Slide trước"><i class="fa-solid fa-chevron-left swiper-nav-icon" aria-hidden="true"></i></button>
+            <div class="swiper-pagination"></div>
+            <button class="swiper-button-next" type="button" aria-label="Slide sau"><i class="fa-solid fa-chevron-right swiper-nav-icon" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /TEAM -->
+
     <!-- GALLERY -->
     <section id="personal-gallery" class="gallery" aria-labelledby="gallery-title">
       <div class="gallery__container">
@@ -1064,6 +1116,7 @@
   <script src="./assets/js/projects-timeline.js" defer></script>
   <script src="./assets/js/career-goals.js" defer></script>
   <script src="./assets/js/hobbies.js" defer></script>
+  <script src="./assets/js/team.js" defer></script>
   <!-- Swiper JS (for Team Section) -->
   <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
   <script src="./assets/js/personal-gallery-slider.js" defer></script>
