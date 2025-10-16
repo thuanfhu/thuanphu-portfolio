@@ -13,6 +13,9 @@
     rel="stylesheet"
   />
 
+  <!-- Swiper JS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
+
   <!-- Font Awesome -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" xintegrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -942,12 +945,6 @@
 
               <div class="swiper-slide gallery__slide">
                 <figure class="gallery__card">
-                  <img class="gallery__image" src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&w=1200&q=80" alt="Pink peonies close-up" />
-                </figure>
-              </div>
-
-              <div class="swiper-slide gallery__slide">
-                <figure class="gallery__card">
                   <img class="gallery__image" src="https://plus.unsplash.com/premium_photo-1759354756760-b4416a802588?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=764" alt="Pastel floral close-up" />
                 </figure>
               </div>
@@ -955,6 +952,12 @@
               <div class="swiper-slide gallery__slide">
                 <figure class="gallery__card gallery__card--landscape">
                   <img class="gallery__image" src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&q=80&w=1280" alt="Morning skyline with river reflections" />
+                </figure>
+              </div>
+              
+              <div class="swiper-slide gallery__slide">
+                <figure class="gallery__card">
+                  <img class="gallery__image" src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?auto=format&fit=crop&w=1200&q=80" alt="Pink peonies close-up" />
                 </figure>
               </div>
 
@@ -968,7 +971,7 @@
             <div class="gallery__controls">
               <div class="swiper-button-prev gallery__arrow" aria-label="Previous slide">
                 <!-- simple inline SVG arrow left to avoid extra icon deps -->
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6 8 12l6 6 1.41-1.41L10.83 12z"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
               </div>
               <div class="swiper-pagination gallery__pagination" aria-label="Pagination"></div>
               <div class="swiper-button-next gallery__arrow" aria-label="Next slide">
@@ -993,8 +996,8 @@
             <div class="contact__item">
               <div class="contact__icon" aria-hidden="true"><i class="fa-solid fa-phone"></i></div>
               <div class="contact__details">
-                <span class="contact__label">Phone</span>
-                <small>(+12) 345 678 910</small>
+                <span class="contact__label">Số điện thoại</span>
+                <small>(+84) 883 332 809</small>
               </div>
             </div>
 
@@ -1002,15 +1005,15 @@
               <div class="contact__icon" aria-hidden="true"><i class="fa-solid fa-envelope"></i></div>
               <div class="contact__details">
                 <span class="contact__label">Email</span>
-                <small>youremail@gmail.com</small>
+                <small>thuanmobile1111@gmail.com</small>
               </div>
             </div>
 
             <div class="contact__item">
               <div class="contact__icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></div>
               <div class="contact__details">
-                <span class="contact__label">Address</span>
-                <small>123 Anywhere Street, Any City</small>
+                <span class="contact__label">Địa chỉ</span>
+                <small>Thành phố Hồ Chí Minh</small>
               </div>
             </div>
           </aside>
@@ -1075,20 +1078,22 @@
         <nav aria-label="More">
           <h4 class="list__title">More</h4>
           <ul class="list">
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Achievements</a></li>
+            <li><a href="#career-goals">Career Goals</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#gallery">Gallery</a></li>
           </ul>
         </nav>
         <section class="footer__contact-section" aria-label="Contact Us">
           <h4 class="contact__title">Contact Us</h4>
           <div class="contact__item footer__contact-item">
-            <span class="contact__icon footer__contact-icon"><i class="fa-solid fa-phone"></i></span> (+12) 345 678 910
+            <span class="contact__icon footer__contact-icon"><i class="fa-solid fa-phone"></i></span> (+84) 883 332 809
           </div>
           <div class="contact__item footer__contact-item">
-            <span class="contact__icon footer__contact-icon"><i class="fa-solid fa-envelope"></i></span> youremail@gmail.com
+            <span class="contact__icon footer__contact-icon"><i class="fa-solid fa-envelope"></i></span> thuanmobile1111gmail.com
           </div>
           <div class="contact__item footer__contact-item">
-            <span class="contact__icon footer__contact-icon"><i class="fa-solid fa-location-dot"></i></span> 123 Anywhere Street, Any City
+            <span class="contact__icon footer__contact-icon"><i class="fa-solid fa-location-dot"></i></span> Thành phố Hồ Chí Minh
           </div>
         </section>
       </div>

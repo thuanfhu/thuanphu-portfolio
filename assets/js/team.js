@@ -1,4 +1,3 @@
-// Team js code here
 document.addEventListener('DOMContentLoaded', () => {
   // a) Dữ liệu có thể lấy từ API/JSON; ví dụ giữ nguyên 4 item cũ
   const testimonials = [
@@ -69,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // e) API tái sử dụng: bạn có thể cập nhật dữ liệu động
   window.TestimonialSlider = {
     setItems(items) {
       if (!host) return;
