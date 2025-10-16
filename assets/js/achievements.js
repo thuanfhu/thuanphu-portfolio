@@ -167,11 +167,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const titleRect = title.getBoundingClientRect();
-    const startX = gridContainer.offsetWidth / 2;
-    const startY = (titleRect.bottom - gridRect.top) + 40;
-
-    let pathD = `M ${startX} ${startY} L ${nodePoints[0].x} ${nodePoints[0].y}`;
+    // Start the path directly at the first node so the visible line begins from node #1
+    let pathD = `M ${nodePoints[0].x} ${nodePoints[0].y}`;
 
     for (let i = 0; i < nodePoints.length - 1; i += 1) {
       const current = nodePoints[i];
@@ -195,10 +192,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const containerRect = gridContainer.getBoundingClientRect();
       const startAnimationAt = window.innerHeight * 0.8;
       const endAnimationAt = window.innerHeight * 0.2;
-      const scrollYRelativeToContainer = startAnimationAt - containerRect.top;
-      const totalScrollDistance = containerRect.height - (startAnimationAt - endAnimationAt);
 
-      let progress = scrollYRelativeToContainer / totalScrollDistance;
+      // Lấy vị trí của node đầu tiên và node cuối cùng
+      const firstNodeY = nodePoints[0].y + containerRect.top;
+      const lastNodeY = nodePoints[nodePoints.length - 1].y + containerRect.top;
+
+      // Tính toán khoảng cách cuộn dựa trên vị trí các node
+      const totalScrollDistance = lastNodeY - firstNodeY;
+      const scrollYRelativeToNodes = startAnimationAt - firstNodeY;
+
+      let progress = scrollYRelativeToNodes / totalScrollDistance;
       progress = Math.max(0, Math.min(1, progress));
 
       const drawLength = pathLength * progress;

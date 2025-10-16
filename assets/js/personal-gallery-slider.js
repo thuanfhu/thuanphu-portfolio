@@ -1,4 +1,4 @@
-// Initialize Swiper for the team gallery section
+// Initialize Swiper for the personal gallery section
 const swiper = new Swiper('.gallery__swiper', {
   effect: 'coverflow',
   grabCursor: true,

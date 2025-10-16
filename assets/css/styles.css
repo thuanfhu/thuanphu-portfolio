@@ -2212,7 +2212,7 @@ list a:hover { color: #dce3e8; }
   --text-light: #f0f0f0;
   --text-dark: #A0A0A0;
   --card-bg: #2a2a2e;
-  --timeline-line-color: #555;
+  --timeline-line-color: #76d270;
   --font-heading: "Montserrat", sans-serif;
   --font-body: "Source Sans 3", sans-serif;
   grid-area: achievements;
@@ -2227,17 +2227,29 @@ list a:hover { color: #dce3e8; }
   width: min(1120px, calc(100% - 140px));
   margin: 0 auto;
   text-align: center;
-  padding: 50px 24px;
+  padding: 28px 24px;
 }
+
 .achievements .main-title {
   font-family: var(--font-heading);
   font-size: clamp(32px, 4.8vw, 54px);
   font-weight: 900;
-  margin-bottom: 64px;
+  margin-bottom: 12px;
+  line-height: 1.05;
+  min-height: 64px;
   background: linear-gradient(90deg, #0a4f9e, #0894E2, #73d4ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.achievements__subtitle {
+  max-width: 80ch;
+  margin: 0 auto 40px;
+  color: var(--muted);
+  font-size: clamp(15px, 1.9vw, 17px);
+  line-height: 1.6;
+  text-align: center;
 }
 .achievements .timeline-container {
   position: relative;
@@ -2296,7 +2308,7 @@ list a:hover { color: #dce3e8; }
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: var(--bg-color);
+  background-color: #ffffff;
   border: 4px solid var(--timeline-line-color);
   border-radius: 50%;
   z-index: 1;
