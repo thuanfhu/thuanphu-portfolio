@@ -1,39 +1,39 @@
 const achievementsData = [
   {
     type: "red",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1470&auto=format&fit=crop",
-    alt: "Giải Vàng Sáng Tạo Web",
+    image: "./assets/images/achievements/HB-HK1-23to24.png",
+    alt: "Học bổng HK1 2023-2024",
     icon: "fa-trophy",
-    title: "Giải Vàng Sáng Tạo Web",
-    issuer: "Tổ chức Tech Innovation - 2024",
-    description: "Đạt giải nhất trong cuộc thi phát triển ứng dụng web với dự án \"ConnectMe\"."
+    title: "Học bổng HK1 2023-2024",
+    issuer: "Trường đại học giao thông vận tải thành phố Hồ Chí Minh",
+    description: "Đạt được học bổng loại xuất sắc của học kì 1 năm học 2023 - 2024"
   },
   {
     type: "blue",
-    image: "https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=1506&auto-format&fit=crop",
-    alt: "Chứng chỉ AWS Cloud",
+    image: "./assets/images/achievements/GCP-Foundations-Certificate.jpg",
+    alt: "Chứng chỉ Google Cloud Foundations",
     icon: "fa-certificate",
-    title: "Certified Cloud Practitioner",
-    issuer: "Amazon Web Services (AWS) - 2023",
-    description: "Chứng minh kiến thức toàn diện về cơ sở hạ tầng và dịch vụ đám mây của AWS."
+    title: "Chứng chỉ GCP Foundations",
+    issuer: "Google Cloud Platform",
+    description: "Chứng minh kiến thức toàn diện về cơ sở hạ tầng và dịch vụ đám mây của Google Cloud."
   },
   {
     type: "red",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726a?q=80&w=1470&auto-format&fit=crop",
-    alt: "Top 5 Hackathon",
+    image: "./assets/images/achievements/TOEIC-855-Certificate.png",
+    alt: "Chứng chỉ TOEIC 855 điểm",
     icon: "fa-medal",
-    title: "Top 5 Hackathon Quốc Gia",
-    issuer: "Vietnam AI Hackathon - 2023",
-    description: "Giải pháp ứng dụng AI để phân tích và dự báo chất lượng không khí tại các đô thị lớn."
+    title: "Chứng chỉ TOEIC 855 điểm",
+    issuer: "IIG chi nhánh Hồ Chí Minh",
+    description: "Chứng minh khả năng sử dụng tiếng Anh trong môi trường làm việc quốc tế."
   },
   {
     type: "blue",
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1470&auto-format&fit=crop",
-    alt: "Chứng chỉ Scrum Master",
+    image: "./assets/images/achievements/HB-HK2-23to24.png",
+    alt: "Học bổng HK2 2023-2024",
     icon: "fa-cogs",
-    title: "Professional Scrum Master I",
-    issuer: "Scrum.org - 2022",
-    description: "Nắm vững các nguyên tắc và giá trị của Scrum, dẫn dắt đội nhóm hiệu quả."
+    title: "Học bổng HK2 2023-2024",
+    issuer: "Trường đại học giao thông vận tải thành phố Hồ Chí Minh",
+    description: "Đạt được học bổng loại xuất sắc của học kì 2 năm học 2023 - 2024"
   }
 ];
 
