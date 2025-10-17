@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sliderItems[1].querySelector(".carousel__title").getAttribute("data-item") || "0",
       10
     );
-    const activeIndex = activeItemOriginalIndex < 10 ? `0${activeItemOriginalIndex}` : `${activeItemOriginalIndex}`;
+    const activeIndex = activeItemOriginalIndex < 10 ? `0${activeItemOriginalIndex}` : `0${activeItemOriginalIndex}`;
 
     const div = document.createElement("div");
     div.classList.add("carousel__slide-number");
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalSlides = items.length;
     const sliderItems = Array.from(list.querySelectorAll(".carousel__item"));
     const titleAttr = sliderItems[0].querySelector(".carousel__title").getAttribute("data-item") || "0";
-    const activeItem = parseInt(titleAttr, 10) + 1;
+    const activeItem = parseInt(titleAttr, 10) - 1;
     const progressPercentage = (activeItem / totalSlides) * 100;
     progressBar.style.width = `${progressPercentage}%`;
   };

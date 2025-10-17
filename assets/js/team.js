@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     spaceBetween: 3,
     centeredSlides: true,
     grabCursor: true,
+    initialSlide: 1,
     pagination: { el: '.team .swiper-controls .swiper-pagination', clickable: true },
     navigation: { nextEl: '.team .swiper-controls .swiper-button-next', prevEl: '.team .swiper-controls .swiper-button-prev' },
     breakpoints: {
