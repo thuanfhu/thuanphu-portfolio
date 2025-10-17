@@ -2631,7 +2631,7 @@ list a:hover {
 }
 
 .career-goals .goal-details {
-  background-color: #f7fafd;
+  background-color: #d6d7d9;
   border-radius: 10px;
   padding: clamp(16px, 3vw, 22px);
   min-height: 160px;
