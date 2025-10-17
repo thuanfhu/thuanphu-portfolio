@@ -38,12 +38,12 @@
     "header header"
     "sidebar banner"
     "sidebar about"
-    "sidebar career-goals"
-    "sidebar hobbies"
     "sidebar skills"
     "sidebar achievements"
     "sidebar projects"
     "sidebar team"
+    "sidebar career-goals"
+    "sidebar hobbies"
     "sidebar personal-gallery"
     "sidebar contact";
   grid-template-columns: 0 1fr;
@@ -623,6 +623,7 @@ h6,
 }
 
 .banner__desc {
+  max-width: 88%;
   color: var(--muted);
   font-size: 18px;
   line-height: 1.7;
@@ -708,6 +709,7 @@ banner__social-link:hover {
   display: grid;
   place-items: center;
   justify-self: center;
+  margin-right: 120px;
   z-index: 10;
 }
 
