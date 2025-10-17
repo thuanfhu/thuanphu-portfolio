@@ -644,25 +644,74 @@ h6,
 }
 
 .banner__btn {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 999px;
-  background: #0894e2;
+  position: relative;
+  width: 7.7rem;
+  height: 2.6rem;
+  border-radius: 50px;
+  background: #0894E2;
   color: #fff;
-  font-weight: 700;
-  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Source Sans 3", sans-serif;
   text-decoration: none;
+  letter-spacing: 2px;
+  border-top: 2px solid #ffffff59;
+  border-left: 2px solid #ffffff59;
+  padding-left: 40px;
+  transition: 0.5s;
+  overflow: hidden;
   box-shadow: 0 14px 32px rgba(8, 148, 226, 0.45);
-  transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.15s ease;
 }
 
 .banner__btn:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.03);
+  padding-left: 0px;
+  padding-right: 40px;
+  color: white;
+  box-shadow: 0 14px 32px rgba(8, 148, 226, 0.45);
+}
+
+.banner__btn span {
+  position: absolute;
+  left: 5px;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #04f34d;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.banner__btn span i {
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+.banner__btn:hover span {
+  left: calc(100% - 1.5rem - 5px);
+}
+
+.banner__btn::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 100%;
+  background: #ffffff40;
+  transform: translateX(-11rem) skewX(30deg);
+  transition: 0.75s ease-in-out;
+  z-index: 1;
+}
+
+.banner__btn:hover::after {
+  transform: translateX(11rem) skewX(30deg);
 }
 
 .banner__btn:active {
-  transform: translateY(0);
+  transform: translateY(1px);
   filter: brightness(0.97);
 }
 
@@ -2112,27 +2161,77 @@ banner__social-link:hover {
 }
 
 .contact__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 28px;
-  border-radius: 999px;
-  border: none;
-  background: linear-gradient(135deg, #0894e2, #22bafb);
+  position: relative;
+  width: 7.7rem;
+  height: 2.6rem;
+  border-radius: 50px;
+  background: #0894E2;
   color: #fff;
-  font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Source Sans 3", sans-serif;
+  text-decoration: none;
+  letter-spacing: 2px;
+  border-top: 2px solid #ffffff59;
+  border-left: 2px solid #ffffff59;
+  padding-left: 40px;
+  transition: 0.5s;
+  overflow: hidden;
   box-shadow: 0 16px 32px rgba(8, 148, 226, 0.35), inset 0 -2px 0 rgba(0, 0, 0, 0.2);
-  transition: transform 0.12s ease, filter 0.18s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .contact__btn:hover {
-  filter: brightness(1.05);
+  padding-left: 0px;
+  padding-right: 40px;
+  color: white;
+  box-shadow: 0 16px 32px rgba(8, 148, 226, 0.35), inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.contact__btn span {
+  position: absolute;
+  left: 5px;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #04f34d;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.contact__btn span i {
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+.contact__btn:hover span {
+  left: calc(100% - 1.5rem - 5px);
+}
+
+.contact__btn::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 100%;
+  background: #ffffff40;
+  transform: translateX(-11rem) skewX(30deg);
+  transition: 0.75s ease-in-out;
+  z-index: 1;
+}
+
+.contact__btn:hover::after {
+  transform: translateX(11rem) skewX(30deg);
 }
 
 .contact__btn:active {
   transform: translateY(1px);
+  filter: brightness(0.97);
 }
 
 @media (max-width: 1024px) {
@@ -2421,6 +2520,7 @@ list a:hover {
   --color-icon-bg-initial: #0f1724;
   --color-details-bg: rgba(14, 18, 26, 0.82);
   --goal1-color: #f5b642;
+ 
   --goal2-color: #8e44ad;
   --goal3-color: #1abc9c;
   --goal4-color: #e67e22;
@@ -3614,8 +3714,4 @@ list a:hover {
 .projects__github-icon:hover {
   color: color-mix(in oklab, #0894E2 80%, white 20%);
   transform: scale(1.1);
-}
-
-.projects__github-icon i {
-  font-size: inherit;
 }
