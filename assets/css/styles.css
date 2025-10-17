@@ -1,9 +1,11 @@
 /* =============================== TOKENS / GLOBAL =============================== */
 :root {
   --bg: #1f1f22;
-  --text: #e8eaed;
-  --muted: #a8b0b9;
-  --border: rgba(255, 255, 255, 0.12);
+  --text: #fff;
+  --muted: rgba(255, 255, 255, 0.78);
+  --border: rgba(234, 40, 91, 0.25);
+  --headline-gradient: linear-gradient(90deg, #ea285b, #ff4f7a, #fe8aa7);
+  --headline-shadow: 0 6px 32px rgba(234, 40, 91, 0.35);
 
   --r-base: #ea285b;
   --r-80: color-mix(in oklab, var(--r-base) 80%, black);
@@ -121,11 +123,10 @@ h6,
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(circle at 15% 85%, color-mix(in oklab, var(--r-60) 70%, transparent) 0%, transparent 50%),
-    radial-gradient(circle at 85% 15%, color-mix(in oklab, var(--r-80) 80%, transparent) 0%, transparent 50%),
-    radial-gradient(circle at 45% 60%, color-mix(in oklab, var(--r-40) 60%, transparent) 0%, transparent 50%),
-    radial-gradient(circle at 70% 40%, color-mix(in oklab, var(--r-20) 40%, transparent) 0%, transparent 50%),
-    linear-gradient(135deg, #0a0a0a 0%, #2a141a 50%, #000 100%);
+    radial-gradient(circle at 20% 78%, rgba(234, 40, 91, 0.22) 0%, transparent 55%),
+    radial-gradient(circle at 78% 24%, rgba(8, 148, 226, 0.26) 0%, transparent 52%),
+    radial-gradient(circle at 48% 58%, rgba(255, 180, 204, 0.18) 0%, transparent 58%),
+    linear-gradient(155deg, #07080d 0%, #12141a 45%, #0c0e14 100%);
   animation: backgroundPulse 14s ease-in-out infinite;
 }
 
@@ -154,7 +155,9 @@ h6,
 
 .shape {
   position: absolute;
-  border: 1px solid color-mix(in oklab, var(--r-40) 70%, transparent);
+  border: 1px solid rgba(255, 160, 188, 0.55);
+  background: linear-gradient(145deg, rgba(234, 40, 91, 0.18), rgba(8, 148, 226, 0.12));
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.35);
   animation: floatShape 20s linear infinite;
 }
 
@@ -218,7 +221,7 @@ h6,
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--r-40), transparent);
+  background: linear-gradient(90deg, transparent, rgba(234, 40, 91, 0.38), rgba(8, 148, 226, 0.38), transparent);
   animation: neuralPulse 3s ease-in-out infinite;
 }
 
@@ -291,7 +294,7 @@ h6,
   justify-content: space-between;
   padding: clamp(10px, 2vw, 14px) clamp(14px, 3vw, 24px);
   background: var(--bg);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid #1F1F22;
 }
 
 .header__logo {
@@ -308,7 +311,7 @@ h6,
   height: 42px;
   border-radius: 999px;
   object-fit: cover;
-  border: 2px solid var(--border);
+  border: 2px solid #1F1F22;
 }
 
 .logo__site-title {
@@ -330,7 +333,7 @@ h6,
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  border: 1px solid var(--border);
+  border: 1px solid #1F1F22;
   background: rgba(255, 255, 255, 0.05);
   transition: transform 0.06s ease, background-color 0.2s ease;
   color: var(--text);
@@ -348,7 +351,7 @@ h6,
 .controls__language-toggle,
 .controls__theme-toggle {
   appearance: none;
-  border: 1px solid var(--border);
+  border: 1px solid #1F1F22;
   background: rgba(255, 255, 255, 0.05);
   color: var(--text);
   padding: 10px 12px;
@@ -369,7 +372,7 @@ h6,
   height: calc(100vh - var(--header-h));
   margin: 0;
   background: #14161b;
-  border: 1px solid var(--border);
+  border: 1px solid #1F1F22;
   border-left: 0;
   border-radius: 0 16px 16px 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
@@ -390,7 +393,7 @@ h6,
   justify-content: flex-end;
   gap: 8px;
   padding: 12px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid #1F1F22;
   background: #14161b;
   position: sticky;
   top: 0;
@@ -406,7 +409,7 @@ h6,
   height: 36px;
   padding: 0;
   border-radius: 10px;
-  border: 1px solid var(--border);
+  border: 1px solid #1F1F22;
   background: rgba(255, 255, 255, 0.05);
   color: var(--text);
   display: inline-flex;
@@ -596,11 +599,11 @@ h6,
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background: linear-gradient(90deg, #3084e4, #0894e2, #65caf6);
+  background: var(--headline-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 6px 32px color-mix(in oklab, #0894e2 30%, transparent);
+  text-shadow: var(--headline-shadow);
 }
 
 .banner__subtitle {
@@ -620,7 +623,7 @@ h6,
 }
 
 .banner__desc {
-  color: var(--about-muted);
+  color: var(--muted);
   font-size: 18px;
   line-height: 1.7;
   margin: 0 0 22px;
@@ -795,7 +798,7 @@ banner__social-link:hover {
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: clamp(32px, 4.8vw, 54px);
   margin: 0 0 15px;
-  background: linear-gradient(90deg, #0a4f9e, #0894e2, #73d4ff);
+  background: var(--headline-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1003,7 +1006,7 @@ banner__social-link:hover {
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: clamp(32px, 4.8vw, 54px);
   margin: 0 0 20px 0;
-  background: linear-gradient(90deg, #0a4f9e, #0894e2, #73d4ff);
+  background: var(--headline-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1357,7 +1360,7 @@ banner__social-link:hover {
   font-size: clamp(32px, 4.8vw, 54px);
   line-height: 1.15;
   margin: 0 0 20px 0;
-  background: linear-gradient(90deg, #0a4f9e, #0894e2, #73d4ff);
+  background: var(--headline-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1465,7 +1468,7 @@ banner__social-link:hover {
   margin-bottom: 16px;
   color: var(--text);
   text-align: center;
-  background: linear-gradient(90deg, #0a4f9e, #0894e2, #73d4ff);
+  background: var(--headline-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1577,7 +1580,7 @@ banner__social-link:hover {
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: clamp(20px, 3vw, 28px);
   font-weight: 700;
-  background: linear-gradient(90deg, #0a4f9e, #0894e2, #73d4ff);
+  background: var(--headline-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1608,7 +1611,7 @@ banner__social-link:hover {
   box-shadow: 0 12px 26px rgba(8, 148, 226, 0.35);
 }
 
-/* Responsive for Projects */
+/* --------------------------------- RESPONSIVE -------------------------------- */
 @media (max-width: 767px) {
   .projects__item,
   .projects__item:nth-child(even) {
@@ -1724,7 +1727,7 @@ banner__social-link:hover {
   font-size: clamp(32px, 4.8vw, 54px);
   line-height: 1.15;
   margin: 0 0 20px 0;
-  background: linear-gradient(90deg, #0a4f9e, #0894e2, #73d4ff);
+  background: var(--headline-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -1963,7 +1966,7 @@ banner__social-link:hover {
   font-weight: 800;
   letter-spacing: 0.2px;
   white-space: nowrap;
-  background: linear-gradient(90deg, #0a4f9e, #0894e2, #73d4ff);
+  background: var(--headline-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -2423,7 +2426,7 @@ list a:hover {
 
 .career-goals__container {
   width: min(1300px, calc(100% - 140px));
-  margin: -30px auto;
+  margin: 0 auto;
   text-align: center;
   padding: 50px 24px;
 }
@@ -2450,7 +2453,7 @@ list a:hover {
   font-weight: 900;
   margin: 0 0 20px;
   line-height: 1.15;
-  background: linear-gradient(90deg, #0a4f9e, #0894e2, #73d4ff);
+  background: var(--headline-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -2702,7 +2705,7 @@ list a:hover {
   --text-light: #f0f0f0;
   --text-dark: #A0A0A0;
   --card-bg: #2a2a2e;
-  --timeline-line-color: #76d270;
+  --timeline-line-color: #9ac7f7;
   --font-heading: "Montserrat", sans-serif;
   --font-body: "Source Sans 3", sans-serif;
   grid-area: achievements;
@@ -2727,7 +2730,7 @@ list a:hover {
   margin-bottom: 12px;
   line-height: 1.05;
   min-height: 64px;
-  background: linear-gradient(90deg, #0a4f9e, #0894E2, #73d4ff);
+  background: var(--headline-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -3041,7 +3044,7 @@ list a:hover {
   font-size: clamp(32px, 4.8vw, 54px);
   line-height: 1.15;
   margin: 0 0 20px 0;
-  background: linear-gradient(90deg, #0a4f9e, #0894e2, #73d4ff);
+  background: var(--headline-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -3269,7 +3272,7 @@ list a:hover {
   font-family: "Montserrat", system-ui, sans-serif;
   font-size: clamp(32px, 4.8vw, 54px);
   margin: 0 0 20px 0;
-  background: linear-gradient(90deg, #0a4f9e, #0894e2, #73d4ff);
+  background: var(--headline-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -3319,6 +3322,10 @@ list a:hover {
 .hobbies,
 .hobbies * {
   box-sizing: border-box;
+}
+
+.hobbies .carousel,
+.hobbies .carousel * {
   font-family: "Poppins", sans-serif;
 }
 
