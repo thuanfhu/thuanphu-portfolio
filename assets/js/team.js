@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // a) Dữ liệu có thể lấy từ API/JSON; ví dụ giữ nguyên 4 item cũ
   const testimonials = [
     {
       name: 'David Dell',
@@ -31,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  // b) Hàm render 1 slide từ template (có thể tái sử dụng)
+  // Hàm render 1 slide từ template (có thể tái sử dụng)
   function renderSlide(item) {
     const tpl = document.getElementById('slide-template');
     if (!tpl) return document.createDocumentFragment();
@@ -47,13 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
     return node;
   }
 
-  // c) Mount tất cả slides
+  // Mount tất cả slides
   const host = document.getElementById('slides-host');
   if (host) {
     testimonials.forEach(item => host.appendChild(renderSlide(item)));
   }
 
-  // d) Khởi tạo Swiper sau khi render xong
+  // Khởi tạo Swiper sau khi render xong
   const teamSwiper = new Swiper('.team-swiper', {
     loop: false,
     slidesPerView: 1,

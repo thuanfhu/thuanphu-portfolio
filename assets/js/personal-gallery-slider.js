@@ -6,7 +6,6 @@ const swiper = new Swiper('.gallery__swiper', {
   initialSlide: 1, // Set the second slide as the initial one
   loop: false, // Do not loop as requested
   slidesPerView: 'auto',
-  watchSlidesProgress: true, // Fix: Ensure slide progress is always tracked
   coverflowEffect: {
     rotate: 0,
     stretch: 0,
