@@ -3596,3 +3596,24 @@ list a:hover {
     width: calc(100% - var(--left-position) + 8%);
   }
 }
+
+/* =============================== GITHUB ICONS =============================== */
+.projects__github-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+  text-decoration: none;
+  color: #0894E2;
+  font-size: 24px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.projects__github-icon:hover {
+  color: color-mix(in oklab, #0894E2 80%, white 20%);
+  transform: scale(1.1);
+}
+
+.projects__github-icon i {
+  font-size: inherit;
+}

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: 'Hiện thực hóa các bản thiết kế, mang lại giao diện trực quan và thân thiện.',
       avatar: './assets/images/team/le-thi-my-hau.jpg',
       github: 'https://github.com/annahwork',
-      website: '#'
+      website: 'https://annahwork.github.io/Anna_Portfolio/'
     },
     {
       name: 'Đỗ Kim Đại',
