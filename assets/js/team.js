@@ -1,30 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
   const testimonials = [
     {
-      name: 'David Dell',
-      desc: 'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop',
+      name: 'Lê Phạm Thanh Duy',
+      desc: 'Người xây dựng giao diện người dùng, tập trung vào trải nghiệm tương tác mượt mà.',
+      avatar: './assets/images/team/le-pham-thanh-duy.png',
       github: '#',
       website: '#'
     },
     {
-      name: 'Rose Bush',
-      desc: 'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=300&auto=format&fit=crop',
+      name: 'Quách Phú Thuận',
+      desc: 'Phụ trách phần logic máy chủ và cơ sở dữ liệu, đảm bảo hệ thống vận hành ổn định.',
+      avatar: './assets/images/team/quach-phu-thuan.jpg',
       github: '#',
       website: '#'
     },
     {
-      name: 'Jones Gail',
-      desc: 'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop',
+      name: 'Lê Thị Mỹ Hậu',
+      desc: 'Hiện thực hóa các bản thiết kế, mang lại giao diện trực quan và thân thiện.',
+      avatar: './assets/images/team/le-thi-my-hau.jpg',
       github: '#',
       website: '#'
     },
     {
-      name: 'Maria Smantha',
-      desc: 'The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop',
+      name: 'Đỗ Kim Đại',
+      desc: 'Đảm bảo trang web hiển thị tốt và hoạt động hiệu quả trên mọi thiết bị.',
+      avatar: './assets/images/team/do-kim-dai.png',
       github: '#',
       website: '#'
     }
