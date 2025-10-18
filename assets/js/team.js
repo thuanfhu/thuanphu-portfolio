@@ -19,14 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: 'Hiện thực hóa các bản thiết kế, mang lại giao diện trực quan và thân thiện.',
       avatar: './assets/images/team/le-thi-my-hau.jpg',
       github: 'https://github.com/annahwork',
-      website: 'https://annahwork.github.io/Anna_Portfolio/'
+      website: 'https://annahwork.github.io/portfolio-anna/'
     },
     {
       name: 'Đỗ Kim Đại',
       desc: 'Đảm bảo trang web hiển thị tốt và hoạt động hiệu quả trên mọi thiết bị.',
       avatar: './assets/images/team/do-kim-dai.png',
       github: 'https://github.com/AyBi248',
-      website: '#'
+      website: 'https://github.com/AyBi248'
     }
   ];
 
