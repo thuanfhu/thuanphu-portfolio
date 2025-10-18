@@ -2520,7 +2520,6 @@ list a:hover {
   --color-icon-bg-initial: #0f1724;
   --color-details-bg: rgba(14, 18, 26, 0.82);
   --goal1-color: #f5b642;
- 
   --goal2-color: #8e44ad;
   --goal3-color: #1abc9c;
   --goal4-color: #e67e22;
@@ -3714,4 +3713,159 @@ list a:hover {
 .projects__github-icon:hover {
   color: color-mix(in oklab, #0894E2 80%, white 20%);
   transform: scale(1.1);
+}
+
+/* =============================== SPARKLE BUTTON =============================== */
+.sparkle-button {
+  position: relative;
+  padding: 9px 11px;
+  background: #0894e2;
+  font-size: inherit;
+  font-weight: inherit;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 0 3px rgba(8, 148, 226, 0.35) inset, 0 10px 24px rgba(8, 148, 226, 0.45);
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+}
+
+.sparkle-button .star-1 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 25px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #0894e2);
+  z-index: -5;
+  transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.sparkle-button .star-2 {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #0894e2);
+  z-index: -5;
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.sparkle-button .star-3 {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #0894e2);
+  z-index: -5;
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.sparkle-button .star-4 {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  width: 8px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #0894e2);
+  z-index: -5;
+  transition: all .8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.sparkle-button .star-5 {
+  position: absolute;
+  top: 25%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #0894e2);
+  z-index: -5;
+  transition: all .6s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.sparkle-button .star-6 {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #0894e2);
+  z-index: -5;
+  transition: all .8s ease;
+}
+
+.sparkle-button:hover {
+  background: transparent;
+  color: #0894e2;
+  box-shadow: 0 0 25px rgba(8, 148, 226, 0.8);
+}
+
+.sparkle-button:hover .star-1 {
+  position: absolute;
+  top: -80%;
+  left: -30%;
+  width: 25px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fff);
+  z-index: 2;
+}
+
+.sparkle-button:hover .star-2 {
+  position: absolute;
+  top: -25%;
+  left: 10%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fff);
+  z-index: 2;
+}
+
+.sparkle-button:hover .star-3 {
+  position: absolute;
+  top: 55%;
+  left: 25%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fff);
+  z-index: 2;
+}
+
+.sparkle-button:hover .star-4 {
+  position: absolute;
+  top: 30%;
+  left: 80%;
+  width: 8px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fff);
+  z-index: 2;
+}
+
+.sparkle-button:hover .star-5 {
+  position: absolute;
+  top: 25%;
+  left: 115%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fff);
+  z-index: 2;
+}
+
+.sparkle-button:hover .star-6 {
+  position: absolute;
+  top: 5%;
+  left: 60%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fff);
+  z-index: 2;
+}
+
+.sparkle-button .fil0 {
+  fill: #0894e2;
+}
+
+.sparkle-button:hover .fil0 {
+  fill: #fff;
 }
