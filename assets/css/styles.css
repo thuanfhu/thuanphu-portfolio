@@ -676,9 +676,9 @@ h6,
 .banner__btn span {
   position: absolute;
   left: 5px;
-  width: 1.5rem;
-  height: 1.5rem;
-  background: #04f34d;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: #fff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -687,12 +687,12 @@ h6,
 }
 
 .banner__btn span i {
-  color: #fff;
+  color: #0894E2;
   font-size: 0.75rem;
 }
 
 .banner__btn:hover span {
-  left: calc(100% - 1.5rem - 5px);
+  left: calc(100% - 2.2rem - 5px);
 }
 
 .banner__btn::after {
@@ -2162,7 +2162,7 @@ banner__social-link:hover {
 
 .contact__btn {
   position: relative;
-  width: 7.7rem;
+  width: 11rem;
   height: 2.6rem;
   border-radius: 50px;
   background: #0894E2;
@@ -2195,9 +2195,9 @@ banner__social-link:hover {
 .contact__btn span {
   position: absolute;
   left: 5px;
-  width: 1.5rem;
-  height: 1.5rem;
-  background: #04f34d;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: #fff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -2206,12 +2206,12 @@ banner__social-link:hover {
 }
 
 .contact__btn span i {
-  color: #fff;
+  color: #0894E2;
   font-size: 0.75rem;
 }
 
 .contact__btn:hover span {
-  left: calc(100% - 1.5rem - 5px);
+  left: calc(100% - 2.2rem - 5px);
 }
 
 .contact__btn::after {
