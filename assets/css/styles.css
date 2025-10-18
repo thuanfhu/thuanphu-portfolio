@@ -1543,7 +1543,7 @@ banner__social-link:hover {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-  border: 1px solid var(--border);
+  border: 1px solid #0894E2;
 }
 
 .projects__image-wrapper img {
@@ -1551,6 +1551,13 @@ banner__social-link:hover {
   display: block;
   object-fit: cover;
   aspect-ratio: 16 / 9;
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s;
+}
+
+.projects__image-wrapper:hover img {
+  transform: scale(1.06) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(8, 148, 226, 0.18), 0 2px 12px rgba(234, 40, 91, 0.12);
+  filter: brightness(1.08) saturate(1.1);
 }
 
 .projects__item-circle {
@@ -3867,4 +3874,90 @@ list a:hover {
 
 .sparkle-button:hover .fil0 {
   fill: #fff;
+}
+
+/* =============================== CUSTOM HOVER EFFECTS =============================== */
+
+/* Header: Language & Theme toggle buttons */
+.controls__language-toggle:hover,
+.controls__theme-toggle:hover {
+  background: color-mix(in oklab, #0894e2 18%, transparent 82%);
+  border-color: #0894e2;
+  color: #0894e2;
+  box-shadow: 0 0 0 3px rgba(8, 148, 226, 0.18);
+  transform: translateY(-2px) scale(1.06);
+}
+
+.controls__language-toggle:active,
+.controls__theme-toggle:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Banner: Social icons */
+.banner__social-link:hover {
+  background: color-mix(in oklab, #0894e2 24%, transparent 76%);
+  color: #fff;
+  transform: scale(1.12) translateY(-2px);
+  box-shadow: 0 8px 22px color-mix(in oklab, #0894e2 24%, black 76%);
+  border-color: #0894e2;
+}
+
+.banner__social-link:active {
+  transform: scale(0.96) translateY(1px);
+}
+
+/* Career Goals: Goal icons hover effect */
+.career-goals .timeline-item__icon-wrapper:hover > div {
+  /* Glow, border, shadow, scale, color by goal */
+  box-shadow:
+    0 0 0 8px rgba(8, 148, 226, 0.22),
+    0 0 18px 4px var(--goal1-color, #f5b642),
+    0 8px 24px rgba(234, 40, 91, 0.12);
+  border: 2.5px solid;
+  border-color: inherit;
+  transform: scale(1.22) rotate(-6deg);
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+}
+
+.career-goals .timeline-item__icon-wrapper--goal1:hover > div {
+  border-color: var(--goal1-color);
+  box-shadow:
+    0 0 0 8px rgba(245, 182, 66, 0.18),
+    0 0 22px 6px var(--goal1-color),
+    0 8px 24px rgba(234, 40, 91, 0.10);
+}
+
+.career-goals .timeline-item__icon-wrapper--goal2:hover > div {
+  border-color: var(--goal2-color);
+  box-shadow:
+    0 0 0 8px rgba(142, 68, 173, 0.18),
+    0 0 22px 6px var(--goal2-color),
+    0 8px 24px rgba(234, 40, 91, 0.10);
+}
+
+.career-goals .timeline-item__icon-wrapper--goal3:hover > div {
+  border-color: var(--goal3-color);
+  box-shadow:
+    0 0 0 8px rgba(26, 188, 156, 0.18),
+    0 0 22px 6px var(--goal3-color),
+    0 8px 24px rgba(234, 40, 91, 0.10);
+}
+
+.career-goals .timeline-item__icon-wrapper--goal4:hover > div {
+  border-color: var(--goal4-color);
+  box-shadow:
+    0 0 0 8px rgba(230, 126, 34, 0.18),
+    0 0 22px 6px var(--goal4-color),
+    0 8px 24px rgba(234, 40, 91, 0.10);
+}
+
+.career-goals .timeline-item__icon-wrapper:hover .timeline-item__icon {
+  color: #fff !important;
+  filter: drop-shadow(0 0 12px #0894e2) drop-shadow(0 0 8px currentColor);
+  transition: color 0.3s, filter 0.3s;
+}
+
+.career-goals .timeline-item__icon-wrapper:hover {
+  transform: translateY(-6px) scale(1.12) rotate(-2deg);
+  transition: transform 0.3s;
 }
