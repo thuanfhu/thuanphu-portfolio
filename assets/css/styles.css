@@ -1204,7 +1204,7 @@ banner__social-link:hover {
 
 .skills__icon:hover {
   transform: translateY(-2px) scale(1.03);
-  border-color: #3b3b3b;
+  border-color: #EA285B;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
 }
 
@@ -1719,7 +1719,7 @@ banner__social-link:hover {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--border);
+  border: 1px solid #0894E2;
   background: rgba(71, 76, 86, 0.75);
   color: var(--text);
   display: grid;
@@ -3213,7 +3213,6 @@ list a:hover {
 }
 
 .team .swiper-slide-active .card:hover {
-  /* Remove lift effect on hover for active card */
   transform: none;
 }
 
@@ -3228,38 +3227,38 @@ list a:hover {
 
 .team .card__header {
   background: url('https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1074') center/cover no-repeat;
-  height: 112px;    /* Reduce by 20% from 140px */
+  height: 112px;
   border-radius: 19.2px 19.2px 0 0;
   position: relative;
 }
 
 .team .card__avatar {
-  width: 104px;     /* Reduce by 20% from 130px */
+  width: 104px;
   height: 104px;
   border-radius: 50%;
   object-fit: cover;
   position: absolute;
-  bottom: -52px;    /* Reduce by 20% from -65px */
+  bottom: -52px;
   left: 50%;
   transform: translateX(-50%);
   box-shadow: 0 0 0 1px var(--team-ring-gray), 0 0 0 3px var(--team-dark-card), 0 0 0 4px var(--team-ring-gray);
 }
 
 .team .card__body {
-  padding: 68px 24px 24px; /* Reduce by 20% from 85px 30px 30px */
+  padding: 68px 24px 24px;
 }
 
 .team .card__name {
   font-family: 'Montserrat', sans-serif;
   color: var(--team-text-strong);
-  font-size: 17.6px; /* Reduce by 20% from 22px */
+  font-size: 17.6px;
   margin-bottom: 8px;
   font-weight: 700;
 }
 
 .team .card__description {
-  font-size: 12.8px; /* Reduce by 20% from 16px */
-  margin-bottom: 19.2px; /* Reduce by 20% from 24px */
+  font-size: 12.8px;
+  margin-bottom: 19.2px;
   color: var(--team-text-strong);
   opacity: .9;
 }
@@ -3271,21 +3270,21 @@ list a:hover {
 }
 
 .team .card__icon-btn {
-  width: 35.2px;    /* Reduce by 20% from 44px */
+  width: 35.2px;
   height: 35.2px;
-  border-radius: 9.6px; /* Reduce by 20% from 12px */
+  border-radius: 9.6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: var(--team-dark-card);
   border: 1px solid var(--team-blue);
-  color: var(--team-blue);
+  color: #fff;
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .team .card__icon-btn i {
-  font-size: 14.4px; /* Reduce by 20% from 18px */
+  font-size: 14.4px;
 }
 
 .team .swiper-controls {
