@@ -4145,6 +4145,7 @@ list a:hover {
     --fz-subtitle: clamp(16px, 5vw, 22px);  /* Tiêu đề phụ */
     --fz-desc: 16px;                        /* Mô tả phần */
     --fz-content: 14px;                     /* Nội dung phần */
+    --about-detail-fz: 13px;                /* NEW: font-size cho phần details About Me */
   }
 
   body { -webkit-text-size-adjust: 100%; }
@@ -4188,55 +4189,140 @@ list a:hover {
     text-align: justify; margin: 0; padding: 0; display: -webkit-box;
     -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical;
     overflow: hidden; text-overflow: ellipsis;
+    font-size: var(--fz-desc) !important;
   }
   .banner__desc-wrapper.expanded .banner__desc { -webkit-line-clamp: 99; line-clamp: 99; }
   .banner__actions { justify-content: center; }
-  .banner__btn { width: calc(7.7rem * 0.84); margin-top: 16px; }
+  .banner__actions .banner__btn { 
+    width: 40% !important; /* Tăng độ ưu tiên để đảm bảo áp dụng */
+    min-width: 130px; /* Đảm bảo nút không quá nhỏ */
+    margin-top: 16px; 
+  }
   .banner__social-link i { font-size: 100%; }
   .banner__avatar { order: -1; margin: auto; --ring-size: min(280px, 65vw); }
 
   /* --- ABOUT --- */
-  .about__container { transform: none; padding: 24px 16px; margin: 0 auto var(--section-gap); width: 100%; box-sizing: border-box; }
-  .about__grid { grid-template-columns: 1fr; gap: 20px; align-items: start; }
-  .about__grid::before { display: none; }
-  
-  /* FIX 1.1: Thu nhỏ và căn giữa ảnh */
-  .about__profile-card {
-      position: static; margin: 24px auto; padding: 0;
-      width: 70%; height: auto; /* Thu nhỏ 30% */
-      max-width: 252px; /* 360px * 0.7 */
-      display: flex; justify-content: center; box-shadow: none;
+  .about__container {
+    transform: none;
+    padding: 24px 16px;
+    margin: 0 auto var(--section-gap);
+    width: 100%;
+    box-sizing: border-box;
   }
+
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .about__grid::before { display: none; }
+
+  /* Center profile card & photo robustly on small screens */
+  .about__profile-card {
+      position: static; 
+      margin: 24px auto; /* Căn giữa block theo chiều ngang */
+      padding: 0;
+      width: auto;
+      max-width: 252px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: none;
+      left: auto !important;
+      right: auto !important;
+  }
+
   .about__profile-photo {
       width: 100%;
+      max-width: 252px;
       min-width: 0;
-      aspect-ratio: 4 / 5; margin: 0; border-radius: 12px; overflow: hidden; display: block;
+      aspect-ratio: 4 / 5; 
+      margin: 0 auto;
+      border-radius: 12px; 
+      overflow: hidden; 
+      display: block;
   }
-  .about__profile-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .about__profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
   .about__ribbon { left: 12px; top: 12px; font-size: 11px; padding: 6px 8px; }
   .about__grid > .about__details-wrapper { grid-column: auto; padding-left: 0; width: 100%; }
   .about__details { grid-template-columns: 1fr; gap: 12px 0; padding-top: 14px; }
-  .about__detail { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
-  .about__detail b { gap: 8px; flex: 0 0 auto; white-space: nowrap; min-width: 110px; }
-  
-  /* FIX 1.2: Đảm bảo text hiển thị ... nếu vượt quá và giảm font-size */
-  .about__detail { font-size: calc(var(--fz-content) * 0.95); } /* <-- FIX: Font size smaller */
-  .about__detail span {
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
-    flex-grow: 1; /* Cho phép co giãn */
-    min-width: 0; /* Quan trọng để ellipsis hoạt động trong flexbox */
+
+  /* Ensure detail rows allow ellipsis properly */
+  .about__detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+    min-width: 0; /* allow children to shrink for text-overflow to work */
   }
+
+  .about__detail b {
+    gap: 8px;
+    flex: 0 0 auto;
+    white-space: nowrap;
+    min-width: 110px;
+  }
+
+  /* Truncate overflowing detail values with ellipsis */
+  .about__detail span {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important; /* Quan trọng để ellipsis hoạt động trong flexbox */
+    display: block; /* đảm bảo text-overflow hoạt động ổn định */
+  }
+
   .about__title { text-align: center; white-space: normal; margin: 0 0 12px; }
   .about__intro h3 { text-align: center; margin-bottom: 10px; font-weight: 800; }
   .about__subtitle { font-size: 1.1rem !important; } 
   .about__intro h3 .role { font-size: inherit; display: inline; }
 
-  /* FIX 1.3: Căn đều nội dung mô tả */
+  /* Đảm bảo đoạn mô tả và intro paragraph căn đều (justify) trên mobile */
+  .about__intro p,
   .about__description { 
-    line-height: 1.7; color: var(--muted); margin: 0; 
-    text-align: justify !important; /* <-- FIX: Justify text */
-    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; text-overflow: ellipsis; max-width: 100%;
+    line-height: 1.7; 
+    color: var(--muted); 
+    margin: 0; 
+    text-align: justify !important; /* chuyển sang căn đều cho mobile theo yêu cầu */
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical; 
+    -webkit-line-clamp: 3; 
+    line-clamp: 3; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    max-width: 100%;
+    font-size: var(--fz-desc) !important;
   }
+
+  /* --- REDUCED FONT SIZES FOR ABOUT DETAILS (fix requested) --- */
+  /* Shrink entire details block to improve fit on small screens */
+  .about__details,
+  .about__detail,
+  .about__detail b,
+  .about__detail span,
+  .about__details * {
+    font-size: var(--about-detail-fz) !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Slightly larger headings inside About but still mobile-friendly */
+  .about__intro h3 { font-size: calc(var(--about-detail-fz) * 1.15) !important; }
+  .about__title { font-size: calc(var(--fz-title) * 0.95) !important; }
 
   /* --- SKILLS --- */
   .skills__wrap { flex-direction: column; padding: 16px; box-shadow: none; background-color: transparent; }
@@ -4269,9 +4355,11 @@ list a:hover {
   .projects__timeline { padding-bottom: 30px; }
   .projects__item, .projects__item:nth-child(even) { grid-template-columns: 1fr; padding: 30px 0; gap: 16px; }
 
-  /* FIX 2: Sửa lại thứ tự và căn giữa ngày tháng cho TẤT CẢ dự án */
   .projects__item .projects__item-right { order: 1; }
-  .projects__item .projects__item-left { order: 2; text-align: center; }
+  .projects__item .projects__item-left { 
+    order: 2;
+    text-align: center; 
+  }
 
   .projects__item-right { 
     grid-column: 1 / -1; display: flex; flex-direction: column;
@@ -4312,13 +4400,18 @@ list a:hover {
   .career-goals__container { width: 100%; padding: 30px 16px; }
   .career-goals .goals-infographic__content { flex-direction: column; align-items: center; }
   .career-goals .goals-circular-layout { max-width: 320px; }
-  .career-goals .goal-details { width: 100%; max-width: 100%; }
-  /* FIX 3: Ẩn phần bị thừa */
-  .career-goals .goal-details__content { overflow: hidden; }
+  .career-goals .goal-details { 
+    width: 100%; 
+    max-width: 100%; 
+    overflow: hidden;
+  }
+  .career-goals .goal-details__content { 
+    overflow: hidden; 
+    position: relative;
+  }
 
   /* --- HOBBIES --- */
-  /* FIX 4: Giảm 30% chiều cao carousel */
-  .hobbies .carousel__item { height: 196px; } /* 400px * 0.7 * 0.7 */
+  .hobbies .carousel__item { height: 96px; }
   .hobbies__container { width: 100%; }
   .hobbies { --left-position: 5%; }
   .hobbies .carousel__list .carousel__item:nth-child(1) .carousel__content,
@@ -4327,23 +4420,34 @@ list a:hover {
   .hobbies .carousel__arrows { left: 5%; bottom: 20px; width: 90%; }
   
   /* --- GALLERY --- */
-  /* FIX 5: Giảm kích thước gallery */
   .gallery__slider-wrapper { padding: 0; }
   .gallery__swiper {
-      width: 100%;
-      transform: scale(0.65); /* <-- FIX: Reduced size */
-      transform-origin: center center;
+    width: 100%; 
+    transform: scale(0.8);
+    transform-origin: center center;
   }
   
   /* --- CONTACT --- */
-  /* FIX 6: Căn giữa và điều chỉnh layout */
-  .contact__info { text-align: left; } /* <-- FIX: Align icon section left */
-  .contact__heading, .contact__lead { text-align: center; } /* <-- FIX: Keep header centered */
-  .contact__form { margin-left: 0; width: 100%; margin: 2rem auto 0; max-width: 500px; }
-  .contact__btn { width: 100%; max-width: 360px; margin: 0 auto; display: block; } /* <-- FIX: Wider button */
   .contact__wrap { grid-template-columns: 1fr; padding: 16px; }
+  .contact__info { text-align: center; }
+
+  .contact__form { 
+    margin: 2rem auto 0;
+    width: 100%; 
+    max-width: 500px; 
+  }
+  .contact__btn { 
+    width: 100%; 
+    max-width: 100%;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    line-height: 1;
+  }
   .contact__input, .contact__textarea { width: 100% !important; box-sizing: border-box; }
-  
+
   /* --- FOOTER --- */
   .footer__grid {
       display: grid;
@@ -4387,9 +4491,8 @@ list a:hover {
   .contact__form-grid { grid-template-columns: 1fr; }
   .footer__links { flex-direction: column; gap: 10px; }
 
-  /* FIX 7: Cho Portfolio và More nằm ngang */
   .footer__grid {
-      grid-template-columns: 1fr 1fr; /* <-- FIX: Keep 2 columns */
+      grid-template-columns: 1fr 1fr;
       grid-template-areas:
           "news news"
           "portfolio more"
