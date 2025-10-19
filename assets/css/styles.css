@@ -4147,10 +4147,6 @@ list a:hover {
     -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
   }
 
-  h1, h2, h3, h4, p, span, div, a, li, button {
-    font-size: smaller; /* General font size reduction */
-  }
-
   /* --- MAIN LAYOUT --- */
   .page {
     grid-template-columns: 1fr; /* Single column layout */
@@ -4168,7 +4164,7 @@ list a:hover {
       "contact"
       "footer"; /* Add footer to grid areas */
   }
-  
+
   .footer {
     grid-area: footer;
   }
@@ -4195,7 +4191,28 @@ list a:hover {
     transform: none !important; /* Reset transforms */
   }
 
-  /* --- BANNER --- */
+  /* --- UNIFIED FONT-SIZES FOR ALL SECTIONS --- */
+  /* Large title (tiêu đề lớn) */
+  .banner__title, .about__title, .skills__heading, .projects__title, .team__heading, .gallery__title, .contact__heading, .career-goals .goals-infographic__title, .achievements .main-title, .hobbies__heading {
+    font-size: clamp(28px, 8vw, 42px) !important;
+  }
+
+  /* Subtitle (tiêu đề phụ, nếu có) */
+  .banner__subtitle, .about__intro h3, .skills__description, .projects__desc, .team__description, .gallery__description, .contact__lead, .career-goals .goals-infographic__subtitle, .achievements__subtitle, .hobbies__description {
+    font-size: clamp(16px, 5vw, 22px) !important;
+  }
+
+  /* Section description (mô tả phần) */
+  .banner__desc, .about__intro p, .projects__description, .contact__details small, .goal-details__description, .achievement-card .card-description, .carousel__description {
+    font-size: 16px !important;
+  }
+
+  /* Content of each section (nội dung của mỗi phần) */
+  .about__detail span, .about__detail b, .skills__card-title, .skills__card-meta, .projects__name, .projects__description strong, .card__name, .card__description, .goal-details__title, .achievement-card .card-title, .achievement-card .card-issuer, .carousel__title, .carousel__name, .contact__label, .contact__details small {
+    font-size: 14px !important;
+  }
+
+  /* --- BANNER (MODIFIED AS PER YOUR REQUEST) --- */
   .banner {
     margin-top: calc(var(--header-h) + 20px);
     text-align: center;
@@ -4209,52 +4226,201 @@ list a:hover {
     padding-left: 0;
   }
   .banner__title {
-    font-size: clamp(32px, 10vw, 48px) !important;
     white-space: normal;
   }
-  .banner__subtitle {
-     font-size: clamp(16px, 5vw, 22px) !important;
-  }
-  .banner__desc {
+  .banner__desc-wrapper {
+    position: relative;
     max-width: 100%;
     margin-inline: auto;
+  }
+  .banner__desc {
+    text-align: justify;
+    margin: 0;
+    padding: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .banner__desc-wrapper.expanded .banner__desc {
+    -webkit-line-clamp: 99;
+    line-clamp: 99;
   }
   .banner__actions {
     justify-content: center;
   }
+  .banner__btn {
+    width: calc(7.7rem * 0.84);
+    margin-top: 16px;
+  }
+  .banner__social-link i {
+    font-size: 100%;
+  }
   .banner__avatar {
-    order: -1; /* Move avatar to the top */
-    margin-inline: auto;
-    margin-bottom: 24px;
+    order: -1;
+    margin: auto;
     --ring-size: min(280px, 65vw);
   }
 
-  /* --- ABOUT ME --- */
+  /* --- ABOUT ME (RESPONSIVE REWORK) --- */
   .about__container {
-     padding: 32px 16px;
-     margin-inline: auto;
-     width: 100%;
+    transform: none;
+    padding: 24px 16px;
+    margin: 0 auto var(--section-gap);
+    width: 100%;
+    box-sizing: border-box;
   }
-  .about__grid, .about__details {
+
+  /* Stack layout into single column and remove decorative divider */
+  .about__grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
   }
-  .about__grid::before {
-    display: none; /* Remove vertical line */
-  }
-  .about__grid > .about__details-wrapper {
-    padding-left: 0;
-  }
+  .about__grid::before { display: none; }
+
+  /* Profile card: center and stop sticky behavior on small screens */
   .about__profile-card {
-      position: static;
-      margin: 0 auto 24px;
+    position: static;
+    margin: 0 auto 18px;
+    padding: 0;
+    width: 100%;
+    max-width: 360px; /* increased to allow larger image */
+    display: flex;
+    justify-content: center;
+    box-shadow: none;
   }
-  .about__title, .skills__heading, .projects__title, .gallery__title, .contact__heading, .team__heading, .career-goals .goals-infographic__title, .achievements .main-title, .hobbies__heading {
-     font-size: clamp(28px, 8vw, 42px) !important;
-     text-align: center;
-     white-space: normal;
+
+  .about__profile-photo {
+    max-width: 260px; /* increased image size (height will grow accordingly) */
+    width: 48%;
+    min-width: 160px;
+    aspect-ratio: 1/1;
+    margin: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    display: block;
   }
-  .about__intro p, .skills__description, .projects__desc, .gallery__description, .team__description, .career-goals .goals-infographic__subtitle, .achievements__subtitle, .hobbies__description {
-      text-align: center;
+  .about__profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Ribbon reposition so it doesn't overlap on small avatars */
+  .about__ribbon {
+    left: 12px;
+    top: 12px;
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+
+  /* Details wrapper: full width and removed left padding */
+  .about__grid > .about__details-wrapper {
+    grid-column: auto;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  /* Collapse details grid into a single column on small screens */
+  .about__details {
+    grid-template-columns: 1fr;
+    gap: 12px 0;
+    padding-top: 14px;
+  }
+
+  /* Keep label and value on the same row; ellipsize long values */
+  .about__detail {
+    display: flex;
+    flex-direction: row; /* label and value on same row */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .about__detail b {
+    gap: 8px;
+    flex: 0 0 auto;
+    white-space: nowrap; /* keep label on single line */
+    min-width: 110px; /* reserve room for label so values align */
+  }
+  .about__detail span {
+    margin-left: 0;
+    color: var(--muted);
+    white-space: nowrap; /* don't wrap unless very long */
+    overflow: hidden;
+    text-overflow: ellipsis; /* show ... when too long */
+    flex: 1 1 auto; /* take remaining space */
+    min-width: 0; /* allow ellipsis to work in flex layout */
+  }
+
+  /* Headings and intro text sizing and alignment */
+  /* Match banner subtitle ("I'm a Software Engineer") size */
+  .about__title {
+    text-align: center;
+    white-space: normal;
+    margin: 0 0 12px;
+  }
+
+  /* Make "Tôi với vai trò Software Engineer" match banner subtitle sizing */
+  .about__intro h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 800;
+  }
+  .about__intro h3 .role {
+    /* ensure role text uses same size as the h3 */
+    font-size: inherit;
+    display: inline;
+  }
+
+  /* Description truncation and sizing to match banner description */
+  .about__intro p {
+    line-height: 1.7;
+    color: var(--muted);
+    margin: 0;
+    text-align: justify;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* show ... after 3 lines */
+    line-clamp: 3; /* standard property for compatibility */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  /* Ensure small screen spacing looks balanced */
+  .about__container,
+  .about__grid,
+  .about__details {
+    gap: 16px;
+  }
+
+  /* Make sure any links / buttons inside details are full width */
+  .about__details a,
+  .about__detail .action-btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* On very small screens allow wrapping of detail values if necessary */
+  @media (max-width: 420px) {
+    .about__detail {
+      gap: 8px;
+    }
+    .about__detail span {
+      white-space: normal; /* allow wrap when space is extremely constrained */
+      -webkit-line-clamp: none;
+      line-clamp: none;
+    }
+    .about__profile-photo {
+      max-width: 220px;
+      width: 50%;
+    }
   }
 
   /* --- SKILLS --- */
@@ -4273,7 +4439,7 @@ list a:hover {
     padding: 1rem 0;
   }
   .skills__group .skills__card:not(:first-child) {
-    margin-left: -100px; /* Adjust card overlap */
+    margin-left: -100px;
   }
   .skills__group .skills__card:hover ~ .skills__card {
     transform: translateX(100px);
@@ -4290,10 +4456,10 @@ list a:hover {
     text-align: left;
   }
   .achievements .timeline-svg-wrapper {
-    display: none; /* Remove SVG line as requested */
+    display: none;
   }
   .achievements .timeline-node {
-    display: none; /* Hide nodes */
+    display: none;
   }
   .achievements .achievement-card {
     margin: 0 auto;
@@ -4305,7 +4471,7 @@ list a:hover {
   }
   .projects__item,
   .projects__item:nth-child(even) {
-    grid-template-columns: 1fr; /* Single column */
+    grid-template-columns: 1fr;
     padding: 30px 0;
     gap: 16px;
   }
@@ -4316,10 +4482,10 @@ list a:hover {
      text-align: left;
   }
   .projects__item-center {
-    display: none; /* Hide center dot column */
+    display: none;
   }
   .projects__progress {
-    display: none; /* Remove vertical line as requested */
+    display: none;
   }
   .projects__date {
     position: static;
@@ -4377,7 +4543,7 @@ list a:hover {
   .hobbies .carousel__list .carousel__item:nth-child(5),
   .hobbies .carousel__list .carousel__item:nth-child(6),
   .hobbies .carousel__list .carousel__item:nth-child(n + 7) {
-      display: block; /* Show all items to avoid losing content */
+      display: block;
       position: static;
       width: 100%;
       height: auto;
@@ -4406,7 +4572,7 @@ list a:hover {
   }
   .contact__input,
   .contact__textarea {
-    width: 100% !important; /* Force form fields to full width */
+    width: 100% !important;
     box-sizing: border-box;
   }
 
@@ -4421,4 +4587,35 @@ list a:hover {
       justify-self: center;
       justify-content: center;
   }
+}
+
+@media (max-width: 480px) {
+    h1, .h1 { font-size: 2rem !important; }
+    h2, .h2 { font-size: 1.75rem !important; }
+    h3, .h3 { font-size: 1.5rem !important; }
+
+    .header__controls {
+        gap: 5px;
+    }
+    .controls__iconlink {
+        width: 36px;
+        height: 36px;
+    }
+    .controls__language-toggle, .controls__theme-toggle {
+        padding: 8px 10px;
+    }
+
+    .banner__btn, .contact__btn {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .contact__form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer__links {
+      flex-direction: column;
+      gap: 10px;
+    }
 }
