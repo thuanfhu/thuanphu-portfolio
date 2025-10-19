@@ -4508,7 +4508,7 @@ list a:hover {
   /* Increase gallery height slightly as requested (+10%) */
   .gallery__swiper {
     width: 100%;
-    height: clamp(15.4rem, 37.4vh, 20.35rem); /* increased height by ~10% */
+    height: clamp(16.94rem, 41.14vh, 22.4rem); /* increased height by ~10% from previous values */
     margin-inline: auto;
     padding: 0.6rem 0 1.6rem;
     position: relative;
