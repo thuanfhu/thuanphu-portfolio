@@ -4219,7 +4219,8 @@ list a:hover {
   .about__detail { display: flex; flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
   .about__detail b { gap: 8px; flex: 0 0 auto; white-space: nowrap; min-width: 110px; }
   
-  /* FIX 1.2: Đảm bảo text hiển thị ... nếu vượt quá */
+  /* FIX 1.2: Đảm bảo text hiển thị ... nếu vượt quá và giảm font-size */
+  .about__detail { font-size: calc(var(--fz-content) * 0.95); } /* <-- FIX: Font size smaller */
   .about__detail span {
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
     flex-grow: 1; /* Cho phép co giãn */
@@ -4229,10 +4230,11 @@ list a:hover {
   .about__intro h3 { text-align: center; margin-bottom: 10px; font-weight: 800; }
   .about__subtitle { font-size: 1.1rem !important; } 
   .about__intro h3 .role { font-size: inherit; display: inline; }
+
   /* FIX 1.3: Căn đều nội dung mô tả */
   .about__description { 
     line-height: 1.7; color: var(--muted); margin: 0; 
-    text-align: justify; /* Căn đều hai bên */
+    text-align: justify !important; /* <-- FIX: Justify text */
     display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; text-overflow: ellipsis; max-width: 100%;
   }
 
@@ -4244,13 +4246,12 @@ list a:hover {
   .skills__group .skills__card:hover ~ .skills__card { transform: translateX(100px); }
 
   /* --- ACHIEVEMENTS --- */
-  /* FIX 2: Căn giữa toàn bộ section */
   .achievements {
     display: flex; flex-direction: column; align-items: center;
   }
   .achievements .achievements__container {
       width: 100%; max-width: 100%;
-      text-align: center; /* Căn giữa tiêu đề và mô tả */
+      text-align: center; 
       padding-left: 0; padding-right: 0;
   }
   .achievements .timeline-grid {
@@ -4268,7 +4269,7 @@ list a:hover {
   .projects__timeline { padding-bottom: 30px; }
   .projects__item, .projects__item:nth-child(even) { grid-template-columns: 1fr; padding: 30px 0; gap: 16px; }
 
-  /* FIX 3: Sửa lại thứ tự và ngày tháng cho TẤT CẢ dự án */
+  /* FIX 2: Sửa lại thứ tự và căn giữa ngày tháng cho TẤT CẢ dự án */
   .projects__item .projects__item-right { order: 1; }
   .projects__item .projects__item-left { order: 2; text-align: center; }
 
@@ -4296,7 +4297,6 @@ list a:hover {
   }
 
   /* --- TEAM --- */
-  /* FIX 4: Tăng font-size tên và đảm bảo card đều nhau */
   .team .card__name { font-size: 13px !important; }
   .team .card__description { font-size: 12px; }
   .team .swiper-slide { height: auto; }
@@ -4308,16 +4308,17 @@ list a:hover {
   .team .card__description { flex-grow: 1; }
 
   /* --- CAREER GOALS --- */
-  /* FIX 5: Giảm font-size tiêu đề */
   .career-goals .goals-infographic__title { font-size: calc(var(--fz-title) * 0.9) !important; }
   .career-goals__container { width: 100%; padding: 30px 16px; }
   .career-goals .goals-infographic__content { flex-direction: column; align-items: center; }
   .career-goals .goals-circular-layout { max-width: 320px; }
   .career-goals .goal-details { width: 100%; max-width: 100%; }
-  
+  /* FIX 3: Ẩn phần bị thừa */
+  .career-goals .goal-details__content { overflow: hidden; }
+
   /* --- HOBBIES --- */
-  /* FIX 6: Giảm 30% chiều cao carousel */
-  .hobbies .carousel__item { height: 280px; } /* 400px * 0.7 */
+  /* FIX 4: Giảm 30% chiều cao carousel */
+  .hobbies .carousel__item { height: 196px; } /* 400px * 0.7 * 0.7 */
   .hobbies__container { width: 100%; }
   .hobbies { --left-position: 5%; }
   .hobbies .carousel__list .carousel__item:nth-child(1) .carousel__content,
@@ -4326,25 +4327,24 @@ list a:hover {
   .hobbies .carousel__arrows { left: 5%; bottom: 20px; width: 90%; }
   
   /* --- GALLERY --- */
-  /* FIX 7: Giảm 30% kích thước gallery */
+  /* FIX 5: Giảm kích thước gallery */
   .gallery__slider-wrapper { padding: 0; }
   .gallery__swiper {
       width: 100%;
-      transform: scale(0.85); /* Thu nhỏ tổng thể một chút cho vừa màn hình */
+      transform: scale(0.65); /* <-- FIX: Reduced size */
       transform-origin: center center;
   }
   
   /* --- CONTACT --- */
-  /* FIX 8: Căn giữa và điều chỉnh layout */
-  .contact__info { text-align: center; }
-  .contact__heading { text-align: center; } /* Căn giữa "Let's work together" */
+  /* FIX 6: Căn giữa và điều chỉnh layout */
+  .contact__info { text-align: left; } /* <-- FIX: Align icon section left */
+  .contact__heading, .contact__lead { text-align: center; } /* <-- FIX: Keep header centered */
   .contact__form { margin-left: 0; width: 100%; margin: 2rem auto 0; max-width: 500px; }
-  .contact__btn { width: 100%; max-width: 300px; margin: 0 auto; display: block; }
+  .contact__btn { width: 100%; max-width: 360px; margin: 0 auto; display: block; } /* <-- FIX: Wider button */
   .contact__wrap { grid-template-columns: 1fr; padding: 16px; }
   .contact__input, .contact__textarea { width: 100% !important; box-sizing: border-box; }
   
   /* --- FOOTER --- */
-  /* FIX 9: Cho Portfolio và More nằm ngang */
   .footer__grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -4387,12 +4387,12 @@ list a:hover {
   .contact__form-grid { grid-template-columns: 1fr; }
   .footer__links { flex-direction: column; gap: 10px; }
 
+  /* FIX 7: Cho Portfolio và More nằm ngang */
   .footer__grid {
-      grid-template-columns: 1fr; /* Quay về 1 cột cho điện thoại rất nhỏ */
+      grid-template-columns: 1fr 1fr; /* <-- FIX: Keep 2 columns */
       grid-template-areas:
-          "news"
-          "portfolio"
-          "more"
-          "contact";
+          "news news"
+          "portfolio more"
+          "contact contact";
   }
 }
