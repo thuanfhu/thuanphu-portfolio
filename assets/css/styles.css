@@ -4572,7 +4572,8 @@ list a:hover {
   }
 
   /* Title inside the form aligned left and description below it justified */
-  .contact__form .contact__form-title { text-align: left !important; width: 100%; margin-bottom: 6px; }
+  /* User request: center "Contact me" and the "Send messages" (button) inside the form */
+  .contact__form .contact__form-title { text-align: center !important; width: 100%; }
   .contact__form .contact__lead { text-align: justify !important; margin: 0 0 12px 0; }
 
   .contact__form-grid {
@@ -4583,8 +4584,8 @@ list a:hover {
   .contact__field--full { grid-column: 1 / -1; width: 100%; }
   .contact__input, .contact__textarea { width: 100% !important; box-sizing: border-box; }
 
-  /* Make Send button narrower and keep it aligned left of the form */
-  .contact__actions { width: 100%; display: flex; justify-content: flex-start; margin-top: 8px; }
+  /* Make Send button centered in the form and slightly narrower */
+  .contact__actions { width: 100%; display: flex; justify-content: center; margin-top: 8px; }
   .contact__btn {
     width: 36% !important;             /* reduced width */
     max-width: 320px;
@@ -4592,7 +4593,9 @@ list a:hover {
     padding-left: 18px;
     padding-right: 18px;
     margin: 0;
-    align-self: flex-start;
+    align-self: center;
+    justify-content: center; /* ensure label is centered */
+    text-align: center;
   }
   @media (max-width: 480px) {
     .contact__btn { width: 100%; max-width: 100%; } /* on very small screens full width for usability */
@@ -4659,6 +4662,15 @@ list a:hover {
   .footer__links a {
     white-space: nowrap !important;
     display: inline-block !important;
+  }
+
+  /* =============================== SMALL LEFT SHIFT FOR FORM & HEADINGS =============================== */
+  /* After centering the form title & button, shift the whole form and nearby headings slightly left */
+  .contact__form,
+  .contact__heading,
+  .contact__form-title,
+  .contact__lead {
+    transform: translateX(-8px);
   }
 }
 
